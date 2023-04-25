@@ -1,2 +1,2 @@
-package service;public interface ServicioAnimalesImp {
+package service;public class ServicioAnimalesImp {
 }
