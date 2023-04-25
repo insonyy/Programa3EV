@@ -3,33 +3,33 @@ Repositorio para el programa de la tercera evaluación | [Taiga tree](https://tr
 
 >UI:
 
--MenuGestionAnimales
--MenuGestionPersonas
--MenuPrincipal
+-MenuGestionAnimales <br>
+-MenuGestionPersonas <br>
+-MenuPrincipal <br>
 
 >DAO
 
--DaoAnimales(interfaz)
--DaoAnimalesFicheros
--DaoAnimalesImp
--DaoPersonas(interfaz)
--DaoPersonasFicheros
--DaoPersoansImp
+-DaoAnimales(interfaz) <br>
+-DaoAnimalesFicheros <br>
+-DaoAnimalesImp <br>
+-DaoPersonas(interfaz) <br>
+-DaoPersonasFicheros <br>
+-DaoPersoansImp <br>
 
 >Common
 
--Constantes
--TipoException
+-Constantes <br>
+-TipoException <br>
 
 >Domain
 
--Personas
--Animales
--Tratamientos
+-Personas <br>
+-Animales <br>
+-Tratamientos <br>
 
 >Service
 
--ServicioAnimales(interfaz)
--ServicioAnimalesImp
--ServicioPersonas(interfaz)
--ServicioPersonasImp
+-ServicioAnimales(interfaz) <br>
+-ServicioAnimalesImp <br>
+-ServicioPersonas(interfaz) <br>
+-ServicioPersonasImp <br>
