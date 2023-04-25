@@ -2,8 +2,8 @@ package ui;
 
 import java.util.Scanner;
 
-public class MenuGestionAnimales {
-    public void menuAnimales(){
+public class MenuGestionAltasyBajas {
+    public void menuGestionAltasyBajas() {
 
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -11,8 +11,8 @@ public class MenuGestionAnimales {
 
         while(!salir){
 
-            System.out.println("1. Exoticos");
-            System.out.println("2. Mascotas");
+            System.out.println("1. Altas");
+            System.out.println("2. Bajas");
             System.out.println("3. Salir");
 
             System.out.println("Escribe una de las opciones");
@@ -20,10 +20,10 @@ public class MenuGestionAnimales {
 
             switch(opcion){
                 case 1:
-                    System.out.println("Has seleccionado animales exóticos");
+                    System.out.println("Has seleccionado altas");
                     break;
                 case 2:
-                    System.out.println("Has seleccionado mascotas");
+                    System.out.println("Has seleccionado bajas");
                     break;
                 case 3:
                     salir=true;
