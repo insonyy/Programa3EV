@@ -1,4 +1,4 @@
 package dao;
 
-public class DaoAnimales {
+public interface DaoAnimales {
 }
