@@ -1,4 +1,4 @@
 package common;
 
-public class TipoException {
+public class TipoException extends Exception{
 }
