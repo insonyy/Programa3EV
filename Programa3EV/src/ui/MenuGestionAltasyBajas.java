@@ -9,21 +9,22 @@ public class MenuGestionAltasyBajas {
         boolean salir = false;
         int opcion;
 
-        while(!salir){
-
-            System.out.println("1. Altas");
-            System.out.println("2. Bajas");
+        do{
+        	
+            System.out.println("Escribe una de las opciones");
+            System.out.println("1. Listar ingresos actuales");
+            System.out.println("2. Ingresar/dar el alta a un paciente");
             System.out.println("3. Salir");
 
-            System.out.println("Escribe una de las opciones");
+
             opcion = sn.nextInt();
 
             switch(opcion){
                 case 1:
-                    System.out.println("Has seleccionado altas");
+                    System.out.println("Has seleccionado listar ingresos actuales");
                     break;
                 case 2:
-                    System.out.println("Has seleccionado bajas");
+                    System.out.println("Has seleccionado ingresar/dar el alta a un paciente");
                     break;
                 case 3:
                     salir=true;
@@ -32,7 +33,8 @@ public class MenuGestionAltasyBajas {
                     System.out.println("Solo números entre 1 y 3");
             }
 
-        }
+        }while(!salir);
+        sn.close();
 
     }
 }
