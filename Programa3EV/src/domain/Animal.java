@@ -1,5 +1,8 @@
 package domain;
 
+import lombok.Data;
+
+@Data
 public class Animal {
 	private String nombre;
 	private String especie;
