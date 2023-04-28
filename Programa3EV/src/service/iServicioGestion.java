@@ -13,10 +13,10 @@ public interface iServicioGestion {
 	public boolean nuevoEmpleado(Empleados empleado)throws TipoException;
 	public boolean modificarEmpleado(Empleados empleado)throws TipoException;
 	public boolean eliminarFichaEmpleado(Empleados empleado)throws TipoException;
-	public List<Tratamiento> getListaTratamientos()throws TipoException;
-	public boolean nuevoTratamiento(Tratamiento tratamiento, Animales animal)throws TipoException;
-	public boolean modificarTratamiento(Tratamiento tratamiento, Animales animal)throws TipoException;
-	public boolean suspenderTratamiento(Tratamiento tratamiento, Animales animal)throws TipoException;
+	public List<Animales> getListaTratamientos()throws TipoException;
+	public boolean nuevoTratamiento(Animales tratamiento, Animales animal)throws TipoException;
+	public boolean modificarTratamiento(Animales tratamiento, Animales animal)throws TipoException;
+	public boolean suspenderTratamiento(Animales tratamiento, Animales animal)throws TipoException;
 	//////
 	public boolean listarPacientesIngresados()throws TipoException;
 	public boolean listarPacientesEspecie()throws TipoException;
