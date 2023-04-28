@@ -1,4 +1,5 @@
-package domain;
+package dao;
 
 public class Animales {
+
 }
