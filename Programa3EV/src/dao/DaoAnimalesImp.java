@@ -1,49 +1,49 @@
 package dao;
 
-import domain.Animales;
+import domain.Animal;
+
 import java.util.List;
 
 public class DaoAnimalesImp implements DaoAnimales{
 
 
-
     @Override
-    public List<Animales> getListaAnimales() {
+    public List<Animal> getListaAnimales() {
         return null;
     }
 
     @Override
-    public boolean nuevoAnimal(Animales animal) {
+    public boolean nuevoAnimal(Animal animal) {
         return false;
     }
 
     @Override
-    public boolean modificarAnimal(Animales animal) {
+    public boolean modificarAnimal(Animal animal) {
         return false;
     }
 
     @Override
-    public boolean eliminarFichaAnimal(Animales animal) {
+    public boolean eliminarFichaAnimal(Animal animal) {
         return false;
     }
 
     @Override
-    public List<Animales> getListaTratamientos() {
+    public List<Animal> getListaTratamientos() {
         return null;
     }
 
     @Override
-    public boolean nuevoTratamiento(Animales tratamiento, Animales animal) {
+    public boolean nuevoTratamiento(Animal tratamiento, Animal animal) {
         return false;
     }
 
     @Override
-    public boolean modificarTratamiento(Animales tratamiento, Animales animal) {
+    public boolean modificarTratamiento(Animal tratamiento, Animal animal) {
         return false;
     }
 
     @Override
-    public boolean suspenderTratamiento(Animales tratamiento, Animales animal) {
+    public boolean suspenderTratamiento(Animal tratamiento, Animal animal) {
         return false;
     }
 
