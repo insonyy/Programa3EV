@@ -1,6 +1,11 @@
 package common;
 
-public class TipoException extends Exception{
+public class TipoException extends Exception {
 
-	private static final long serialVersionUID = 1304915393261468245L;
+/*Constructores*/
+
+    public TipoException() {
+
+        super("El tipo introducido no corresponde con los disponibles.");
+    }
 }
