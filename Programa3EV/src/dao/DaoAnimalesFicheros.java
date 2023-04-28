@@ -6,5 +6,5 @@ public class DaoAnimalesFicheros {
     public static final String FICHERO = "Fichero";
 
 
-    public static boolean escribirFicheros(List<>)
+    //public static boolean escribirFicheros(List<>)
 }
