@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import domain.Animal;
+import domain.Empleado;
 
 public interface DaoAnimales {
 	public Set<Animal> getListaAnimales();
@@ -16,4 +17,8 @@ public interface DaoAnimales {
 	public boolean suspenderTratamiento(Animal tratamiento, Animal animal);
 	public boolean listarPacientesIngresados();
 	public boolean listarPacientesEspecie();
+
+	public Set<Animal> getListaAnimales(String especie);
+
+	public Set<Animal> getListaAnimales(Empleado empleado);
 }

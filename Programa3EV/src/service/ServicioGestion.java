@@ -23,9 +23,24 @@ public class ServicioGestion implements iServicioGestion {
         this.daoAnimales = new DaoAnimalesImp();
     }
 
+
+
+    //sobrecarga vacía
     @Override
     public Set<Animal> getListaAnimales() throws TipoException {
         return daoAnimales.getListaAnimales();
+    }
+
+
+    //por especie, tipo
+    public Set<Animal> getListaAnimales(String especie) throws TipoException {
+        return daoAnimales.getListaAnimales(especie);
+    }
+
+    //por empleado
+
+    public Set<Animal> getListaAnimales(Empleado empleado) throws TipoException {
+        return daoAnimales.getListaAnimales(empleado);
     }
 
     @Override

@@ -3,9 +3,8 @@ package dao;
 import domain.Animal;
 import domain.Empleado;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DaoAnimalesImp implements DaoAnimales{
 
@@ -34,37 +33,36 @@ protected final Animales lista;
     }
 
     public Set<Animal> getListaAnimales(String especie) {
-        Set<Animal> auxAnimales = new HashSet<>();
-        for (int i =  0; i < lista.getAnimales().size(); i++){
-            if (lista.getAnimales().equals(especie)){
-                auxAnimales.add(lista.getAnimales());
-            }
-        }
+
+        Set<Animal> auxAnimales = lista.getAnimales().stream().filter(a->a.getEspecie().equals(especie)).collect(Collectors.toSet());
         return auxAnimales;
     }
 
     //por tipo
 
-    public Set<Animal> getListaAnimales(String tipo) {
+    public Set<Animal> getListaAnimales(String tipo, String especie) {
         Set<Animal> auxAnimales = new HashSet<>();
-        for (int i =  0; i < lista.getAnimales().size(); i++){
-            if (lista.getAnimales().equals(tipo)){
-                auxAnimales.add(lista.getAnimales());
-            }
+        Iterator<Animal> it = lista.getAnimales().iterator();
+        while(it.hasNext()) {
+            Animal aux = it.next();
+            if (aux.getTipo().equalsIgnoreCase("tipo"))
+                auxAnimales.add(aux);
         }
+
         return auxAnimales;
     }
 
     //por empleado
 
     public Set<Animal> getListaAnimales(Empleado empleado) {
-        Set<Animal> auxAnimales = new HashSet<>();
-        for (int i =  0; i < lista.getAnimales().size(); i++){
-            if (lista.getAnimales().equals(empleado)){
-                auxAnimales.add(lista.getAnimales());
+        List<Animal> auxAnimalesTodo = new ArrayList<>(lista.getAnimales()); //prefiero manejar Set como un List
+        List<Animal> auxAnimalesSub = new ArrayList<>();
+        for (int i =  0; i < auxAnimalesTodo.size(); i++){
+            if (auxAnimalesTodo.get(i).getTipo().equals(empleado)){
+                auxAnimalesSub.add(auxAnimalesTodo.get(i));
             }
         }
-        return auxAnimales;
+        return new HashSet(auxAnimalesSub);
     }
 
     @Override
