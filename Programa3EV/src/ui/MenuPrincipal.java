@@ -1,10 +1,21 @@
 package ui;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class MenuPrincipal {
 	public void menuPrincipal(MenuGestion mg) {
-
+		Properties properties = new Properties();
+		try {
+			properties.load(new FileInputStream(new File("password.properties")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Scanner sn = new Scanner(System.in);
 		boolean salir = false;
 		int opcion;
@@ -38,7 +49,7 @@ public class MenuPrincipal {
 				System.out.println("Por favor introduzca contraseña para acceder a la gestion de datos");
 				int contra = sn.nextInt();
 				System.out.println(contra);
-				if (contra == MenuGestion.cont) {
+				if (contra == Integer.parseInt((String) properties.get("PASSWORD"))) {
 					System.out.println();
 					//mge.menuEmpleados();
 				} else {

@@ -3,11 +3,9 @@ package dao;
 import domain.Animal;
 import lombok.Data;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 public class Animales {
 
     private final Set<Animal> animales;
@@ -67,4 +65,5 @@ public class Animales {
         animales.add(new Animal("Charles Leclerc", "pajaro", 1));
         animales.add(new Animal("Boris Izaguirre", "pajaro", 1));
     }
+
 }

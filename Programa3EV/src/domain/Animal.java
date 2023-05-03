@@ -1,5 +1,6 @@
 package domain;
 
+import java.time.*;
 import lombok.Data;
 
 @Data
@@ -10,6 +11,7 @@ public class Animal {
 	private String tratamiento;
 	private int edad;
 	private boolean ingresado;
+	private LocalDate fecha;
 	private Empleado empleado;//Medico asignado
 	
 	//Constructor
@@ -18,9 +20,10 @@ public class Animal {
 		this.especie = especie;
 		this.edad = edad;
 	}
-
-	public String toStringFichero(){
-		return nombre + ";" +  especie + ";" +  tipo + ";" +tratamiento + ";" + edad + ";" + ingresado + ";" + empleado;
-
+	public void fechaingreso() {
+		int random= ((int) (Math.random()*4+1));
+		if (ingresado) {
+			setFecha(LocalDate.now().minusDays(random));
+		}
 	}
 }
