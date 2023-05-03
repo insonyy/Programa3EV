@@ -18,4 +18,9 @@ public class Animal {
 		this.especie = especie;
 		this.edad = edad;
 	}
+
+	public String toStringFichero(){
+		return nombre + ";" +  especie + ";" +  tipo + ";" +tratamiento + ";" + edad + ";" + ingresado + ";" + empleado;
+
+	}
 }
