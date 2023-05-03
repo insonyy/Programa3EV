@@ -1,30 +1,28 @@
 package common;
 
 public class Constantes {
-	/*	
-	 		System.out.println("Seleccione una de las siguientes opciones:");
-			System.out.println("1.Añadir empleados");
-			System.out.println("2.Modificar información sobre empleados");
-			System.out.println("3.Eliminar ficha empleados");
-			System.out.println("4.Nuevo paciente");
-			System.out.println("5.Modificar informacion de paciente");
-			System.out.println("6.Eliminar ficha paciente");
-			System.out.println("7.Añadir tratamiento a paciente");
-			System.out.println("8.Modificar tratamiento de paciente");
-			System.out.println("9.Suspender tratamiento de paciente");
-			System.out.println("10.Salir");
-			System.out.println("Solo números entre 1 y 10");
-			System.out.println("Seleccione que desea hacer:");
-			System.out.println("1. Listar pacientes");
-			System.out.println("2. Listar empleados");
-			System.out.println("3. Listar ingresos actuales");
-			System.out.println("4. Listar paciente por especie");
-			System.out.println("5. Listar empleados por cargo");
-			System.out.println("6. Listar tratamientos en curso");
-			System.out.println("7. Acceder a gestion de datos");
-			System.out.println("8. Salir");
-			System.out.println("Por favor introduzca contraseña para acceder a la gestion de datos");
-			System.out.println("Contraseña incorrecta");
-			System.out.println("Solo números entre 1 y 8");
-	*/
+	
+	public static final String SELECCION = "Seleccione una de las siguientes opciones:";
+	public static final String DIVIDER = "__________________________________________";
+	public static final String MG1 = "Añadir empleados";
+	public static final String MG2 = "Modificar información sobre empleados";
+	public static final String MG3 = "Eliminar ficha empleados";
+	public static final String MG4 = "Nuevo paciente";
+	public static final String MG5 = "Modificar informacion de paciente";
+	public static final String MG6 = "Eliminar ficha paciente";
+	public static final String MG7 = "Añadir tratamiento a paciente";
+	public static final String MG8 = "Modificar tratamiento de paciente";
+	public static final String MG9 = "Suspender tratamiento de paciente";
+	public static final String MP1 = "Listar pacientes";
+	public static final String MP2 = "Listar empleados";
+	public static final String MP3 = "Listar ingresos actuales";
+	public static final String MP4 = "Listar paciente por especie";
+	public static final String MP5 = "Listar empleados por cargo";
+	public static final String MP6 = "Listar tratamientos en curso";
+	public static final String MP7 = "Acceder a gestion de datos";
+	public static final String OPPSSWD = "Por favor introduzca contraseña para acceder a la gestion de datos";
+	public static final String OPNOTPSSWD = "Contraseña incorrecta";
+	public static final String OPSalir = "Salir";
+	public static final String SOLONUMS = "Solo números entre ";
+
 }
