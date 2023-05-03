@@ -1,10 +1,10 @@
 package dao;
 
 import domain.Animal;
+import domain.Empleado;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 public class DaoAnimalesImp implements DaoAnimales{
@@ -25,8 +25,13 @@ protected final Animales lista;
 
     /*Métodos*/
 
-
+    //sobrecarga para pillar la lista de los animales
     //por especie
+
+    @Override
+    public Set<Animal> getListaAnimales() {
+        return null;
+    }
 
     public Set<Animal> getListaAnimales(String especie) {
         Set<Animal> auxAnimales = new HashSet<>();
@@ -50,12 +55,12 @@ protected final Animales lista;
         return auxAnimales;
     }
 
-    //por tratamiento
+    //por empleado
 
-    public Set<Animal> getListaAnimales(String tratamiento) {
+    public Set<Animal> getListaAnimales(Empleado empleado) {
         Set<Animal> auxAnimales = new HashSet<>();
         for (int i =  0; i < lista.getAnimales().size(); i++){
-            if (lista.getAnimales().equals(tratamiento)){
+            if (lista.getAnimales().equals(empleado)){
                 auxAnimales.add(lista.getAnimales());
             }
         }
@@ -78,7 +83,7 @@ protected final Animales lista;
     }
 
     @Override
-    public List<Animal> getListaTratamientos() {
+    public Set<Animal> getListaTratamientos() {
         return null;
     }
 
