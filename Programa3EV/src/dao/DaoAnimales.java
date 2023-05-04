@@ -12,7 +12,7 @@ public interface DaoAnimales {
 	public Set<Animal> getListaAnimales(Empleado empleado);
 	public Set<Animal> getListaAnimales(String tipo, String especie);
 	public boolean nuevoAnimal(Animal animal);
-	public boolean modificarAnimal(Animal animal);
+	public boolean modificarAnimal();
 	public boolean eliminarFichaAnimal(Animal animal);
 	public Set<Animal> getListaTratamientos();
 	public boolean nuevoTratamiento(Animal tratamiento, Animal animal);
