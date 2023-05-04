@@ -2,9 +2,9 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import lombok.Data;
 import domain.Empleado;
-
+@Data
 public class Empleados {
 	private List<Empleado> empleados;
 	
