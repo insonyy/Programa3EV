@@ -28,13 +28,8 @@ protected final Animales lista;
 
     @Override
     public Set<Animal> getListaAnimales() {
-<<<<<<< Updated upstream
     	Set<Animal> auxAnimales = lista.getAnimales();
         return auxAnimales;
-=======
-        Set<Animal> auxAnimal = lista.getAnimales();
-        return auxAnimal;
->>>>>>> Stashed changes
     }
 
     public Set<Animal> getListaAnimales(String especie) {
@@ -52,7 +47,6 @@ protected final Animales lista;
             if (aux.getTipo().equalsIgnoreCase("tipo"))
                 auxAnimales.add(aux);
         }
-
         return auxAnimales;
     }
 
@@ -85,7 +79,6 @@ protected final Animales lista;
     	String nombre = scanner.nextLine();
     	animalico=(Animal) lista.getAnimales().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre));
     	System.out.println("¿Desea modificar el tratamiento? s/n");
-    	
         return nuevo;
     }
 
@@ -95,27 +88,32 @@ protected final Animales lista;
     }
 
     @Override
-    public Set<Animal> getListaTratamientos() {
+    public Set<Animal> getListaTratamientos(String tratamiento, Animal animal) {
+
         return null;
     }
 
     @Override
-    public boolean nuevoTratamiento(Animal tratamiento, Animal animal) {
+    public boolean nuevoTratamiento(String tratamiento, Animal animal) {
+        boolean nuevo = true;
+        animal.setTratamiento(tratamiento);
+        return nuevo;
+    }
+
+    @Override
+    public boolean modificarTratamiento(String tratamiento, Animal animal) {
+
         return false;
     }
 
     @Override
-    public boolean modificarTratamiento(Animal tratamiento, Animal animal) {
+    public boolean suspenderTratamiento(String tratamiento, Animal animal) {        //eliminarTratamiento
         return false;
     }
 
     @Override
-    public boolean suspenderTratamiento(Animal tratamiento, Animal animal) {
-        return false;
-    }
-
-    @Override
-    public boolean listarPacientesIngresados() {
-        return false;
+    public Set<Animal> listarPacientesIngresados(Boolean ingresado) {
+        Set<Animal> auxPacientes = lista.getAnimales().stream().filter(a->a.isIngresado()==true).collect(Collectors.toSet());
+        return auxPacientes;
     }
 }

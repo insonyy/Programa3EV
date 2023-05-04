@@ -15,10 +15,11 @@ public class Animal {
 	private Empleado empleado;//Medico asignado
 	
 	//Constructor
-	public Animal(String nombre, String especie, int edad) {
+	public Animal(String nombre, String especie, int edad, String tipo) {
 		this.nombre = nombre;
 		this.especie = especie;
 		this.edad = edad;
+		this.tipo = tipo;
 	}
 	public Animal() {
 	}

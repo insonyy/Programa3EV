@@ -99,8 +99,8 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean listarPacientesIngresados() throws TipoException {
-        return false;
+    public Set<Animal> listarPacientesIngresados(Boolean ingresado) throws TipoException {
+        return daoAnimales.listarPacientesIngresados(ingresado);
     }
 
     @Override

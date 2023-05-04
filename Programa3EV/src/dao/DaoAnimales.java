@@ -14,9 +14,9 @@ public interface DaoAnimales {
 	public boolean nuevoAnimal(Animal animal);
 	public boolean modificarAnimal(Animal animal);
 	public boolean eliminarFichaAnimal(Animal animal);
-	public Set<Animal> getListaTratamientos();
-	public boolean nuevoTratamiento(Animal tratamiento, Animal animal);
-	public boolean modificarTratamiento(Animal tratamiento, Animal animal);
-	public boolean suspenderTratamiento(Animal tratamiento, Animal animal);
-	public boolean listarPacientesIngresados();
+	public Set<Animal> getListaTratamientos(String tratamiento, Animal animal);
+	public boolean nuevoTratamiento(String tratamiento, Animal animal);
+	public boolean modificarTratamiento(String tratamiento, Animal animal);
+	public boolean suspenderTratamiento(String tratamiento, Animal animal);
+	public Set<Animal> listarPacientesIngresados(Boolean ingresado);
 }
