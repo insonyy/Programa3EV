@@ -21,7 +21,6 @@ protected final Animales lista;
     }
 
 
-
     /*Métodos*/
 
     //sobrecarga para pillar la lista de los animales
@@ -29,8 +28,13 @@ protected final Animales lista;
 
     @Override
     public Set<Animal> getListaAnimales() {
+<<<<<<< Updated upstream
     	Set<Animal> auxAnimales = lista.getAnimales();
         return auxAnimales;
+=======
+        Set<Animal> auxAnimal = lista.getAnimales();
+        return auxAnimal;
+>>>>>>> Stashed changes
     }
 
     public Set<Animal> getListaAnimales(String especie) {
@@ -112,11 +116,6 @@ protected final Animales lista;
 
     @Override
     public boolean listarPacientesIngresados() {
-        return false;
-    }
-
-    @Override
-    public boolean listarPacientesEspecie() {
         return false;
     }
 }

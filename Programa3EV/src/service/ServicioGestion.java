@@ -33,8 +33,8 @@ public class ServicioGestion implements iServicioGestion {
 
 
     //por especie, tipo
-    public Set<Animal> getListaAnimales(String especie) throws TipoException {
-        return daoAnimales.getListaAnimales(especie);
+    public Set<Animal> getListaAnimales(String especie, String tipo) throws TipoException {
+        return daoAnimales.getListaAnimales(tipo, especie);
     }
 
     //por empleado
