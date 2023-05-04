@@ -29,4 +29,8 @@ public class Empleados {
 		return empleados;
 	}
 
+	public void addEmpleados(Empleado empleado){
+		empleados.add(empleado);
+	}
+
 }
