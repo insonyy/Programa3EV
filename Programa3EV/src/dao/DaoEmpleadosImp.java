@@ -19,13 +19,13 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	}
 
 	@Override
-	public boolean modificarEmpleado(Empleado empleado) {
+	public boolean modificarEmpleado() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean eliminarFichaEmpleado(Empleado empleado) {
+	public boolean eliminarFichaEmpleado() {
 		// TODO Auto-generated method stub
 		return false;
 	}
