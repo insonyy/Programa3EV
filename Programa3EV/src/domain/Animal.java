@@ -20,6 +20,8 @@ public class Animal {
 		this.especie = especie;
 		this.edad = edad;
 	}
+	public Animal() {
+	}
 	public void fechaingreso() {
 		int random= ((int) (Math.random()*4+1));
 		if (ingresado) {

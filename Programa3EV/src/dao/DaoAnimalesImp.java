@@ -29,11 +29,11 @@ protected final Animales lista;
 
     @Override
     public Set<Animal> getListaAnimales() {
-        return null;
+    	Set<Animal> auxAnimales = lista.getAnimales();
+        return auxAnimales;
     }
 
     public Set<Animal> getListaAnimales(String especie) {
-
         Set<Animal> auxAnimales = lista.getAnimales().stream().filter(a->a.getEspecie().equals(especie)).collect(Collectors.toSet());
         return auxAnimales;
     }
@@ -67,12 +67,22 @@ protected final Animales lista;
 
     @Override
     public boolean nuevoAnimal(Animal animal) {
-        return false;
+    	boolean nuevo=true;
+    	lista.getAnimales().add(animal);
+        return nuevo;
     }
 
     @Override
     public boolean modificarAnimal(Animal animal) {
-        return false;
+    	Scanner scanner = new Scanner(System.in);
+    	boolean nuevo=true;
+    	Animal animalico= new Animal();
+    	System.out.println("Nombre del animal cuya ficha desea modificar:");
+    	String nombre = scanner.nextLine();
+    	animalico=(Animal) lista.getAnimales().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre));
+    	System.out.println("¿Desea modificar el tratamiento? s/n");
+    	
+        return nuevo;
     }
 
     @Override
