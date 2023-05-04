@@ -1,26 +1,26 @@
 package ui;
 
 import java.util.Scanner;
+import common.Constantes;
 
 public class MenuGestion {
-	static final int cont = 2223;
 	public void menuGestion() {
 		boolean salir=false;
 		Scanner sn = new Scanner(System.in);
 		do {
-			System.out.println("Seleccione una de las siguientes opciones:");
-			System.out.println("__________________________________________");
-			System.out.println("1.Añadir empleados");
-			System.out.println("2.Modificar información sobre empleados");
-			System.out.println("3.Eliminar ficha empleados");
-			System.out.println("4.Nuevo paciente");
-			System.out.println("5.Modificar informacion de paciente");
-			System.out.println("6.Eliminar ficha paciente");
-			System.out.println("7.Añadir tratamiento a paciente");
-			System.out.println("8.Modificar tratamiento de paciente");
-			System.out.println("9.Suspender tratamiento de paciente");
-			System.out.println("10.Salir");
-			System.out.println("__________________________________________");
+			System.out.println(Constantes.SELECCION);
+			System.out.println(Constantes.DIVIDER);
+			System.out.println("1."+Constantes.MG1);
+			System.out.println("2."+Constantes.MG2);
+			System.out.println("3."+Constantes.MG3);
+			System.out.println("4."+Constantes.MG4);
+			System.out.println("5."+Constantes.MG5);
+			System.out.println("6."+Constantes.MG6);
+			System.out.println("7."+Constantes.MG7);
+			System.out.println("8."+Constantes.MG8);
+			System.out.println("9."+Constantes.MG9);
+			System.out.println("10."+Constantes.OPSalir);
+			System.out.println(Constantes.DIVIDER);
 			System.out.println();
 			int opcion = sn.nextInt();
 			switch(opcion){
@@ -45,7 +45,7 @@ public class MenuGestion {
 			case 10:
 				salir=true;
 			default:
-				System.out.println("Solo números entre 1 y 10");
+				System.out.println(Constantes.SOLONUMS + "1 y 10");
 			}
 
 		} while (!salir);
