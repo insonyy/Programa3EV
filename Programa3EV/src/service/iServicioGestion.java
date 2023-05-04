@@ -19,8 +19,7 @@ public interface iServicioGestion {
 	public boolean nuevoTratamiento(Animal tratamiento, Animal animal)throws TipoException;
 	public boolean modificarTratamiento(Animal tratamiento, Animal animal)throws TipoException;
 	public boolean suspenderTratamiento(Animal tratamiento, Animal animal)throws TipoException;
-	//////
-	public boolean listarPacientesIngresados()throws TipoException;
+	public Set<Animal> listarPacientesIngresados(Boolean ingresado)throws TipoException;
 	public boolean listarPacientesEspecie()throws TipoException;
 	public boolean listarEmpleadosCargo()throws TipoException;
 	public boolean listarTratamientosActivos()throws TipoException;
