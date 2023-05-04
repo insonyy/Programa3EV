@@ -105,7 +105,7 @@ public class ServicioGestion implements iServicioGestion {
 
     @Override
     public boolean listarPacientesEspecie() throws TipoException {
-        return false;
+        return true;
     }
 
     @Override

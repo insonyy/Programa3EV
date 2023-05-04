@@ -129,28 +129,28 @@ public class DaoAnimalesImp implements DaoAnimales{
 	}
 
 	@Override
-	public Set<Animal> getListaTratamientos() {
+	public Set<Animal> getListaTratamientos(String tratamiento, Animal animal) {
 		return null;
 	}
 
 	@Override
-	public boolean nuevoTratamiento(Animal tratamiento, Animal animal) {
+	public boolean nuevoTratamiento(String tratamiento, Animal animal) {
 		return false;
 	}
 
 	@Override
-	public boolean modificarTratamiento(Animal tratamiento, Animal animal) {
+	public boolean modificarTratamiento(String tratamiento, Animal animal) {
 		return false;
 	}
 
 	@Override
-	public boolean suspenderTratamiento(Animal tratamiento, Animal animal) {
+	public boolean suspenderTratamiento(String tratamiento, Animal animal) {
 		return false;
 	}
 
 	@Override
-	public boolean listarPacientesIngresados() {
-		return false;
+	public Set<Animal> listarPacientesIngresados(boolean ingresado) {
+		return null;
 	}
 
 	public boolean listarPacientesEspecie() {
