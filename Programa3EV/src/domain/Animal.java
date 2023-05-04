@@ -26,4 +26,8 @@ public class Animal {
 			setFecha(LocalDate.now().minusDays(random));
 		}
 	}
+
+	public String toStringFichero(){
+		return nombre + ";" + especie + ";" + tipo + ";" + edad + ";" + ingresado + ";" + fecha + ";" + empleado;
+	}
 }
