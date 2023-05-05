@@ -126,7 +126,15 @@ public class DaoAnimalesImp implements DaoAnimales{
 
 	@Override
 	public Set<Animal> getListaTratamientos(String tratamiento, Animal animal) {
-		return null;
+		Set<Animal> auxAnimales = new HashSet<>();
+		Iterator<Animal> it = lista.getAnimales().iterator();
+		while(it.hasNext()) {
+			Animal aux = it.next();
+			if (aux.getTratamiento().equalsIgnoreCase("tratamiento"))
+				auxAnimales.add(aux);
+		}
+
+		return auxAnimales;
 	}
 
 	@Override
@@ -147,10 +155,6 @@ public class DaoAnimalesImp implements DaoAnimales{
 	@Override
 	public Set<Animal> listarPacientesIngresados(boolean ingresado) {
 		return null;
-	}
-
-	public boolean listarPacientesEspecie() {
-		return false;
 	}
 
 }
