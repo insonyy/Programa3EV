@@ -104,17 +104,17 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean listarPacientesEspecie() throws TipoException {
-        return true;
+    public Set<Animal> listarPacientesEspecie() throws TipoException {
+        return null;
     }
 
     @Override
-    public boolean listarEmpleadosCargo() throws TipoException {
-        return false;
+    public Set<Animal> listarEmpleadosCargo() throws TipoException {
+        return null;
     }
 
     @Override
-    public boolean listarTratamientosActivos() throws TipoException {
-        return false;
+    public Set<Animal> listarTratamientosActivos() throws TipoException {
+        return null;
     }
 }

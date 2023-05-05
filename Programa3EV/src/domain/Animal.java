@@ -34,7 +34,6 @@ public class Animal {
 	}
 	@Override
 	public String toString() {
-		return  nombre + " , " + especie + " , " + tipo + " , " + tratamiento
-				+ " , " + edad + " , " + ingresado + " , " + fecha + " , " + empleado + ".";
+		return  nombre + " , " + especie + " , " + tipo + " , "+ edad + ".";
 	}
 }

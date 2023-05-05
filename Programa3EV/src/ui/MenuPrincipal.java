@@ -3,16 +3,21 @@ package ui;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.Set;
 
 import common.Constantes;
 import common.TipoException;
+import domain.Animal;
 import service.ServicioGestion;
 
 public class MenuPrincipal {
 	private static ServicioGestion sGestion;
-	public void menuPrincipal() {
+	public void menuPrincipal() throws TipoException {
 		sGestion=new ServicioGestion();
 		Properties properties = new Properties();
 		try {
@@ -40,22 +45,28 @@ public class MenuPrincipal {
 			opcion = sn.nextInt();
 			switch(opcion){
 			case 1:
-				try {
-					System.out.println(sGestion.getListaAnimales().toString());
-				} catch (TipoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				sGestion.getListaAnimales().forEach(System.out::println);
+				System.out.println();
 				break;
 			case 2:
+				sGestion.getListaEmpleados().forEach(System.out::println);
+				System.out.println();
 				break;
 			case 3:
+				sGestion.listarPacientesIngresados(true).forEach(System.out::println);
+				System.out.println();
 				break;
 			case 4:
+				sGestion.listarPacientesEspecie().forEach(System.out::println);
+				System.out.println();
 				break;
 			case 5:
+				sGestion.listarEmpleadosCargo().forEach(System.out::println);
+				System.out.println();
 				break;		
 			case 6:
+				sGestion.listarTratamientosActivos().forEach(System.out::println);
+				System.out.println();
 				break;
 			case 7:
 				System.out.println(Constantes.OPPSSWD);
