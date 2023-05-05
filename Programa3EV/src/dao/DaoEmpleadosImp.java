@@ -9,20 +9,20 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 
 	protected final Empleados lista;
 
+	public DaoEmpleadosImp() {
+		this.lista = new Empleados();
+
+	}
 	@Override
 	public List<Empleado> getListaEmpleados() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
-
 	@Override
 	public boolean nuevoEmpleado(Empleado empleado) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
-
 	@Override
 	public boolean modificarEmpleado() {
 			Scanner sc = new Scanner(System.in);
@@ -36,19 +36,15 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 			return false;
 
 	}
-
 	@Override
-	public boolean eliminarFichaEmpleado(Empleado empleado) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean eliminarFichaEmpleado() {
+		return true;
 	}
-
 	@Override
 	public boolean listarEmpleadosCargo() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
 	public boolean listarTratamientosActivos() {
 		// TODO Auto-generated method stub
