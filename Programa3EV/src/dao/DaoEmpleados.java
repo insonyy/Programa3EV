@@ -7,7 +7,7 @@ public interface DaoEmpleados {
 	public List<Empleado> getListaEmpleados();
 	public boolean nuevoEmpleado(Empleado empleado);
 	public boolean modificarEmpleado();
-	public boolean eliminarFichaEmpleado();
+	public void eliminarFichaEmpleado(Empleado empleado);
 	public boolean listarEmpleadosCargo();
 	public boolean listarTratamientosActivos();
 }
