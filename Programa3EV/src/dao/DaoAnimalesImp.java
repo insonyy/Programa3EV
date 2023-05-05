@@ -119,7 +119,9 @@ public class DaoAnimalesImp implements DaoAnimales{
 
 	@Override
 	public boolean eliminarFichaAnimal(Animal animal) {
-		return false;
+		boolean borrar=true;
+		lista.getAnimales().remove(animal);
+		return borrar;
 	}
 
 	@Override
