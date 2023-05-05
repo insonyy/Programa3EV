@@ -46,16 +46,12 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	@Override
 	public boolean listarEmpleadosCargo() {
 		Scanner sc = new Scanner(System.in);
-		boolean nuevo = true;
+		boolean listar = true;
 		System.out.println("Introduce el nombre del empleado:");
 		String nombre = sc.nextLine();
 		Empleado empleado = (Empleado) lista.getEmpleados().stream().filter(empleado1 -> empleado1.getCargo().equalsIgnoreCase(nombre));
 		System.out.println(empleado);
-		return false;
+		return listar;
 	}
-	@Override
-	public boolean listarTratamientosActivos() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 }

@@ -9,5 +9,5 @@ public interface DaoEmpleados {
 	public boolean modificarEmpleado();
 	public void eliminarFichaEmpleado(Empleado empleado);
 	public boolean listarEmpleadosCargo();
-	public boolean listarTratamientosActivos();
+	
 }
