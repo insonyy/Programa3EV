@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 import common.Constantes;
+import common.TipoException;
 import service.ServicioGestion;
 
 public class MenuPrincipal {
@@ -39,7 +40,12 @@ public class MenuPrincipal {
 			opcion = sn.nextInt();
 			switch(opcion){
 			case 1:
-				
+				try {
+					System.out.println(sGestion.getListaAnimales().toString());
+				} catch (TipoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case 2:
 				break;

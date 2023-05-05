@@ -28,8 +28,13 @@ public class Animal {
 			setFecha(LocalDate.now().minusDays(random));
 		}
 	}
-
+	
 	public String toStringFichero(){
 		return nombre + ";" + especie + ";" + tipo + ";" + edad + ";" + ingresado + ";" + fecha + ";" + empleado;
+	}
+	@Override
+	public String toString() {
+		return  nombre + " , " + especie + " , " + tipo + " , " + tratamiento
+				+ " , " + edad + " , " + ingresado + " , " + fecha + " , " + empleado + ".";
 	}
 }
