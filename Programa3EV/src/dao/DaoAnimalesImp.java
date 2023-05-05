@@ -2,8 +2,6 @@ package dao;
 
 import domain.Animal;
 import domain.Empleado;
-import dao.DaoEmpleadosImp;
-
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,13 +22,8 @@ public class DaoAnimalesImp implements DaoAnimales{
 		this.lista = lista;
 		this.imp = new DaoEmpleadosImp();
 	}
-
-
+	
 	/*Métodos*/
-
-
-	/*Métodos*/
-
 
 	//sobrecarga para pillar la lista de los animales
 	//por especie
@@ -120,6 +113,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		scanner.close();
 		return nuevo;
 	}
 
