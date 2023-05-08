@@ -38,7 +38,7 @@ public class DaoEmpleadosFicheros implements Serializable {
         while (sc.hasNextLine()) {
             String linea = sc.nextLine();
             String division[] = linea.split(";");
-            Empleado empleado = new Empleado(division[0],division[1],division[2]);
+            Empleado empleado = new Empleado(division[0],division[1],division[2],division[3]);
             lista.add(empleado);
         }
         sc.close();

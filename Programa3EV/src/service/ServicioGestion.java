@@ -7,6 +7,7 @@ import domain.Animal;
 import domain.Empleado;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 public class ServicioGestion implements iServicioGestion {
@@ -65,6 +66,16 @@ public class ServicioGestion implements iServicioGestion {
 
     @Override
     public boolean nuevoEmpleado() throws TipoException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre del nuevo empleado");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce el apellido del nuevo empleado");
+        String apellido = sc.nextLine();
+        System.out.println("Introduce el DNI del nuevo empleado");
+        String dni = sc.nextLine();
+        System.out.println("Introduce el cargo del nuevo empleado");
+        String cargo = sc.nextLine();
+
         return false;
     }
 
