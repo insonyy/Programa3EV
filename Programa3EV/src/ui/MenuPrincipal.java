@@ -3,16 +3,10 @@ package ui;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
-import java.util.Set;
-
 import common.Constantes;
 import common.TipoException;
-import domain.Animal;
 import service.ServicioGestion;
 
 public class MenuPrincipal {

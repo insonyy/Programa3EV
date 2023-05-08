@@ -44,7 +44,7 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoAnimal(Animal animal) throws TipoException {
+    public boolean nuevoAnimal() throws TipoException {
         return false;
     }
 
@@ -64,7 +64,7 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoEmpleado(Empleado empleado) throws TipoException {
+    public boolean nuevoEmpleado() throws TipoException {
         return false;
     }
 
@@ -84,17 +84,17 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoTratamiento(Animal tratamiento, Animal animal) throws TipoException {
+    public boolean nuevoTratamiento(Animal animal) throws TipoException {
         return false;
     }
 
     @Override
-    public boolean modificarTratamiento(Animal tratamiento, Animal animal) throws TipoException {
+    public boolean modificarTratamiento(Animal animal) throws TipoException {
         return false;
     }
 
     @Override
-    public boolean suspenderTratamiento(Animal tratamiento, Animal animal) throws TipoException {
+    public boolean suspenderTratamiento(Animal animal) throws TipoException {
         return false;
     }
 

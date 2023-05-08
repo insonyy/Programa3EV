@@ -2,9 +2,15 @@ package ui;
 
 import java.util.Scanner;
 import common.Constantes;
+import common.TipoException;
+import domain.Animal;
+import domain.Empleado;
+import service.ServicioGestion;
 
 public class MenuGestion {
-	public void menuGestion() {
+	private static ServicioGestion sGestion;
+	public void menuGestion() throws TipoException {
+		sGestion=new ServicioGestion();
 		boolean salir=false;
 		Scanner sn = new Scanner(System.in);
 		do {
@@ -25,22 +31,45 @@ public class MenuGestion {
 			int opcion = sn.nextInt();
 			switch(opcion){
 			case 1:
+				sGestion.nuevoEmpleado();
 				break;
 			case 2:
+				System.out.println("Nombre del empleado que desea modificar:");
+				String nombre = sn.nextLine();
+				sGestion.modificarEmpleado((Empleado) sGestion.getListaEmpleados().stream().filter(a->a.getNombre().equals(nombre)));
 				break;
 			case 3:
+				System.out.println("Nombre del empleado cuya ficha desea eliminar:");
+				String nombre1 = sn.nextLine();
+				sGestion.eliminarFichaEmpleado((Empleado) sGestion.getListaEmpleados().stream().filter(b->b.getNombre().equals(nombre1)));
 				break;
 			case 4:
+				sGestion.nuevoAnimal();
 				break;
 			case 5:
+				System.out.println("Nombre del paciente que desea modificar:");
+				String paciente = sn.nextLine();
+				sGestion.modificarAnimal((Animal) sGestion.getListaAnimales().stream().filter(c->c.getNombre().equals(paciente)));
 				break;		
 			case 6:
+				System.out.println("Nombre del paciente cuya ficha desea eliminar:");
+				String paciente1 = sn.nextLine();
+				sGestion.eliminarFichaAnimal((Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(paciente1)));
 				break;
 			case 7:
+				System.out.println("Nombre del paciente que recibirá el tratamiento:");
+				String tratado = sn.nextLine();
+				sGestion.nuevoTratamiento((Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(tratado)));
 				break;
 			case 8:
+				System.out.println("Nombre del paciente cuyo tratamiento desea modificar:");
+				String tratado1 = sn.nextLine();
+				sGestion.modificarTratamiento((Animal) sGestion.getListaAnimales().stream().filter(e->e.getNombre().equals(tratado1)));
 				break;
 			case 9:
+				System.out.println("Nombre del paciente cuyo tratamiento desea eliminar:");
+				String tratado2 = sn.nextLine();
+				sGestion.suspenderTratamiento((Animal) sGestion.getListaAnimales().stream().filter(f->f.getNombre().equals(tratado2)));
 				break;
 			case 10:
 				salir=true;
