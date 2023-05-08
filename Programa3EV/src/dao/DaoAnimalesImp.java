@@ -4,6 +4,8 @@ import domain.Animal;
 import domain.Empleado;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class DaoAnimalesImp implements DaoAnimales{
@@ -67,11 +69,20 @@ public class DaoAnimalesImp implements DaoAnimales{
 
 	@Override
 	public boolean nuevoAnimal(Animal animal) {
+		Scanner sc = new Scanner(System.in);
 		boolean nuevo=true;
+        System.out.println("Introduce el nombre del nuevo paciente");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce la especie del paciente");
+        String especie = sc.nextLine();
+        System.out.println("Introduce su edad");
+        int edad = sc.nextInt();
+        System.out.println("Introduce su raza");
+        String raza = sc.nextLine();
+        animal = new Animal(nombre, especie, edad, raza);  
 		lista.getAnimales().add(animal);
 		return nuevo;
 	}
-
 	@Override
 	public boolean modificarAnimal() {
 		Scanner scanner = new Scanner(System.in);
@@ -139,22 +150,40 @@ public class DaoAnimalesImp implements DaoAnimales{
 
 	@Override
 	public boolean nuevoTratamiento(String tratamiento, Animal animal) {
-		return false;
+		boolean nuevo=true;
+		animal.setTratamiento(tratamiento);
+		return nuevo;
 	}
 
 	@Override
 	public boolean modificarTratamiento(String tratamiento, Animal animal) {
-		return false;
+		Scanner scanner = new Scanner(System.in);
+		boolean nuevo=true;
+		System.out.println("Tratamiento actual" + animal.getTratamiento());
+		tratamiento=scanner.nextLine();
+		animal.setTratamiento(tratamiento);
+		System.out.println("Nuevo tratamiento" + animal.getTratamiento());
+		return nuevo;
 	}
 
 	@Override
-	public boolean suspenderTratamiento(String tratamiento, Animal animal) {
-		return false;
+	public boolean suspenderTratamiento(Animal animal) {
+		boolean nuevo=true;
+		animal.setTratamiento("");
+		return nuevo;
 	}
 
 	@Override
 	public Set<Animal> listarPacientesIngresados(boolean ingresado) {
-		return null;
+		Set<Animal> auxAnimales = new HashSet<>();
+		Iterator<Animal> it = lista.getAnimales().iterator();
+		while(it.hasNext()) {
+			Animal aux = it.next();
+			if (aux.isIngresado()==true)
+				auxAnimales.add(aux);
+		}
+
+		return auxAnimales;
 	}
 
 }

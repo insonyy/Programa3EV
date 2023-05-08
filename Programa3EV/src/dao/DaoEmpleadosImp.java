@@ -27,12 +27,9 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		return nuevo;
 	}
 	@Override
-	public boolean modificarEmpleado() {
+	public boolean modificarEmpleado(Empleado empleado) {
 			Scanner sc = new Scanner(System.in);
 			boolean nuevo = true;
-			System.out.println("Introduce el nombre del empleado:");
-			String nombre = sc.nextLine();
-			Empleado empleado = (Empleado) lista.getEmpleados().stream().filter(empleado1 -> empleado1.getCargo().equalsIgnoreCase(nombre));
 			System.out.println("¿Cual es su nuevo cargo?");
 			String cargo = sc.nextLine();
 			empleado.setCargo(cargo);
@@ -40,8 +37,9 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 
 	}
 	@Override
-	public void eliminarFichaEmpleado(Empleado empleado) {
+	public boolean eliminarFichaEmpleado(Empleado empleado) {
 		lista.getEmpleados().remove(empleado);
+		return true;
 	}
 	@Override
 	public boolean listarEmpleadosCargo() {

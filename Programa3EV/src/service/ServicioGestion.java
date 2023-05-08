@@ -7,12 +7,12 @@ import dao.DaoEmpleados;
 import dao.DaoEmpleadosImp;
 import domain.Animal;
 import domain.Empleado;
-
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class ServicioGestion implements iServicioGestion {
 
@@ -29,8 +29,6 @@ public class ServicioGestion implements iServicioGestion {
         this.daoEmpleados = new DaoEmpleadosImp();
     }
 
-
-
     //sobrecarga vacía
     @Override
     public Set<Animal> getListaAnimales() throws TipoException {
@@ -39,34 +37,34 @@ public class ServicioGestion implements iServicioGestion {
 
 
     //por especie, tipo
-    public Set<Animal> getListaAnimales(String especie, String tipo) throws TipoException {
+    public Set<Animal> getListaAnimales(String tipo,String especie) throws TipoException {
         return daoAnimales.getListaAnimales(tipo, especie);
     }
 
     //por empleado
 
-    public Set<Animal> getListaAnimales(Empleado empleado) throws TipoException {
-        return daoAnimales.getListaAnimales(empleado);
+    public Set<Animal> getListaAnimales(String especie) throws TipoException {
+        return daoAnimales.getListaAnimales(especie);
     }
 
     @Override
     public boolean nuevoAnimal() throws TipoException {
-        return false;
+        return daoAnimales.nuevoAnimal(new Animal());
     }
 
     @Override
-    public boolean modificarAnimal(Animal animal) throws TipoException {
-        return false;
+    public boolean modificarAnimal() throws TipoException {
+        return	daoAnimales.modificarAnimal();
     }
 
     @Override
     public boolean eliminarFichaAnimal(Animal animal) throws TipoException {
-        return false;
+        return daoAnimales.eliminarFichaAnimal(animal);
     }
 
     @Override
     public List<Empleado> getListaEmpleados() throws TipoException {
-        return null;
+        return daoEmpleados.getListaEmpleados();
     }
 
     @Override
@@ -83,23 +81,23 @@ public class ServicioGestion implements iServicioGestion {
         System.out.println("Introduce el cargo del nuevo empleado");
         String cargo = sc.nextLine();
         Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
-        daoEmpleados.nuevoEmpleado(empleado);
-        return false;
+        return daoEmpleados.nuevoEmpleado(empleado);
     }
 
     @Override
     public boolean modificarEmpleado(Empleado empleado) throws TipoException {
-        daoEmpleados.modificarEmpleado();
-        return false;
+        return daoEmpleados.modificarEmpleado(empleado);
     }
 
     @Override
     public boolean eliminarFichaEmpleado(Empleado empleado) throws TipoException {
-        return false;
+        return daoEmpleados.eliminarFichaEmpleado(empleado);
     }
 
-    @Override
+    
+	@Override
     public Set<Animal> getListaTratamientos() throws TipoException {
+		///////////(Set<Animal>) daoAnimales.getListaAnimales().stream().filter(a->a.getTratamiento());
         return null;
     }
 

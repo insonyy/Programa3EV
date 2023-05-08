@@ -47,9 +47,7 @@ public class MenuGestion {
 				sGestion.nuevoAnimal();
 				break;
 			case 5:
-				System.out.println("Nombre del paciente que desea modificar:");
-				String paciente = sn.nextLine();
-				sGestion.modificarAnimal((Animal) sGestion.getListaAnimales().stream().filter(c->c.getNombre().equals(paciente)));
+				sGestion.modificarAnimal();
 				break;		
 			case 6:
 				System.out.println("Nombre del paciente cuya ficha desea eliminar:");

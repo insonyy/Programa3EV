@@ -9,7 +9,7 @@ import domain.*;
 public interface iServicioGestion {
 	public Set<Animal> getListaAnimales()throws TipoException;
 	public boolean nuevoAnimal()throws TipoException;
-	public boolean modificarAnimal(Animal animal)throws TipoException;
+	public boolean modificarAnimal()throws TipoException;
 	public boolean eliminarFichaAnimal(Animal animal)throws TipoException;
 	public List<Empleado> getListaEmpleados()throws TipoException;
 	public boolean nuevoEmpleado()throws TipoException;
