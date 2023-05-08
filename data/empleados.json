@@ -1,0 +1,68 @@
+[
+  {
+    "nombre": "Francisco",
+    "apellido": "Gutierrez",
+    "dni": "23431186T",
+    "cargo": "Doctor"
+  },
+  {
+    "nombre": "Daniel",
+    "apellido": "Gutierrez",
+    "dni": "58771426K",
+    "cargo": "Recepcionista"
+  },
+  {
+    "nombre": "Manuel",
+    "apellido": "Fernandez",
+    "dni": "47163084P",
+    "cargo": "Doctor"
+  },
+  {
+    "nombre": "Susana",
+    "apellido": "de la Rosa",
+    "dni": "82311612S",
+    "cargo": "Auxiliar"
+  },
+  {
+    "nombre": "Pedro",
+    "apellido": "de Miguel",
+    "dni": "87165583C",
+    "cargo": "Doctor"
+  },
+  {
+    "nombre": "Jose Carlos",
+    "apellido": "Sanzhez",
+    "dni": "42598136R",
+    "cargo": "Doctor"
+  },
+  {
+    "nombre": "Ismael",
+    "apellido": "Machena",
+    "dni": "32769836B",
+    "cargo": "Auxiliar"
+  },
+  {
+    "nombre": "Fernando",
+    "apellido": "Alonso",
+    "dni": "33333333C",
+    "cargo": "Recepcionista"
+  },
+  {
+    "nombre": "Cade",
+    "apellido": "Cunninghan",
+    "dni": "74851629C",
+    "cargo": "Auxiliar"
+  },
+  {
+    "nombre": "Sergio",
+    "apellido": "Garcia",
+    "dni": "88416571M",
+    "cargo": "Doctor"
+  },
+  {
+    "nombre": "Carlos",
+    "apellido": "Bruñas",
+    "dni": "92292814C",
+    "cargo": "Recepcionista"
+  }
+]
