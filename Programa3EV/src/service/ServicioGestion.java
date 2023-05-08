@@ -9,6 +9,8 @@ import domain.Empleado;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ServicioGestion implements iServicioGestion {
 
@@ -71,8 +73,10 @@ public class ServicioGestion implements iServicioGestion {
         String nombre = sc.nextLine();
         System.out.println("Introduce el apellido del nuevo empleado");
         String apellido = sc.nextLine();
+        Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
         System.out.println("Introduce el DNI del nuevo empleado");
         String dni = sc.nextLine();
+        Matcher matcher = comprobar.matcher(dni);
         System.out.println("Introduce el cargo del nuevo empleado");
         String cargo = sc.nextLine();
 
