@@ -3,25 +3,30 @@ package service;
 import common.TipoException;
 import dao.DaoAnimales;
 import dao.DaoAnimalesImp;
+import dao.DaoEmpleados;
+import dao.DaoEmpleadosImp;
 import domain.Animal;
 import domain.Empleado;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ServicioGestion implements iServicioGestion {
 
     private final DaoAnimales daoAnimales;
-    //Miguel mete el final para los empleados aquí y luego tmb en los cosntructores
-    // ~Inés
 
-    public ServicioGestion(DaoAnimales daoAnimales) {
+    private final DaoEmpleados daoEmpleados;
+    public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados) {
         this.daoAnimales = daoAnimales;
+        this.daoEmpleados = daoEmpleados;
     }
 
     public ServicioGestion(){
         this.daoAnimales = new DaoAnimalesImp();
+        this.daoEmpleados = new DaoEmpleadosImp();
     }
 
 
@@ -71,16 +76,20 @@ public class ServicioGestion implements iServicioGestion {
         String nombre = sc.nextLine();
         System.out.println("Introduce el apellido del nuevo empleado");
         String apellido = sc.nextLine();
+        Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
         System.out.println("Introduce el DNI del nuevo empleado");
         String dni = sc.nextLine();
+        Matcher matcher = comprobar.matcher(dni);
         System.out.println("Introduce el cargo del nuevo empleado");
         String cargo = sc.nextLine();
-
+        Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
+        daoEmpleados.nuevoEmpleado(empleado);
         return false;
     }
 
     @Override
     public boolean modificarEmpleado(Empleado empleado) throws TipoException {
+        daoEmpleados.modificarEmpleado();
         return false;
     }
 
