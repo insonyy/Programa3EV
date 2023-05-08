@@ -3,6 +3,8 @@ package service;
 import common.TipoException;
 import dao.DaoAnimales;
 import dao.DaoAnimalesImp;
+import dao.DaoEmpleados;
+import dao.DaoEmpleadosImp;
 import domain.Animal;
 import domain.Empleado;
 
@@ -15,15 +17,16 @@ import java.util.regex.Pattern;
 public class ServicioGestion implements iServicioGestion {
 
     private final DaoAnimales daoAnimales;
-    //Miguel mete el final para los empleados aquí y luego tmb en los cosntructores
-    // ~Inés
 
-    public ServicioGestion(DaoAnimales daoAnimales) {
+    private final DaoEmpleados daoEmpleados;
+    public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados) {
         this.daoAnimales = daoAnimales;
+        this.daoEmpleados = daoEmpleados;
     }
 
     public ServicioGestion(){
         this.daoAnimales = new DaoAnimalesImp();
+        this.daoEmpleados = new DaoEmpleadosImp();
     }
 
 
@@ -79,12 +82,14 @@ public class ServicioGestion implements iServicioGestion {
         Matcher matcher = comprobar.matcher(dni);
         System.out.println("Introduce el cargo del nuevo empleado");
         String cargo = sc.nextLine();
-
+        Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
+        daoEmpleados.nuevoEmpleado(empleado);
         return false;
     }
 
     @Override
     public boolean modificarEmpleado(Empleado empleado) throws TipoException {
+        daoEmpleados.modificarEmpleado();
         return false;
     }
 
