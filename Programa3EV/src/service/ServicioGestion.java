@@ -7,12 +7,16 @@ import dao.DaoEmpleados;
 import dao.DaoEmpleadosImp;
 import domain.Animal;
 import domain.Empleado;
+
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ServicioGestion implements iServicioGestion {
 
@@ -96,24 +100,36 @@ public class ServicioGestion implements iServicioGestion {
 
     
 	@Override
-    public Set<Animal> getListaTratamientos() throws TipoException {
-		///////////(Set<Animal>) daoAnimales.getListaAnimales().stream().filter(a->a.getTratamiento());
-        return null;
+    public void getListaTratamientos() throws TipoException {	
+		daoAnimales.getListaAnimales().forEach(Animal::getTratamiento);
     }
 
     @Override
-    public boolean nuevoTratamiento(Animal animal) throws TipoException {
-        return false;
+    public boolean nuevoTratamiento() throws TipoException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre del animal");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce el nuevo tratamiento");
+        String tratamiento = sc.nextLine();
+        return daoAnimales.nuevoTratamiento(tratamiento, (Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
     }
 
     @Override
-    public boolean modificarTratamiento(Animal animal) throws TipoException {
-        return false;
+    public boolean modificarTratamiento() throws TipoException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre del animal");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce el nuevo tratamiento");
+        String tratamiento = sc.nextLine();
+        return daoAnimales.modificarTratamiento(tratamiento, (Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
     }
 
     @Override
-    public boolean suspenderTratamiento(Animal animal) throws TipoException {
-        return false;
+    public boolean suspenderTratamiento() throws TipoException {
+    	Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre del animal");
+        String nombre = sc.nextLine();
+        return daoAnimales.suspenderTratamiento((Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
     }
 
     @Override
@@ -122,17 +138,15 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public Set<Animal> listarPacientesEspecie() throws TipoException {
-        return null;
+    public void listarPacientesEspecie() throws TipoException {
+    	Set<Animal> list = daoAnimales.getListaAnimales();
+    	Collections.sort((List<Animal>) list, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
     }
 
     @Override
-    public Set<Animal> listarEmpleadosCargo() throws TipoException {
-        return null;
+    public void listarEmpleadosCargo() throws TipoException {
+    	List emple = daoEmpleados.getListaEmpleados();
+    	Collections.sort((List<Empleado>) emple, (o1, o2) -> o1.getCargo().compareTo(o2.getCargo()));
     }
 
-    @Override
-    public Set<Animal> listarTratamientosActivos() throws TipoException {
-        return null;
-    }
 }
