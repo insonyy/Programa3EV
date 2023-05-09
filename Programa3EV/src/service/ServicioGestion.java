@@ -105,13 +105,8 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoTratamiento() throws TipoException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del animal");
-        String nombre = sc.nextLine();
-        System.out.println("Introduce el nuevo tratamiento");
-        String tratamiento = sc.nextLine();
-        return daoAnimales.nuevoTratamiento(tratamiento, (Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
+    public boolean nuevoTratamiento(String tratamiento, Animal animal) throws TipoException {
+        return daoAnimales.nuevoTratamiento(tratamiento,animal);
     }
 
     @Override

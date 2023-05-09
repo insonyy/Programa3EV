@@ -57,17 +57,15 @@ public class MenuGestion {
 			case 7:
 				System.out.println("Nombre del paciente que recibirá el tratamiento:");
 				String tratado = sn.nextLine();
-				sGestion.nuevoTratamiento((Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(tratado)));
+				System.out.println("Añade Tratamiento:");
+				String tratamiento = sn.nextLine();
+				sGestion.nuevoTratamiento(tratamiento,(Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(tratado)));
 				break;
 			case 8:
-				System.out.println("Nombre del paciente cuyo tratamiento desea modificar:");
-				String tratado1 = sn.nextLine();
-				sGestion.modificarTratamiento((Animal) sGestion.getListaAnimales().stream().filter(e->e.getNombre().equals(tratado1)));
+				sGestion.modificarTratamiento();
 				break;
 			case 9:
-				System.out.println("Nombre del paciente cuyo tratamiento desea eliminar:");
-				String tratado2 = sn.nextLine();
-				sGestion.suspenderTratamiento((Animal) sGestion.getListaAnimales().stream().filter(f->f.getNombre().equals(tratado2)));
+				sGestion.suspenderTratamiento();
 				break;
 			case 10:
 				salir=true;
