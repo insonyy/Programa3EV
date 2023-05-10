@@ -46,7 +46,7 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 3:
-				sGestion.listarPacientesIngresados(true).forEach(System.out::println);
+				sGestion.listarPacientesIngresados().forEach(System.out::println);
 				System.out.println();
 				break;
 			case 4:

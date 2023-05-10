@@ -24,7 +24,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 		this.lista = lista;
 		this.imp = new DaoEmpleadosImp();
 	}
-	
+
 	/*Métodos*/
 
 	//sobrecarga para pillar la lista de los animales
@@ -35,8 +35,18 @@ public class DaoAnimalesImp implements DaoAnimales{
 		return auxAnimales;
 	}
 
-	public Set<Animal> getListaAnimales(String especie) {
-		Set<Animal> auxAnimales = lista.getAnimales().stream().filter(a->a.getEspecie().equals(especie)).collect(Collectors.toSet());
+	@Override
+	public Set<Animal> getListaAnimalesEspecie() {
+		Set<Animal> auxAnimales = lista.getAnimales();
+		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
+		return auxAnimales;
+	}
+
+	@Override
+	public Set<Animal> getListaAnimalesEspecieTipo() {
+		Set<Animal> auxAnimales = lista.getAnimales();
+		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
+		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getTipo().compareTo(o2.getTipo()));
 		return auxAnimales;
 	}
 
@@ -68,18 +78,18 @@ public class DaoAnimalesImp implements DaoAnimales{
 	}
 
 	@Override
-	public boolean nuevoAnimal(Animal animal) {
+	public boolean nuevoAnimal() {
 		Scanner sc = new Scanner(System.in);
 		boolean nuevo=true;
-        System.out.println("Introduce el nombre del nuevo paciente");
-        String nombre = sc.nextLine();
-        System.out.println("Introduce la especie del paciente");
-        String especie = sc.nextLine();
-        System.out.println("Introduce su edad");
-        int edad = sc.nextInt();
-        System.out.println("Introduce su raza");
-        String raza = sc.nextLine();
-        animal = new Animal(nombre, especie, edad, raza);  
+		System.out.println("Introduce el nombre del nuevo paciente");
+		String nombre = sc.nextLine();
+		System.out.println("Introduce la especie del paciente");
+		String especie = sc.nextLine();
+		System.out.println("Introduce su edad");
+		int edad = sc.nextInt();
+		System.out.println("Introduce su raza");
+		String raza = sc.nextLine();
+		Animal animal = new Animal(nombre, especie, edad, raza);  
 		lista.getAnimales().add(animal);
 		return nuevo;
 	}
@@ -129,14 +139,18 @@ public class DaoAnimalesImp implements DaoAnimales{
 	}
 
 	@Override
-	public boolean eliminarFichaAnimal(Animal animal) {
+	public boolean eliminarFichaAnimal() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Introduce el nombre del animal");
+		String nombre = scanner.nextLine();
+		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
 		boolean borrar=true;
 		lista.getAnimales().remove(animal);
 		return borrar;
 	}
 
 	@Override
-	public Set<Animal> getListaTratamientos(String tratamiento, Animal animal) {
+	public Set<Animal> getListaTratamientos() {
 		Set<Animal> auxAnimales = new HashSet<>();
 		Iterator<Animal> it = lista.getAnimales().iterator();
 		while(it.hasNext()) {
@@ -149,32 +163,48 @@ public class DaoAnimalesImp implements DaoAnimales{
 	}
 
 	@Override
-	public boolean nuevoTratamiento(String tratamiento, Animal animal) {
+	public boolean nuevoTratamiento() {
+		Scanner scanner = new Scanner(System.in);
 		boolean nuevo=true;
+		System.out.println("Introduce el nombre del animal");
+		String nombre = scanner.nextLine();
+		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
+		System.out.println("Introduce el nuevo tratamiento");
+		String tratamiento=scanner.nextLine();
 		animal.setTratamiento(tratamiento);
 		return nuevo;
 	}
 
 	@Override
-	public boolean modificarTratamiento(String tratamiento, Animal animal) {
+	public boolean modificarTratamiento() {
 		Scanner scanner = new Scanner(System.in);
 		boolean nuevo=true;
+		System.out.println("Introduce el nombre del animal");
+		String nombre = scanner.nextLine();
+		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
 		System.out.println("Tratamiento actual" + animal.getTratamiento());
-		tratamiento=scanner.nextLine();
+		System.out.println("Introduce el nuevo tratamiento");
+		String tratamiento=scanner.nextLine();
 		animal.setTratamiento(tratamiento);
 		System.out.println("Nuevo tratamiento" + animal.getTratamiento());
 		return nuevo;
 	}
 
 	@Override
-	public boolean suspenderTratamiento(Animal animal) {
+	public boolean suspenderTratamiento() {
 		boolean nuevo=true;
-		animal.setTratamiento("");
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Introduce el nombre del animal");
+		String nombre = scanner.nextLine();
+		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
+		System.out.println("Introduce el nuevo tratamiento");
+		String tratamiento=scanner.nextLine();
+		animal.setTratamiento(tratamiento);
 		return nuevo;
 	}
 
 	@Override
-	public Set<Animal> listarPacientesIngresados(boolean ingresado) {
+	public Set<Animal> listarPacientesIngresados() {
 		Set<Animal> auxAnimales = new HashSet<>();
 		Iterator<Animal> it = lista.getAnimales().iterator();
 		while(it.hasNext()) {

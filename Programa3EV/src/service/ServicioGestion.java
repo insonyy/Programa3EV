@@ -35,25 +35,21 @@ public class ServicioGestion implements iServicioGestion {
 
     //sobrecarga vacía
     @Override
-    public Set<Animal> getListaAnimales() throws TipoException {
-        return daoAnimales.getListaAnimales();
-    }
-
-
-    //por especie, tipo
-    public Set<Animal> getListaAnimales(String tipo,String especie) throws TipoException {
-        return daoAnimales.getListaAnimales(tipo, especie);
-    }
 
     //por empleado
 
-    public Set<Animal> getListaAnimales(String especie) throws TipoException {
-        return daoAnimales.getListaAnimales(especie);
+    public Set<Animal> getListaAnimales() throws TipoException {
+        return daoAnimales.getListaAnimales();
     }
-
+    public Set<Animal> getListaAnimalesEspecie() throws TipoException {
+        return daoAnimales.getListaAnimalesEspecie();
+    }
+    public Set<Animal> getListaAnimalesEspecieTipo() throws TipoException {
+        return daoAnimales.getListaAnimalesEspecieTipo();
+    }
     @Override
     public boolean nuevoAnimal() throws TipoException {
-        return daoAnimales.nuevoAnimal(new Animal());
+        return daoAnimales.nuevoAnimal();
     }
 
     @Override
@@ -62,8 +58,8 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean eliminarFichaAnimal(Animal animal) throws TipoException {
-        return daoAnimales.eliminarFichaAnimal(animal);
+    public boolean eliminarFichaAnimal() throws TipoException {
+        return daoAnimales.eliminarFichaAnimal();
     }
 
     @Override
@@ -73,29 +69,17 @@ public class ServicioGestion implements iServicioGestion {
 
     @Override
     public boolean nuevoEmpleado() throws TipoException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del nuevo empleado");
-        String nombre = sc.nextLine();
-        System.out.println("Introduce el apellido del nuevo empleado");
-        String apellido = sc.nextLine();
-        Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
-        System.out.println("Introduce el DNI del nuevo empleado");
-        String dni = sc.nextLine();
-        Matcher matcher = comprobar.matcher(dni);
-        System.out.println("Introduce el cargo del nuevo empleado");
-        String cargo = sc.nextLine();
-        Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
-        return daoEmpleados.nuevoEmpleado(empleado);
+        return daoEmpleados.nuevoEmpleado();
     }
 
     @Override
-    public boolean modificarEmpleado(Empleado empleado) throws TipoException {
-        return daoEmpleados.modificarEmpleado(empleado);
+    public boolean modificarEmpleado() throws TipoException {
+        return daoEmpleados.modificarEmpleado();
     }
 
     @Override
-    public boolean eliminarFichaEmpleado(Empleado empleado) throws TipoException {
-        return daoEmpleados.eliminarFichaEmpleado(empleado);
+    public boolean eliminarFichaEmpleado() throws TipoException {
+        return daoEmpleados.eliminarFichaEmpleado();
     }
 
     
@@ -105,43 +89,33 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoTratamiento(String tratamiento, Animal animal) throws TipoException {
-        return daoAnimales.nuevoTratamiento(tratamiento,animal);
+    public boolean nuevoTratamiento() throws TipoException {
+        return daoAnimales.nuevoTratamiento();
     }
 
     @Override
     public boolean modificarTratamiento() throws TipoException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del animal");
-        String nombre = sc.nextLine();
-        System.out.println("Introduce el nuevo tratamiento");
-        String tratamiento = sc.nextLine();
-        return daoAnimales.modificarTratamiento(tratamiento, (Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
+        return daoAnimales.modificarTratamiento();
     }
 
     @Override
     public boolean suspenderTratamiento() throws TipoException {
-    	Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del animal");
-        String nombre = sc.nextLine();
-        return daoAnimales.suspenderTratamiento((Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre)));
+        return daoAnimales.suspenderTratamiento();
     }
 
     @Override
-    public Set<Animal> listarPacientesIngresados(Boolean ingresado) throws TipoException {
-        return daoAnimales.listarPacientesIngresados(ingresado);
+    public Set<Animal> listarPacientesIngresados() throws TipoException {
+        return daoAnimales.listarPacientesIngresados();
     }
 
     @Override
     public void listarPacientesEspecie() throws TipoException {
-    	Set<Animal> list = daoAnimales.getListaAnimales();
-    	Collections.sort((List<Animal>) list, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
+    	daoAnimales.getListaAnimales();
     }
-
     @Override
     public void listarEmpleadosCargo() throws TipoException {
-    	List emple = daoEmpleados.getListaEmpleados();
-    	Collections.sort((List<Empleado>) emple, (o1, o2) -> o1.getCargo().compareTo(o2.getCargo()));
+    	daoEmpleados.getListaEmpleados();
+
     }
 
 }

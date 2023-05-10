@@ -8,16 +8,15 @@ import domain.Empleado;
 
 public interface DaoAnimales {
 	public Set<Animal> getListaAnimales();
-	public Set<Animal> getListaAnimales(String especie);
-	public Set<Animal> getListaAnimales(Empleado empleado);
-	public Set<Animal> getListaAnimales(String tipo, String especie);
-	public boolean nuevoAnimal(Animal animal);
+	public Set<Animal> getListaAnimalesEspecie();
+	public Set<Animal> getListaAnimalesEspecieTipo();
+	public boolean nuevoAnimal();
 	public boolean modificarAnimal();
-	public boolean eliminarFichaAnimal(Animal animal);
-	public Set<Animal> getListaTratamientos(String tratamiento, Animal animal);
-	public boolean nuevoTratamiento(String tratamiento, Animal animal);
-	public boolean modificarTratamiento(String tratamiento, Animal animal);
-	public boolean suspenderTratamiento(Animal animal);
-	public Set<Animal> listarPacientesIngresados(boolean ingresado);
+	public boolean eliminarFichaAnimal();
+	public Set<Animal> getListaTratamientos();
+	public boolean nuevoTratamiento();
+	public boolean modificarTratamiento();
+	public boolean suspenderTratamiento();
+	public Set<Animal> listarPacientesIngresados();
 
 }
