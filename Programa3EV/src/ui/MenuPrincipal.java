@@ -32,9 +32,8 @@ public class MenuPrincipal {
 			System.out.println("3. " + Constantes.MP3);
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
-			System.out.println("6. " + Constantes.MP6);
-			System.out.println("7. " + Constantes.MP7);
-			System.out.println("8. " + Constantes.OPSalir);
+			System.out.println("6. " + Constantes.MP7);
+			System.out.println("7. " + Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			opcion = sn.nextInt();
 			switch(opcion){
@@ -51,30 +50,27 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 4:
-				sGestion.listarPacientesEspecie().forEach(System.out::println);
+				sGestion.listarPacientesEspecie();
 				System.out.println();
 				break;
 			case 5:
-				sGestion.listarEmpleadosCargo().forEach(System.out::println);
+				sGestion.listarEmpleadosCargo();
 				System.out.println();
 				break;		
 			case 6:
-				sGestion.listarTratamientosActivos().forEach(System.out::println);
-				System.out.println();
-				break;
-			case 7:
 				System.out.println(Constantes.OPPSSWD);
 				int contra = sn.nextInt();
+				MenuGestion mge=new MenuGestion();
 				System.out.println(contra);
 				if (contra == Integer.parseInt((String) properties.get("PASSWORD"))) {
 					System.out.println();
-					//mge.menuEmpleados();
+					mge.menuGestion();
 				} else {
 					System.out.println(Constantes.OPNOTPSSWD);
 					System.out.println();
 				}
 				break;
-			case 8:
+			case 7:
 				salir=true;
 				break;
 			default:
