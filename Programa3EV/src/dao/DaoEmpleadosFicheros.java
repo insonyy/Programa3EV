@@ -1,10 +1,7 @@
 package dao;
 
 import domain.Empleado;
-<<<<<<< Updated upstream
 import lombok.extern.log4j.Log4j;
-=======
->>>>>>> Stashed changes
 import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
@@ -18,11 +15,9 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-<<<<<<< Updated upstream
 
-=======
 @Log4j2
->>>>>>> Stashed changes
+
 
 public class DaoEmpleadosFicheros implements Serializable {
 
