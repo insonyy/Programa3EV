@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -70,6 +71,15 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		System.out.println(empleado);
     	Collections.sort((List<Empleado>) getListaEmpleados(), (o1, o2) -> o1.getCargo().compareTo(o2.getCargo()));
 		return listar;
+	}
+
+	public void map() {
+		HashMap<Integer, Empleado> map = new HashMap<>();
+		for (int i = 0;i < getListaEmpleados().size();i++){
+			map.put(i, getListaEmpleados().get(i));
+			System.out.println(map);
+		}
+
 	}
 
 }

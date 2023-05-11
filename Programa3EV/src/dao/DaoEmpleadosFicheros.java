@@ -1,6 +1,8 @@
 package dao;
 
 import domain.Empleado;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 
 public class DaoEmpleadosFicheros implements Serializable {
 

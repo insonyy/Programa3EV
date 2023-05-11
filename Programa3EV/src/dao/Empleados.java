@@ -8,7 +8,7 @@ import domain.Empleado;
 public class Empleados {
 	private List<Empleado> empleados;
 	
-	public void Empleados() {
+	public Empleados() {
 		empleados=new ArrayList();
 		
 		empleados.add(new Empleado("Francisco", "Gutierrez","23431186T","Doctor"));
