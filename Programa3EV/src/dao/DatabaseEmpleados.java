@@ -20,8 +20,6 @@ import lombok.extern.log4j.Log4j2;
 
 public class DatabaseEmpleados {
 
-    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
     public List<Empleado> loadEmpleados() {
         Gson gson = new Gson();
         Type userListType = new TypeToken<ArrayList<Empleado>>(){}.getType();
