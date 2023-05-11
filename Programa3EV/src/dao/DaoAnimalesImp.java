@@ -38,7 +38,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 	@Override
 	public Set<Animal> getListaAnimalesEspecie() {
 		Set<Animal> auxAnimales = lista.getAnimales();
-		auxAnimales.stream().sorted((p1, p2)->p1.getEspecie().compareTo(p2.getEspecie()));
+		auxAnimales.stream().sorted((p1, p2)->p1.getEspecie().compareTo(p2.getEspecie())).forEach(System.out::println);;
 		return auxAnimales;
 	}
 	//por tipo

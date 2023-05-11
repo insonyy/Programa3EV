@@ -66,7 +66,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	@Override
 	public List<Empleado> listarEmpleadosCargo() {
 		List<Empleado> emple = lista.getEmpleados();
-		emple.stream().sorted((p1, p2)->p1.getCargo().compareTo(p2.getCargo()));
+		emple.stream().sorted((p1, p2)->p1.getCargo().compareTo(p2.getCargo())).forEach(System.out::println);
 		return emple;
 	}
 
