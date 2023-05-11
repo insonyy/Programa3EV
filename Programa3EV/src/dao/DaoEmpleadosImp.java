@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,8 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 
 	@Override
 	public List<Empleado> getListaEmpleados() {
-		List<Empleado> listaEmpleados= lista.getEmpleados();
+		List<Empleado> listaEmpleados=new ArrayList<>();
+		listaEmpleados= lista.getEmpleados();
 		return listaEmpleados;
 	}
 	@Override
