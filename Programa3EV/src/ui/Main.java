@@ -1,7 +1,6 @@
 package ui;
 
 import common.TipoException;
-import dao.DaoEmpleadosImp;
 import service.ServicioGestion;
 
 public class Main {

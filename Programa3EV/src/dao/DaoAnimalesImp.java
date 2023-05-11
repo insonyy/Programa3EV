@@ -1,6 +1,7 @@
 package dao;
 
 import domain.Animal;
+import common.Constantes;
 import domain.Empleado;
 import java.io.IOException;
 import java.util.*;
@@ -9,7 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class DaoAnimalesImp implements DaoAnimales{
-
+	
 	protected final Animales lista;
 	protected final DaoEmpleadosImp imp;
 
@@ -72,13 +73,13 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean nuevoAnimal() {
 		Scanner sc = new Scanner(System.in);
 		boolean nuevo=true;
-		System.out.println("Introduce el nombre del nuevo paciente");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_NUEVO_PACIENTE);
 		String nombre = sc.nextLine();
-		System.out.println("Introduce la especie del paciente");
+		System.out.println(Constantes.INTRODUCE_LA_ESPECIE_DEL_PACIENTE);
 		String especie = sc.nextLine();
-		System.out.println("Introduce su edad");
+		System.out.println(Constantes.INTRODUCE_SU_EDAD);
 		int edad = sc.nextInt();
-		System.out.println("Introduce su raza");
+		System.out.println(Constantes.INTRODUCE_SU_RAZA);
 		String raza = sc.nextLine();
 		Animal animal = new Animal(nombre, especie, edad, raza);  
 		lista.getAnimales().add(animal);
@@ -88,28 +89,28 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean modificarAnimal() {
 		Scanner scanner = new Scanner(System.in);
 		boolean nuevo=true;
-		System.out.println("Nombre del animal cuya ficha desea modificar:");
+		System.out.println(Constantes.NOMBRE_DEL_ANIMAL_CUYA_FICHA_DESEA_MODIFICAR);
 		String nombre = scanner.nextLine();
 		Animal animalico=(Animal) lista.getAnimales().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre));
-		System.out.println("¿Desea modificar el tratamiento? s/n");
+		System.out.println(Constantes.DESEA_MODIFICAR_EL_TRATAMIENTO_S_N);
 		try {
 			char t=(char) System.in.read();
 			if (t=='s'||t=='S') {
-				System.out.println("Introduzca nuevo tratamiento:");
+				System.out.println(Constantes.INTRODUZCA_NUEVO_TRATAMIENTO);
 				String tratamiento=scanner.nextLine();
 				animalico.setTratamiento(tratamiento);
 			}else if (t=='n'||t=='N') {
-				System.out.println("¿Desea modificar el empleado a cargo? s/n");
+				System.out.println(Constantes.DESEA_MODIFICAR_EL_EMPLEADO_A_CARGO_S_N);
 				char e=(char) System.in.read();
 				if (e=='s'||e=='S') {
-					System.out.println("Introduzca nuevo empleado a cargo:");
+					System.out.println(Constantes.INTRODUZCA_NUEVO_EMPLEADO_A_CARGO);
 					String empleadoAC=scanner.nextLine();
 					animalico.setEmpleado((Empleado) imp.getListaEmpleados().stream().filter(a->a.getNombre().equals(empleadoAC)));
 				}else if (e=='n'||e=='N') {
-					System.out.println("¿Desea modificar el estado de ingreso? s/n");
+					System.out.println(Constantes.DESEA_MODIFICAR_EL_ESTADO_DE_INGRESO_S_N);
 					char i=(char) System.in.read();
 					if (i=='s'||i=='S') {
-						System.out.println("Para ingresar pulse 's' para dar de alta pulse 'n'");
+						System.out.println(Constantes.PARA_INGRESAR_PULSE_S_PARA_DAR_DE_ALTA_PULSE_N);
 						char ii=(char) System.in.read();
 						if (ii=='s'||ii=='S') {
 							animalico.setIngresado(true);
@@ -117,7 +118,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 							animalico.setIngresado(false);
 						}
 					}else if (i=='n'||i=='N') {
-						System.out.println("Modificaciones realizadas");
+						System.out.println(Constantes.MODIFICACIONES_REALIZADAS);
 					}
 				}
 			}
@@ -132,7 +133,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 	@Override
 	public boolean eliminarFichaAnimal() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Introduce el nombre del animal");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 		String nombre = scanner.nextLine();
 		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
 		boolean borrar=true;
@@ -157,10 +158,10 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean nuevoTratamiento() {
 		Scanner scanner = new Scanner(System.in);
 		boolean nuevo=true;
-		System.out.println("Introduce el nombre del animal");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 		String nombre = scanner.nextLine();
 		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
-		System.out.println("Introduce el nuevo tratamiento");
+		System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 		String tratamiento=scanner.nextLine();
 		animal.setTratamiento(tratamiento);
 		return nuevo;
@@ -170,14 +171,14 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean modificarTratamiento() {
 		Scanner scanner = new Scanner(System.in);
 		boolean nuevo=true;
-		System.out.println("Introduce el nombre del animal");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 		String nombre = scanner.nextLine();
 		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
-		System.out.println("Tratamiento actual" + animal.getTratamiento());
-		System.out.println("Introduce el nuevo tratamiento");
+		System.out.println(Constantes.TRATAMIENTO_ACTUAL + animal.getTratamiento());
+		System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 		String tratamiento=scanner.nextLine();
 		animal.setTratamiento(tratamiento);
-		System.out.println("Nuevo tratamiento" + animal.getTratamiento());
+		System.out.println(Constantes.NUEVO_TRATAMIENTO + animal.getTratamiento());
 		return nuevo;
 	}
 
@@ -185,10 +186,10 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean suspenderTratamiento() {
 		boolean nuevo=true;
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Introduce el nombre del animal");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 		String nombre = scanner.nextLine();
 		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
-		System.out.println("Introduce el nuevo tratamiento");
+		System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 		String tratamiento=scanner.nextLine();
 		animal.setTratamiento(tratamiento);
 		return nuevo;
