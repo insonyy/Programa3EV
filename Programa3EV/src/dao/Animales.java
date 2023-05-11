@@ -12,7 +12,7 @@ public class Animales {
     private static int id;
 
     public Animales(){
-        animales = new HashSet<>();
+        /*animales = new HashSet<>();
         //Perros
         animales.add(new Animal("Pepe", "perro", 1, "Border Collie"));
         animales.add(new Animal("Zen", "perro", 4, "Pastor Aleman"));
@@ -66,7 +66,8 @@ public class Animales {
         animales.add(new Animal("Pablo", "pajaro", 1, "Guacamayo"));
         animales.add(new Animal("Arnie", "pajaro", 2, "Cuervo"));
         animales.add(new Animal("Magnus", "pajaro", 2, "Ninfa"));
-        animales.add(new Animal("Magnus", "pajaro", 2, "Ninfa"));
-    }
+        animales.add(new Animal("Magnus", "pajaro", 2, "Ninfa"));*/
 
+        animales = DaoAnimalesFicheros.readArrayList();
+    }
 }
