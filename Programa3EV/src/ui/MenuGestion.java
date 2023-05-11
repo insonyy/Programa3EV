@@ -34,14 +34,10 @@ public class MenuGestion {
 				sGestion.nuevoEmpleado();
 				break;
 			case 2:
-				System.out.println("Nombre del empleado que desea modificar:");
-				String nombre = sn.nextLine();
-				sGestion.modificarEmpleado(/*(Empleado) sGestion.getListaEmpleados().stream().filter(a->a.getNombre().equals(nombre))*/);
+				sGestion.modificarEmpleado();
 				break;
 			case 3:
-				System.out.println("Nombre del empleado cuya ficha desea eliminar:");
-				String nombre1 = sn.nextLine();
-				sGestion.eliminarFichaEmpleado(/*(Empleado) sGestion.getListaEmpleados().stream().filter(b->b.getNombre().equals(nombre1))*/);
+				sGestion.eliminarFichaEmpleado();
 				break;
 			case 4:
 				sGestion.nuevoAnimal();
@@ -50,16 +46,10 @@ public class MenuGestion {
 				sGestion.modificarAnimal();
 				break;		
 			case 6:
-				System.out.println("Nombre del paciente cuya ficha desea eliminar:");
-				String paciente1 = sn.nextLine();
-				sGestion.eliminarFichaAnimal(/*(Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(paciente1))*/);
+				sGestion.eliminarFichaAnimal();
 				break;
 			case 7:
-				System.out.println("Nombre del paciente que recibirá el tratamiento:");
-				String tratado = sn.nextLine();
-				System.out.println("Añade Tratamiento:");
-				String tratamiento = sn.nextLine();
-				sGestion.nuevoTratamiento(/*tratamiento,(Animal) sGestion.getListaAnimales().stream().filter(d->d.getNombre().equals(tratado))*/);
+				sGestion.nuevoTratamiento();
 				break;
 			case 8:
 				sGestion.modificarTratamiento();
