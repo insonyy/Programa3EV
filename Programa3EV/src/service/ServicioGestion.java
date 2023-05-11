@@ -1,10 +1,7 @@
 package service;
 
 import common.TipoException;
-import dao.DaoAnimales;
-import dao.DaoAnimalesImp;
-import dao.DaoEmpleados;
-import dao.DaoEmpleadosImp;
+import dao.*;
 import domain.Animal;
 import domain.Empleado;
 
@@ -21,7 +18,6 @@ import java.util.stream.Stream;
 public class ServicioGestion implements iServicioGestion {
 
     private final DaoAnimales daoAnimales;
-
     private final DaoEmpleados daoEmpleados;
     public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados) {
         this.daoAnimales = daoAnimales;
@@ -111,5 +107,12 @@ public class ServicioGestion implements iServicioGestion {
 
     }
 
+    public boolean escribirFicheroEmpleado(List<Empleado> lista){
+        return DaoEmpleadosFicheros.escribirFicherosEmpleados(lista);
+    }
+
+    public boolean escribirFicheroAnimales(Set<Animal> set){
+        return DaoAnimalesFicheros.escribirFicheros(set);
+    }
 
 }
