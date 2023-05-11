@@ -39,11 +39,11 @@ public class DaoAnimalesFicheros {
 
         Set<Animal> lista = new HashSet<>();
         try {
-            File f = new File(FicheroAnimales);
+            //File f = new File(FicheroAnimales);
             Scanner teclado = new Scanner(new File(FicheroAnimales));
             while (teclado.hasNextLine()) {
                 String linea = teclado.nextLine();
-                String sub[] = linea.split(";");
+                String sub[] = linea.split(",");
                 Animal animal = new Animal(sub[0], sub[1], Integer.parseInt(sub[2]), sub[3]);
                 lista.add(animal);
             }
@@ -56,8 +56,8 @@ public class DaoAnimalesFicheros {
 
     public static void readBuffered() {
         try (BufferedReader bf = new BufferedReader(new FileReader(FicheroAnimales))) {
-            File f = new File(FicheroAnimales);
-            FileReader fr = new FileReader(new File(FicheroAnimales));
+            //File f = new File(FicheroAnimales);
+            //FileReader fr = new FileReader(new File(FicheroAnimales));
             String cadena = null;
             do {
                 cadena = bf.readLine();

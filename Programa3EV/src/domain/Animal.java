@@ -18,8 +18,9 @@ public class Animal {
 	public Animal(String nombre, String especie, int edad, String tipo) {
 		this.nombre = nombre;
 		this.especie = especie;
-		this.edad = edad;
 		this.tipo = tipo;
+		this.edad = edad;
+
 	}
 	public Animal() {}
 	public void fechaingreso() {
@@ -30,10 +31,10 @@ public class Animal {
 	}
 	
 	public String toStringFichero(){
-		return nombre + ";" + especie + ";" + tipo + ";" + edad + ";" + ingresado + ";" + fecha + ";" + empleado;
+		return nombre + "," + especie + "," + tipo + "," + edad + "," + ingresado + "," + fecha + "," + empleado;
 	}
 	@Override
 	public String toString() {
-		return  nombre + " , " + especie + " , " + tipo + " , "+ edad;
+		return  nombre + " , " + especie + " , " + tipo + " , "+ edad + ".";
 	}
 }
