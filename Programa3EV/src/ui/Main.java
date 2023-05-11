@@ -1,8 +1,10 @@
 package ui;
 
 import common.TipoException;
-import dao.DaoEmpleadosImp;
+import lombok.extern.log4j.Log4j2;
 import service.ServicioGestion;
+
+@Log4j2
 
 public class Main {
 
@@ -16,7 +18,7 @@ public class Main {
 			//sg.escribirFicheroAnimales(sg.getListaAnimales());
 		} catch (TipoException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error(e.getMessage(),e);
 		}
 
 	}

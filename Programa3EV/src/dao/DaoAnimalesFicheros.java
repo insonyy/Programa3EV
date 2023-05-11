@@ -26,6 +26,7 @@ public class DaoAnimalesFicheros {
             for (Iterator<Animal> iter = list.iterator(); iter.hasNext(); ) {
                 Animal animal = iter.next();
                 animal.toStringFichero();
+                pw.println(animal);
             }
             pw.close();
         } catch (FileNotFoundException e) {
@@ -38,7 +39,7 @@ public class DaoAnimalesFicheros {
 
         Set<Animal> lista = new HashSet<>();
         try {
-            //File f = new File(FicheroAnimales);
+            File f = new File(FicheroAnimales);
             Scanner teclado = new Scanner(new File(FicheroAnimales));
             while (teclado.hasNextLine()) {
                 String linea = teclado.nextLine();
@@ -55,8 +56,8 @@ public class DaoAnimalesFicheros {
 
     public static void readBuffered() {
         try (BufferedReader bf = new BufferedReader(new FileReader(FicheroAnimales))) {
-            //File f = new File(FicheroAnimales);
-            //FileReader fr = new FileReader(new File(FicheroAnimales));
+            File f = new File(FicheroAnimales);
+            FileReader fr = new FileReader(new File(FicheroAnimales));
             String cadena = null;
             do {
                 cadena = bf.readLine();
