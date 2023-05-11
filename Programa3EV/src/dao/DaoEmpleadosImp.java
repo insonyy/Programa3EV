@@ -8,12 +8,12 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import common.Constantes;
 import domain.Animal;
 import domain.Empleado;
+import lombok.Data;
 
 public class DaoEmpleadosImp implements DaoEmpleados{
-
 	protected final Empleados lista;
 
 	public DaoEmpleadosImp() {
@@ -30,15 +30,15 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	public boolean nuevoEmpleado() {
 		boolean nuevo = true;
 		Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del nuevo empleado");
+        System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_NUEVO_EMPLEADO);
         String nombre = sc.nextLine();
-        System.out.println("Introduce el apellido del nuevo empleado");
+        System.out.println(Constantes.INTRODUCE_EL_APELLIDO_DEL_NUEVO_EMPLEADO);
         String apellido = sc.nextLine();
         Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
-        System.out.println("Introduce el DNI del nuevo empleado");
+        System.out.println(Constantes.INTRODUCE_EL_DNI_DEL_NUEVO_EMPLEADO);
         String dni = sc.nextLine();
         Matcher matcher = comprobar.matcher(dni);
-        System.out.println("Introduce el cargo del nuevo empleado");
+        System.out.println(Constantes.INTRODUCE_EL_CARGO_DEL_NUEVO_EMPLEADO);
         String cargo = sc.nextLine();
         Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
 		lista.getEmpleados().add(empleado);
@@ -48,7 +48,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	public boolean modificarEmpleado() {
 			Scanner sc = new Scanner(System.in);
 			boolean nuevo = true;
-			System.out.println("¿Cual es su nuevo cargo?");
+			System.out.println(Constantes.CUAL_ES_SU_NUEVO_CARGO);
 			String cargo = sc.nextLine();
 		//	empleado.setCargo(cargo);
 			return nuevo;
@@ -58,7 +58,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	public boolean eliminarFichaEmpleado() {
 		Scanner sc = new Scanner(System.in);
 		boolean listar = true;
-		System.out.println("Introduce el nombre del empleado:");
+		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
 		String nombre = sc.nextLine();
 		lista.getEmpleados().remove((Empleado)lista.getEmpleados().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre)));
 		return true;
@@ -69,6 +69,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		emple.stream().sorted((p1, p2)->p1.getCargo().compareTo(p2.getCargo())).forEach(System.out::println);
 		return emple;
 	}
+
 
 	public void map() {
 		HashMap<Integer, Empleado> map = new HashMap<>();
