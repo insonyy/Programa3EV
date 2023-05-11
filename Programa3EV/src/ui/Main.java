@@ -9,19 +9,31 @@ import service.ServicioGestion;
 public class Main {
 
 
-	public static void main(String[] args) {
-		DaoEmpleadosImp dei = new DaoEmpleadosImp();
-		dei.map();
+	public static void main(String[] args){
+//		DaoEmpleadosImp dei = new DaoEmpleadosImp();
+//		dei.map();
 		MenuPrincipal mPrincipal = new MenuPrincipal();
-		try {
-			mPrincipal.menuPrincipal();
+
+			try {
+				mPrincipal.menuPrincipal();
+			} catch (TipoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			ServicioGestion sg = new ServicioGestion();
-			//sg.escribirFicheroEmpleado(sg.getListaEmpleados());
-			//sg.escribirFicheroAnimales(sg.getListaAnimales());
-		} catch (TipoException e) {
-			// TODO Auto-generated catch block
-			log.error(e.getMessage(),e);
-		}
+			try {
+				sg.escribirFicheroEmpleado(sg.getListaEmpleados());
+			} catch (TipoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				sg.escribirFicheroAnimales(sg.getListaAnimales());
+			} catch (TipoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 
 	}
 

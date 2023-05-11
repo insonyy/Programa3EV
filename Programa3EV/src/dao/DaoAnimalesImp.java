@@ -81,7 +81,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 		int edad = sc.nextInt();
 		System.out.println(Constantes.INTRODUCE_SU_RAZA);
 		String raza = sc.nextLine();
-		Animal animal = new Animal(nombre, especie, edad, raza);  
+		Animal animal = new Animal(nombre, especie, raza, edad);  
 		lista.getAnimales().add(animal);
 		return nuevo;
 	}

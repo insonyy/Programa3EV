@@ -15,7 +15,7 @@ public class Animal {
 	private Empleado empleado;//Medico asignado
 	
 	//Constructor
-	public Animal(String nombre, String especie, int edad, String tipo) {
+	public Animal(String nombre, String especie, String tipo,int edad) {
 		this.nombre = nombre;
 		this.especie = especie;
 		this.tipo = tipo;
@@ -35,6 +35,6 @@ public class Animal {
 	}
 	@Override
 	public String toString() {
-		return  nombre + " , " + especie + " , " + tipo + " , "+ edad + ".";
+		return  nombre + "," + especie + "," + tipo + ","+ edad ;
 	}
 }

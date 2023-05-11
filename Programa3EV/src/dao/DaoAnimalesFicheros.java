@@ -44,10 +44,12 @@ public class DaoAnimalesFicheros {
             while (teclado.hasNextLine()) {
                 String linea = teclado.nextLine();
                 String sub[] = linea.split(",");
-                Animal animal = new Animal(sub[0], sub[1], Integer.parseInt(sub[2]), sub[3]);
+                int edad=Integer.parseInt(sub[3]);
+                Animal animal = new Animal(sub[0], sub[1], sub[2], edad);
                 lista.add(animal);
             }
             teclado.close();
+            lista.stream().sorted();
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
