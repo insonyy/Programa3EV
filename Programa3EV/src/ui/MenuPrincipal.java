@@ -32,7 +32,7 @@ public class MenuPrincipal {
 			System.out.println("3. " + Constantes.MP3);
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
-			System.out.println("6. " + Constantes.MP7);
+			System.out.println("6. " + Constantes.MP6);
 			System.out.println("7. " + Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			opcion = sn.nextInt();
@@ -50,11 +50,11 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 4:
-				sGestion.listarPacientesEspecie();
+				sGestion.getListaAnimalesEspecie().forEach(System.out::println);
 				System.out.println();
 				break;
 			case 5:
-				sGestion.listarEmpleadosCargo();
+				sGestion.listarEmpleadosCargo().forEach(System.out::println);
 				System.out.println();
 				break;		
 			case 6:

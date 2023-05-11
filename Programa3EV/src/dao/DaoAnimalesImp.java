@@ -38,18 +38,9 @@ public class DaoAnimalesImp implements DaoAnimales{
 	@Override
 	public Set<Animal> getListaAnimalesEspecie() {
 		Set<Animal> auxAnimales = lista.getAnimales();
-		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
+		auxAnimales.stream().sorted((p1, p2)->p1.getEspecie().compareTo(p2.getEspecie()));
 		return auxAnimales;
 	}
-
-	@Override
-	public Set<Animal> getListaAnimalesEspecieTipo() {
-		Set<Animal> auxAnimales = lista.getAnimales();
-		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getEspecie().compareTo(o2.getEspecie()));
-		Collections.sort((List<Animal>) auxAnimales, (o1, o2) -> o1.getTipo().compareTo(o2.getTipo()));
-		return auxAnimales;
-	}
-
 	//por tipo
 
 	public Set<Animal> getListaAnimales(String tipo, String especie) {
@@ -70,7 +61,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 		List<Animal> auxAnimalesTodo = new ArrayList<>(lista.getAnimales()); //prefiero manejar Set como un List
 		List<Animal> auxAnimalesSub = new ArrayList<>();
 		for (int i =  0; i < auxAnimalesTodo.size(); i++){
-			if (auxAnimalesTodo.get(i).getTipo().equals(empleado)){
+			if (auxAnimalesTodo.get(i).getEmpleado().getNombre().equals(empleado)){
 				auxAnimalesSub.add(auxAnimalesTodo.get(i));
 			}
 		}

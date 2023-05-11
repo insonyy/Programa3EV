@@ -21,6 +21,9 @@ public class Empleado implements Comparable<Empleado>{
 	public String toStringFicheroEmpleado() {
 		return nombre+";"+apellido+";"+dni+";"+cargo;
 	}
+	public String toString() {
+		return nombre+" "+apellido+"; "+dni+"; "+cargo;
+	}
 
 	@Override
 	public int compareTo(Empleado o) {

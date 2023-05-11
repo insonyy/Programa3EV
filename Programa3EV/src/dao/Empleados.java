@@ -10,7 +10,6 @@ public class Empleados {
 	
 	public Empleados() {
 		empleados=new ArrayList();
-		
 		empleados.add(new Empleado("Francisco", "Gutierrez","23431186T","Doctor"));
 		empleados.add(new Empleado("Daniel", "Gutierrez","58771426K","Recepcionista"));
 		empleados.add(new Empleado("Manuel","Fernandez","47163084P","Doctor"));

@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import domain.Animal;
 import domain.Empleado;
 
 public class DaoEmpleadosImp implements DaoEmpleados{
@@ -16,14 +18,12 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 
 	public DaoEmpleadosImp() {
 		this.lista = new Empleados();
-
 	}
 
 
 	@Override
 	public List<Empleado> getListaEmpleados() {
-		List<Empleado> listaEmpleados=new ArrayList<>();
-		listaEmpleados= lista.getEmpleados();
+		List<Empleado> listaEmpleados=lista.getEmpleados();
 		return listaEmpleados;
 	}
 	@Override
@@ -64,15 +64,10 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		return true;
 	}
 	@Override
-	public boolean listarEmpleadosCargo() {
-		Scanner sc = new Scanner(System.in);
-		boolean listar = true;
-		System.out.println("Introduce el nombre del empleado:");
-		String nombre = sc.nextLine();
-		Empleado empleado = (Empleado) lista.getEmpleados().stream().filter(empleado1 -> empleado1.getCargo().equalsIgnoreCase(nombre));
-		System.out.println(empleado);
-    	Collections.sort((List<Empleado>) getListaEmpleados(), (o1, o2) -> o1.getCargo().compareTo(o2.getCargo()));
-		return listar;
+	public List<Empleado> listarEmpleadosCargo() {
+		List<Empleado> emple = lista.getEmpleados();
+		emple.stream().sorted((p1, p2)->p1.getCargo().compareTo(p2.getCargo()));
+		return emple;
 	}
 
 	public void map() {
