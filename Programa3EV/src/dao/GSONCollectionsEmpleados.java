@@ -9,6 +9,9 @@ import java.util.Collection;
 
 import com.google.gson.reflect.TypeToken;
 import domain.Empleado;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 
 public class GSONCollectionsEmpleados {
 
