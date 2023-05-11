@@ -75,8 +75,10 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		HashMap<Integer, Empleado> map = new HashMap<>();
 		for (int i = 0;i < getListaEmpleados().size();i++){
 			map.put(i, getListaEmpleados().get(i));
-			System.out.println(map);
+			System.out.println(map.get(i).toString());
+
 		}
+
 
 	}
 
