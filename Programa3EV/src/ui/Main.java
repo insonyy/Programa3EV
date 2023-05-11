@@ -1,6 +1,8 @@
 package ui;
 
 import common.TipoException;
+import dao.DaoAnimalesImp;
+import dao.DaoEmpleadosImp;
 import lombok.extern.log4j.Log4j2;
 import service.ServicioGestion;
 
@@ -10,8 +12,6 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		DaoEmpleadosImp dei = new DaoEmpleadosImp();
-		dei.map();
 		MenuPrincipal mPrincipal = new MenuPrincipal();
 		try {
 			mPrincipal.menuPrincipal();
