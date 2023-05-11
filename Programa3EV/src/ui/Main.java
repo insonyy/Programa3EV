@@ -12,7 +12,8 @@ public class Main {
 		try {
 			mPrincipal.menuPrincipal();
 			ServicioGestion sg = new ServicioGestion();
-			sg.escribirFicheroEmpleado(sg.getListaEmpleados());
+			//sg.escribirFicheroEmpleado(sg.getListaEmpleados());
+			//sg.escribirFicheroAnimales(sg.getListaAnimales());
 		} catch (TipoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
