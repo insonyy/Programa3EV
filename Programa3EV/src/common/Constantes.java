@@ -18,8 +18,7 @@ public class Constantes {
 	public static final String MP3 = "Listar ingresos actuales";
 	public static final String MP4 = "Listar paciente por especie";
 	public static final String MP5 = "Listar empleados por cargo";
-	public static final String MP6 = "Listar tratamientos en curso";
-	public static final String MP7 = "Acceder a gestion de datos";
+	public static final String MP6 = "Acceder a gestion de datos";
 	public static final String OPPSSWD = "Por favor introduzca contraseña para acceder a la gestion de datos";
 	public static final String OPNOTPSSWD = "Contraseña incorrecta";
 	public static final String OPSalir = "Salir";

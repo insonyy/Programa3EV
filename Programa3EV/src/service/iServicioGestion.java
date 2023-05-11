@@ -9,7 +9,6 @@ import domain.*;
 public interface iServicioGestion {
 	public Set<Animal> getListaAnimales()throws TipoException;
 	public Set<Animal> getListaAnimalesEspecie()throws TipoException;
-	public Set<Animal> getListaAnimalesEspecieTipo()throws TipoException;
 	public boolean nuevoAnimal()throws TipoException;
 	public boolean modificarAnimal()throws TipoException;
 	public boolean eliminarFichaAnimal()throws TipoException;
@@ -22,8 +21,7 @@ public interface iServicioGestion {
 	public boolean modificarTratamiento()throws TipoException;
 	public boolean suspenderTratamiento()throws TipoException;
 	public Set<Animal> listarPacientesIngresados()throws TipoException;
-	public void listarPacientesEspecie()throws TipoException;
-	public void listarEmpleadosCargo()throws TipoException;
+	public List<Empleado> listarEmpleadosCargo()throws TipoException;
 
 
 

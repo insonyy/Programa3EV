@@ -9,8 +9,7 @@ public class Empleados {
 	private List<Empleado> empleados;
 	
 	public Empleados() {
-		empleados=new ArrayList();
-		
+		/*empleados=new ArrayList();
 		empleados.add(new Empleado("Francisco", "Gutierrez","23431186T","Doctor"));
 		empleados.add(new Empleado("Daniel", "Gutierrez","58771426K","Recepcionista"));
 		empleados.add(new Empleado("Manuel","Fernandez","47163084P","Doctor"));
@@ -22,7 +21,8 @@ public class Empleados {
 		empleados.add(new Empleado("Cade", "Cunningham","74851629C","Auxiliar"));
 		empleados.add(new Empleado("Sergio", "Garcia","88416571M","Doctor"));
 		empleados.add(new Empleado("Carlos", "Bruñas","92292814C","Recepcionista"));
-
+		*/
+		empleados = DaoEmpleadosFicheros.leerArrayList();
 	}
 
 	public List<Empleado> getEmpleados() {

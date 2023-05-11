@@ -9,7 +9,6 @@ import domain.Empleado;
 public interface DaoAnimales {
 	public Set<Animal> getListaAnimales();
 	public Set<Animal> getListaAnimalesEspecie();
-	public Set<Animal> getListaAnimalesEspecieTipo();
 	public boolean nuevoAnimal();
 	public boolean modificarAnimal();
 	public boolean eliminarFichaAnimal();

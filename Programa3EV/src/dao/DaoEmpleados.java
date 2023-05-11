@@ -8,6 +8,6 @@ public interface DaoEmpleados {
 	public boolean nuevoEmpleado();
 	public boolean modificarEmpleado();
 	public boolean eliminarFichaEmpleado();
-	public boolean listarEmpleadosCargo();
+	public List<Empleado> listarEmpleadosCargo();
 
 }
