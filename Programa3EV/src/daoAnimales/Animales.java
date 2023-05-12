@@ -1,4 +1,4 @@
-package dao;
+package daoAnimales;
 
 import domain.Animal;
 import lombok.Data;
@@ -12,7 +12,7 @@ public class Animales {
     private static int id;
 
     public Animales(){
-  
+  /*
        animales = new HashSet<>();
         //Perros
         animales.add(new Animal("Pepe", "perro", "Border Collie", 1));
@@ -68,7 +68,7 @@ public class Animales {
         animales.add(new Animal("Arnie", "pajaro", "Cuervo", 2));
         animales.add(new Animal("Magnus", "pajaro", "Ninfa", 2));
         animales.add(new Animal("Magnus", "pajaro", "Ninfa", 2));
-
-        //animales = DaoAnimalesFicheros.readArrayList();
+*/
+        animales = DaoAnimalesFicheros.readArrayList();
     }
 }

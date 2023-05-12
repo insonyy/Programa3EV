@@ -3,6 +3,9 @@ package domain;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+import lombok.Data;
+
+@Data
 public class Ingreso {
     private LocalDate fecha;
     private String nombreAnimal;
@@ -15,6 +18,4 @@ public class Ingreso {
         this.nifEmpleado = nifEmpleado;
         this.tratamiento = tratamiento;
     }
-
-
 }

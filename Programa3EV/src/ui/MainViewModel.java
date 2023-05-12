@@ -3,8 +3,8 @@ package ui;
 import java.util.List;
 
 import common.TipoException;
-import dao.DaoAnimales;
-import dao.DaoEmpleados;
+import daoAnimales.DaoAnimales;
+import daoEmpleados.DaoEmpleados;
 import domain.Animal;
 import domain.Empleado;
 import javafx.collections.ObservableList;

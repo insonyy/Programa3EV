@@ -45,5 +45,8 @@ public class Constantes {
 	public static final String INTRODUCE_SU_EDAD = "Introduce su edad";
 	public static final String INTRODUCE_LA_ESPECIE_DEL_PACIENTE = "Introduce la especie del paciente";
 	public static final String INTRODUCE_EL_NOMBRE_DEL_NUEVO_PACIENTE = "Introduce el nombre del nuevo paciente";
+	public static final String NUEVA_ESPECIE = "Nueva especie:";
+	public static final String NUEVA_RAZA = "Nueva raza:";
+	public static final String NUEVA_EDAD = "Nueva edad:";
 
 }

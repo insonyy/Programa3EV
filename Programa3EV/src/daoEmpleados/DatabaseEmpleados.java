@@ -1,4 +1,4 @@
-package dao;
+package daoEmpleados;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

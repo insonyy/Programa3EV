@@ -1,4 +1,4 @@
-package dao;
+package daoIngresos;
 
 public interface DaoIngresos {
 }

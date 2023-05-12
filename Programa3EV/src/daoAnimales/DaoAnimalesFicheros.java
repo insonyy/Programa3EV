@@ -1,4 +1,4 @@
-package dao;
+package daoAnimales;
 
 import domain.Animal;
 import lombok.Data;
@@ -8,6 +8,8 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import daoEmpleados.DaoEmpleadosFicheros;
 
 
 @Data

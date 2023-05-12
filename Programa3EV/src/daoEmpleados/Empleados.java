@@ -1,4 +1,4 @@
-package dao;
+package daoEmpleados;
 
 import java.util.ArrayList;
 import java.util.List;

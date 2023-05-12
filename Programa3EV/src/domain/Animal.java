@@ -10,9 +10,6 @@ public class Animal {
 	private String tipo;//Raza
 	private String tratamiento;
 	private int edad;
-	private boolean ingresado;
-	private LocalDate fecha;
-	private Empleado empleado;//Medico asignado
 	
 	//Constructor
 	public Animal(String nombre, String especie, String tipo,int edad) {
@@ -22,16 +19,8 @@ public class Animal {
 		this.edad = edad;
 
 	}
-	public Animal() {}
-	public void fechaingreso() {
-		int random= ((int) (Math.random()*4+1));
-		if (ingresado) {
-			setFecha(LocalDate.now().minusDays(random));
-		}
-	}
-	
 	public String toStringFichero(){
-		return nombre + "," + especie + "," + tipo + "," + edad + "," + ingresado + "," + fecha + "," + empleado;
+		return nombre + "," + especie + "," + tipo + "," + edad;
 	}
 	@Override
 	public String toString() {

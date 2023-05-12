@@ -1,5 +1,5 @@
 module programa3EV {
-	exports dao;
+	exports daoAnimales;
 	exports common;
 	exports ui;
 	exports service;

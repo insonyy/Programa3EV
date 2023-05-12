@@ -1,24 +1,20 @@
 package service;
 
 import common.TipoException;
-import dao.*;
+import daoAnimales.*;
+import daoEmpleados.DaoEmpleados;
+import daoEmpleados.DaoEmpleadosFicheros;
+import daoEmpleados.DaoEmpleadosImp;
 import domain.Animal;
 import domain.Empleado;
-
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ServicioGestion implements iServicioGestion {
 
     private final DaoAnimales daoAnimales;
     private final DaoEmpleados daoEmpleados;
+    
     public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados) {
         this.daoAnimales = daoAnimales;
         this.daoEmpleados = daoEmpleados;
@@ -41,18 +37,18 @@ public class ServicioGestion implements iServicioGestion {
         return daoAnimales.getListaAnimalesEspecie();
     }
     @Override
-    public boolean nuevoAnimal() throws TipoException {
-        return daoAnimales.nuevoAnimal();
+    public boolean nuevoAnimal(Animal animal) throws TipoException {
+        return daoAnimales.nuevoAnimal(animal);
     }
 
     @Override
-    public boolean modificarAnimal() throws TipoException {
-        return	daoAnimales.modificarAnimal();
+    public boolean modificarAnimal(String nombre, String especie, String tipo, int edad) throws TipoException {
+        return	daoAnimales.modificarAnimal(nombre, especie, tipo, edad);
     }
 
     @Override
-    public boolean eliminarFichaAnimal() throws TipoException {
-        return daoAnimales.eliminarFichaAnimal();
+    public boolean eliminarFichaAnimal(String nombre) throws TipoException {
+        return daoAnimales.eliminarFichaAnimal(nombre);
     }
 
     @Override
@@ -61,44 +57,39 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
-    public boolean nuevoEmpleado() throws TipoException {
-        return daoEmpleados.nuevoEmpleado();
+    public boolean nuevoEmpleado(Empleado empleado) throws TipoException {
+        return daoEmpleados.nuevoEmpleado(empleado);
     }
 
     @Override
-    public boolean modificarEmpleado() throws TipoException {
-        return daoEmpleados.modificarEmpleado();
+    public boolean modificarEmpleado(String nombre, String cargo) throws TipoException {
+        return daoEmpleados.modificarEmpleado(nombre,cargo);
     }
 
     @Override
-    public boolean eliminarFichaEmpleado() throws TipoException {
-        return daoEmpleados.eliminarFichaEmpleado();
+    public boolean eliminarFichaEmpleado(String nombre) throws TipoException {
+        return daoEmpleados.eliminarFichaEmpleado(nombre);
     }
 
     
 	@Override
-    public void getListaTratamientos() throws TipoException {	
-		daoAnimales.getListaAnimales().forEach(Animal::getTratamiento);
+    public Set<Animal> getListaTratamientos() throws TipoException {	
+		return 	daoAnimales.getListaTratamientos();
     }
 
     @Override
-    public boolean nuevoTratamiento() throws TipoException {
-        return daoAnimales.nuevoTratamiento();
+    public boolean nuevoTratamiento(String nombre, String tratamiento) throws TipoException {
+        return daoAnimales.nuevoTratamiento(nombre, tratamiento);
     }
 
     @Override
-    public boolean modificarTratamiento() throws TipoException {
-        return daoAnimales.modificarTratamiento();
+    public boolean modificarTratamiento(String nombre, String tratamiento) throws TipoException {
+        return daoAnimales.modificarTratamiento(nombre, tratamiento);
     }
 
     @Override
-    public boolean suspenderTratamiento() throws TipoException {
-        return daoAnimales.suspenderTratamiento();
-    }
-
-    @Override
-    public Set<Animal> listarPacientesIngresados() throws TipoException {
-        return daoAnimales.listarPacientesIngresados();
+    public boolean suspenderTratamiento(String nombre, String tratamiento) throws TipoException {
+        return daoAnimales.suspenderTratamiento(nombre, tratamiento);
     }
 
     @Override
@@ -114,5 +105,6 @@ public class ServicioGestion implements iServicioGestion {
     public boolean escribirFicheroAnimales(Set<Animal> set){
         return DaoAnimalesFicheros.escribirFicheros(set);
     }
+
 
 }

@@ -1,4 +1,4 @@
-package dao;
+package daoEmpleados;
 
 import domain.Empleado;
 import lombok.Data;

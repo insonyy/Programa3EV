@@ -29,7 +29,7 @@ public class MenuPrincipal {
 			System.out.println(Constantes.DIVIDER);
 			System.out.println("1. " + Constantes.MP1);
 			System.out.println("2. " + Constantes.MP2);
-			System.out.println("3. " + Constantes.MP3);
+			//System.out.println("3. " + Constantes.MP3);
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
 			System.out.println("6. " + Constantes.MP6);
@@ -45,10 +45,10 @@ public class MenuPrincipal {
 				sGestion.getListaEmpleados().forEach(System.out::println);
 				System.out.println();
 				break;
-			case 3:
-				sGestion.listarPacientesIngresados().forEach(System.out::println);
-				System.out.println();
-				break;
+//			case 3:
+//				sGestion.listarPacientesIngresados().forEach(System.out::println);
+//				System.out.println();
+//				break;
 			case 4:
 				sGestion.getListaAnimalesEspecie();
 				System.out.println();
