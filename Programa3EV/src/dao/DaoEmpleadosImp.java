@@ -15,15 +15,17 @@ import lombok.Data;
 
 public class DaoEmpleadosImp implements DaoEmpleados{
 	protected final Empleados lista;
-
+	  private final DatabaseEmpleados db;
+	  
 	public DaoEmpleadosImp() {
 		this.lista = new Empleados();
+		 this.db = new DatabaseEmpleados();
 	}
-
 
 	@Override
 	public List<Empleado> getListaEmpleados() {
 		List<Empleado> listaEmpleados=lista.getEmpleados();
+		db.loadEmpleados();
 		return listaEmpleados;
 	}
 	@Override
@@ -42,15 +44,20 @@ public class DaoEmpleadosImp implements DaoEmpleados{
         String cargo = sc.nextLine();
         Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
 		lista.getEmpleados().add(empleado);
+		db.saveEmpleados(lista.getEmpleados());
 		return nuevo;
 	}
 	@Override
 	public boolean modificarEmpleado() {
 			Scanner sc = new Scanner(System.in);
 			boolean nuevo = true;
+			System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
+			String nombre = sc.nextLine();
 			System.out.println(Constantes.CUAL_ES_SU_NUEVO_CARGO);
 			String cargo = sc.nextLine();
-		//	empleado.setCargo(cargo);
+			List<Empleado> emple = lista.getEmpleados();
+			((Empleado) emple.stream().filter(a->a.getNombre().equalsIgnoreCase(nombre))).setCargo(cargo);
+			db.saveEmpleados(lista.getEmpleados());
 			return nuevo;
 
 	}
@@ -61,6 +68,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
 		String nombre = sc.nextLine();
 		lista.getEmpleados().remove((Empleado)lista.getEmpleados().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre)));
+		db.saveEmpleados(lista.getEmpleados());
 		return true;
 	}
 	@Override
