@@ -3,7 +3,7 @@ package common;
 @SuppressWarnings("serial")
 public class TipoException extends Exception {
 
-/*Constructores*/
+/*Constructores*///
 
     public TipoException() {
 
