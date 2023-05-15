@@ -2,12 +2,16 @@ package daoAnimales;
 
 import domain.Animal;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 class DaoAnimalesImpTest {
 
@@ -31,6 +35,7 @@ class DaoAnimalesImpTest {
         System.out.println("--Fin del test");
     }
 
+    @InjectMocks DaoAnimalesImp daoAnimalesImp;
     @Mock Animales animales;
 
     @Test
@@ -44,7 +49,15 @@ class DaoAnimalesImpTest {
 
         //when
 
+        when(animales.getAnimales()).thenReturn(setAnimal);
+        Set<Animal> resultado = daoAnimalesImp.getListaAnimales();
+
         //then
+        assertAll(
+                ()-> assertThat(resultado).isEqualTo(setAnimal),
+                ()-> assertThat(resultado).isNotNull()
+        );
+
     }
 
     @Test
