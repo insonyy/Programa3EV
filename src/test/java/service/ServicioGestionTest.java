@@ -1,6 +1,7 @@
 package service;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,9 +31,13 @@ class ServicioGestionTest {
     void getListaAnimales() {
     }
 
+
+
     @Test
     void getListaAnimalesEspecie() {
     }
+
+
 
     @Test
     void nuevoAnimal() {
