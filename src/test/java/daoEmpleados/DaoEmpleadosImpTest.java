@@ -1,6 +1,7 @@
 package daoEmpleados;
 
 import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,6 +26,9 @@ class DaoEmpleadosImpTest {
     static void finTest(){
         System.out.println("--Fin del test");
     }
+
+
+    @Mock Empleados empleados;
 
     @Test
     void getListaEmpleados() {

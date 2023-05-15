@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,5 +29,7 @@ class DaoIngresosImpTest {
     static void finTest(){
         System.out.println("--Fin del test");
     }
+
+    @Mock Ingresos ingresos;
 
 }
