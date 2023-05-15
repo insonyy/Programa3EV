@@ -1,19 +1,19 @@
-package service;
+package daoAnimales;
 
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ServicioGestionTest {
+class DaoAnimalesImpTest {
 
     @BeforeAll
     static void inicio(){
-        System.out.println("Inicio de las pruebas para clase ServicioGestion");
+        System.out.println("Inicio de las pruebas para clase DaoAnimaleaImp");
     }
 
     @AfterAll
     static void fin(){
-        System.out.println("Final de las pruebas para la clase ServicioGestion");
+        System.out.println("Final de las pruebas para la clase DaoAnimaleaImp");
     }
 
     @BeforeEach
@@ -35,6 +35,10 @@ class ServicioGestionTest {
     }
 
     @Test
+    void testGetListaAnimales() {
+    }
+
+    @Test
     void nuevoAnimal() {
     }
 
@@ -44,22 +48,6 @@ class ServicioGestionTest {
 
     @Test
     void eliminarFichaAnimal() {
-    }
-
-    @Test
-    void getListaEmpleados() {
-    }
-
-    @Test
-    void nuevoEmpleado() {
-    }
-
-    @Test
-    void modificarEmpleado() {
-    }
-
-    @Test
-    void eliminarFichaEmpleado() {
     }
 
     @Test
@@ -76,17 +64,5 @@ class ServicioGestionTest {
 
     @Test
     void suspenderTratamiento() {
-    }
-
-    @Test
-    void listarEmpleadosCargo() {
-    }
-
-    @Test
-    void escribirFicheroEmpleado() {
-    }
-
-    @Test
-    void escribirFicheroAnimales() {
     }
 }
