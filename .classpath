@@ -22,5 +22,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/alumno/Downloads/jfoenix-9.0.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alumno/.m2/repository/io/vavr/vavr/1.0.0-alpha-4/vavr-1.0.0-alpha-4.jar" sourcepath="C:/Users/alumno/.m2/repository/io/vavr/vavr/1.0.0-alpha-4/vavr-1.0.0-alpha-4-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="io.vavr"/>
+			<attribute name="maven.artifactId" value="vavr"/>
+			<attribute name="maven.version" value="1.0.0-alpha-4"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

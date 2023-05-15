@@ -67,7 +67,6 @@ public class Animales {
         animales.add(new Animal("Pablo", "pajaro", "Guacamayo", 1));
         animales.add(new Animal("Arnie", "pajaro", "Cuervo", 2));
         animales.add(new Animal("Magnus", "pajaro", "Ninfa", 2));
-        animales.add(new Animal("Magnus", "pajaro", "Ninfa", 2));
 */
         animales = DaoAnimalesFicheros.readArrayList();
     }

@@ -18,9 +18,18 @@ public interface iServicioGestion {
 	public boolean suspenderTratamiento(String nombre, String tratamiento)throws TipoException;
 	public List<Empleado> getListaEmpleados()throws TipoException;
 	public List<Empleado> listarEmpleadosCargo()throws TipoException;
-	public boolean nuevoEmpleado(Empleado empleado)throws TipoException;;
-	public boolean modificarEmpleado(String nombre, String cargo)throws TipoException;;
-	public boolean eliminarFichaEmpleado(String nombre)throws TipoException;;
-
+	public boolean nuevoEmpleado(Empleado empleado)throws TipoException;
+	public boolean modificarEmpleado(String nombre, String cargo)throws TipoException;
+	public boolean eliminarFichaEmpleado(String nombre)throws TipoException;
+	public List<Ingreso> getListaIngresos()throws TipoException;
+	public List<Ingreso> getListaIngresosPaciente(String nombre)throws TipoException;
+	public List<Ingreso> getListaIngresosEmpleado(String dni)throws TipoException;
+	public List<Ingreso> getListaIngresosFecha(String fecha)throws TipoException;
+	public List<Ingreso> getListaIngresosporPaciente()throws TipoException;
+	public List<Ingreso> getListaIngresosporEmpleado()throws TipoException;
+	public List<Ingreso> getListaIngresosporFecha()throws TipoException;
+	public boolean nuevoIngreso(Ingreso ingreso)throws TipoException;
+	public boolean eliminarIngreso(Ingreso ingreso)throws TipoException;
+	public boolean modificarIngreso(Ingreso ingreso)throws TipoException;
 
 }

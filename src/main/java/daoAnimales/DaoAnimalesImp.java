@@ -53,7 +53,10 @@ public class DaoAnimalesImp implements DaoAnimales{
 	}
 	@Override
 	public boolean modificarAnimal(String nombre, String especie, String tipo, int edad) {
-		
+		Animal animal=(Animal) lista.getAnimales().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre));
+		animal.setEspecie(especie);
+		animal.setTipo(tipo);
+		animal.setEdad(edad);
 		return true;
 	}
 

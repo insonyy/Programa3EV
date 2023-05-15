@@ -5,8 +5,12 @@ import daoAnimales.*;
 import daoEmpleados.DaoEmpleados;
 import daoEmpleados.DaoEmpleadosFicheros;
 import daoEmpleados.DaoEmpleadosImp;
+import daoIngresos.DaoIngresos;
+import daoIngresos.DaoIngresosImp;
 import domain.Animal;
 import domain.Empleado;
+import domain.Ingreso;
+
 import java.util.List;
 import java.util.Set;
 
@@ -14,15 +18,18 @@ public class ServicioGestion implements iServicioGestion {
 
     private final DaoAnimales daoAnimales;
     private final DaoEmpleados daoEmpleados;
+    private final DaoIngresos daoIngresos;
     
-    public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados) {
+    public ServicioGestion(DaoAnimales daoAnimales,DaoEmpleados daoEmpleados, DaoIngresos daoIngresos) {
         this.daoAnimales = daoAnimales;
         this.daoEmpleados = daoEmpleados;
+        this.daoIngresos=daoIngresos;
     }
 
     public ServicioGestion(){
         this.daoAnimales = new DaoAnimalesImp();
         this.daoEmpleados = new DaoEmpleadosImp();
+        this.daoIngresos = new DaoIngresosImp();
     }
 
     //sobrecarga vacía
@@ -105,6 +112,56 @@ public class ServicioGestion implements iServicioGestion {
     public boolean escribirFicheroAnimales(Set<Animal> set){
         return DaoAnimalesFicheros.escribirFicheros(set);
     }
+
+	@Override
+	public List<Ingreso> getListaIngresos() throws TipoException {
+		return daoIngresos.getListaIngresos();
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosPaciente(String nombre) throws TipoException {
+		return daoIngresos.getListaIngresosPaciente(nombre);
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosEmpleado(String dni) throws TipoException {
+		return daoIngresos.getListaIngresosEmpleado(dni);
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosFecha(String fecha) throws TipoException {
+		return daoIngresos.getListaIngresosFecha(fecha);
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosporPaciente() throws TipoException {
+		return daoIngresos.getListaIngresosporPaciente();
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosporEmpleado() throws TipoException {
+		return daoIngresos.getListaIngresosporEmpleado();
+	}
+
+	@Override
+	public List<Ingreso> getListaIngresosporFecha() throws TipoException {
+		return daoIngresos.getListaIngresosporFecha();
+	}
+
+	@Override
+	public boolean nuevoIngreso(Ingreso ingreso) throws TipoException {
+		return daoIngresos.nuevoIngreso(ingreso);
+	}
+
+	@Override
+	public boolean eliminarIngreso(Ingreso ingreso) throws TipoException {
+		return daoIngresos.eliminarIngreso(ingreso);
+	}
+
+	@Override
+	public boolean modificarIngreso(Ingreso ingreso) throws TipoException {
+		return daoIngresos.modificarIngreso(ingreso);
+	}
 
 
 }
