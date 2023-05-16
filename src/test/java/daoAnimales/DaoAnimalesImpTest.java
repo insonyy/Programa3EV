@@ -77,33 +77,104 @@ class DaoAnimalesImpTest {
 
     @Test
     void testGetListaAnimales() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
+
     }
 
     @Test
-    void nuevoAnimal() {
+    void nuevoAnimalLleno() {
+        /*given*/
+        Animal animal = new Animal("Paquito", "hamster", "manchas", 1);
+
+        /*when*/
+        when(lista.getAnimales()).thenReturn(new HashSet<>());
+        boolean res = daoAnimalesImp.nuevoAnimal(animal);
+        /*then*/
+        assertThat(res).isEqualTo(true);
+
+    }
+
+    @Test
+    void nuevoAnimalVacio() {
+        /*given*/
+        Animal animal = null;
+
+        /*when*/
+        when(lista.getAnimales()).thenReturn(new HashSet<>());
+        boolean res = daoAnimalesImp.nuevoAnimal(animal);
+        /*then*/
+        assertThat(res).isEqualTo(true);
     }
 
     @Test
     void modificarAnimal() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 
     @Test
     void eliminarFichaAnimal() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 
     @Test
     void getListaTratamientos() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 
     @Test
     void nuevoTratamiento() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 
     @Test
     void modificarTratamiento() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 
     @Test
     void suspenderTratamiento() {
+        /*given*/
+
+
+
+        /*when*/
+
+        /*then*/
     }
 }
