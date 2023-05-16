@@ -22,22 +22,18 @@ class DaoEmpleadosImpTest {
     static void inicio(){
         System.out.println("Inicio de las pruebas para clase DaoEmpleadosImp");
     }
-
     @AfterAll
     static void fin(){
         System.out.println("Final de las pruebas para la clase DaoEmpleadosImp");
     }
-
     @BeforeEach
    void inicioTest(){
         System.out.println(">>Comienzo del test");
     }
-
     @AfterEach
    void finTest(){
         System.out.println("--Fin del test");
     }
-
 
     @InjectMocks DaoEmpleadosImp daoEmpleadosImp;
     @Mock Empleados lista;
