@@ -25,9 +25,9 @@ public interface iServicioGestion {
 	public List<Ingreso> getListaIngresosPaciente(String nombre)throws TipoException;
 	public List<Ingreso> getListaIngresosEmpleado(String dni)throws TipoException;
 	public List<Ingreso> getListaIngresosFecha(String fecha)throws TipoException;
-	public List<Ingreso> getListaIngresosporPaciente()throws TipoException;
-	public List<Ingreso> getListaIngresosporEmpleado()throws TipoException;
-	public List<Ingreso> getListaIngresosporFecha()throws TipoException;
+	public void getListaIngresosporPaciente()throws TipoException;
+	public void getListaIngresosporEmpleado()throws TipoException;
+	public void getListaIngresosporFecha()throws TipoException;
 	public boolean nuevoIngreso(Ingreso ingreso)throws TipoException;
 	public boolean eliminarIngreso(Ingreso ingreso)throws TipoException;
 	public boolean modificarIngreso(Ingreso ingreso)throws TipoException;
