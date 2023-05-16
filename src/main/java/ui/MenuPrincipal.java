@@ -57,11 +57,11 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 4:
-				sGestion.getListaAnimalesEspecie();
+				sGestion.getListaAnimalesEspecie().forEach(System.out::println);
 				System.out.println();
 				break;
 			case 5:
-				sGestion.listarEmpleadosCargo();
+				sGestion.listarEmpleadosCargo().forEach(System.out::println);
 				System.out.println();
 				break;		
 			case 6:
