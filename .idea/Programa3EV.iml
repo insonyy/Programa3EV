@@ -36,7 +36,10 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:19-ea+7" level="project" />
     <orderEntry type="library" name="Maven: io.github.palexdev:materialfx:11.13.5" level="project" />
     <orderEntry type="library" name="Maven: io.github.palexdev:virtualizedfx:11.2.6" level="project" />
-    <orderEntry type="library" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-junit-jupiter:5.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:5.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.14.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:3.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.24.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy:1.12.21" level="project" />
   </component>

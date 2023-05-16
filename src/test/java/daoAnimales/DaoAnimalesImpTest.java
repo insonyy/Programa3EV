@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class DaoAnimalesImpTest {
 
     @BeforeAll
@@ -43,9 +45,6 @@ class DaoAnimalesImpTest {
     void getListaAnimales() {
 
         /*given*/
-
-        //this.lista = lista;
-        //this.lista = new Animales();
         Set<Animal> setAnimal = new HashSet<>();
         setAnimal.add(new Animal("Anchoa", "perro", "Collie", 3));
         setAnimal.add(new Animal("Will", "perro", "Golden", 5));
@@ -65,6 +64,15 @@ class DaoAnimalesImpTest {
 
     @Test
     void getListaAnimalesEspecie() {
+
+        /*given*/
+        
+
+
+        /*when*/
+
+        /*then*/
+
     }
 
     @Test
