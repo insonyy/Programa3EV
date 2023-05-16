@@ -66,31 +66,27 @@ class DaoAnimalesImpTest {
     void getListaAnimalesEspecie() {
 
         /*given*/
-
-
-
-        /*when*/
-
-        /*then*/
-
-    }
-
-    @Test
-    void testGetListaAnimales() {
-        /*given*/
-
-
+        Set<Animal> setAnimalEspecie = new HashSet<>();
+        setAnimalEspecie.add(new Animal("Anchoa", "perro", "Collie", 3));
+        setAnimalEspecie.add(new Animal("Will", "perro", "Golden", 5));
+        setAnimalEspecie.stream().sorted((p1, p2) -> p1.getEspecie().compareTo(p2.getEspecie())).forEach(System.out::println);
 
         /*when*/
+        when(lista.getAnimales()).thenReturn(setAnimalEspecie);
+        Set<Animal> resultado = daoAnimalesImp.getListaAnimalesEspecie();
 
         /*then*/
+        assertAll(
+                () -> assertThat(resultado).isEqualTo(setAnimalEspecie),
+                () -> assertThat(resultado).isNotNull()
+        );
 
     }
 
     @Test
     void nuevoAnimalLleno() {
         /*given*/
-        Animal animal = new Animal("Paquito", "hamster", "manchas", 1);
+        Animal animal = new Animal("Paquito", "roedor", "hamster", 1);
 
         /*when*/
         when(lista.getAnimales()).thenReturn(new HashSet<>());
@@ -113,25 +109,20 @@ class DaoAnimalesImpTest {
     }
 
     @Test
-    void modificarAnimal() {
-        /*given*/
-
-
-
-        /*when*/
-
-        /*then*/
-    }
-
-    @Test
     void eliminarFichaAnimal() {
         /*given*/
-
-
+        Set<Animal> setAnimal = new HashSet<>();
+        Animal animal1 = new Animal("Paquito", "roedor", "hamster", 1);
+        Animal animal2 = new Animal("Anchoa", "perro", "Collie", 3);
+        setAnimal.add(animal1);
+        setAnimal.add(animal2);
 
         /*when*/
+        when(lista.getAnimales()).thenReturn(setAnimal);
+        setAnimal.remove(animal1);
 
         /*then*/
+        
     }
 
     @Test
