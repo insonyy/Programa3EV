@@ -59,6 +59,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 		animal.setEdad(edad);
 		return true;
 	}
+	
 
 	@Override
 	public boolean eliminarFichaAnimal(String nombre) {
