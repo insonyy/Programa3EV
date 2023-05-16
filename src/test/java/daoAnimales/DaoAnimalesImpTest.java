@@ -42,19 +42,20 @@ class DaoAnimalesImpTest {
     @Test
     void getListaAnimales() {
 
-        //given
+        /*given*/
 
-        this.lista = new Animales();
+        //this.lista = lista;
+        //this.lista = new Animales();
         Set<Animal> setAnimal = new HashSet<>();
         setAnimal.add(new Animal("Anchoa", "perro", "Collie", 3));
         setAnimal.add(new Animal("Will", "perro", "Golden", 5));
 
-        //when
+        /*when*/
 
         when(lista.getAnimales()).thenReturn(setAnimal);
         Set<Animal> resultado = daoAnimalesImp.getListaAnimales();
 
-        //then;
+        /*then*/
         assertAll(
                 ()-> assertThat(resultado).isEqualTo(setAnimal),
                 ()-> assertThat(resultado).isNotNull()

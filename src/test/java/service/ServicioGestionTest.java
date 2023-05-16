@@ -1,12 +1,27 @@
 package service;
 
+import daoAnimales.DaoAnimalesImp;
+import daoEmpleados.DaoEmpleadosImp;
+import daoIngresos.DaoIngresosImp;
 import org.junit.jupiter.api.*;
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+
 class ServicioGestionTest {
+
+    @InjectMocks ServicioGestion servicioGestion;
+
+    @Mock DaoAnimalesImp daoAnimalesImp;
+    @Mock DaoEmpleadosImp daoEmpleadosImp;
+    @Mock DaoIngresosImp daoIngresosImp;
+
 
     @BeforeAll
     static void inicio(){
@@ -31,8 +46,6 @@ class ServicioGestionTest {
     @Test
     void getListaAnimales() {
     }
-
-
 
     @Test
     void getListaAnimalesEspecie() {
