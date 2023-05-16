@@ -12,11 +12,14 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 		 this.db = new DatabaseEmpleados();
 	}
 
+	public DaoEmpleadosImp(Empleados lista, DatabaseEmpleados db) {
+		this.lista = lista;
+		this.db = db;
+	}
+
 	@Override
 	public List<Empleado> getListaEmpleados() {
-		List<Empleado> listaEmpleados=lista.getEmpleados();
-		db.loadEmpleados();
-		return listaEmpleados;
+		return lista.getEmpleados();
 	}
 	@Override
 	public boolean nuevoEmpleado(Empleado empleado) {
