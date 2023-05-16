@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import domain.Animal;
 import domain.Ingreso;
 
 public class DaoIngresosImp implements DaoIngresos {
@@ -49,20 +50,21 @@ public class DaoIngresosImp implements DaoIngresos {
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporPaciente() {
-		return null;
+	public void getListaIngresosporPaciente() {
+		List<Ingreso> listaIngresos= ingresos.getIngresos();	
+		listaIngresos.stream().map(ingresos->ingresos.getNombreAnimal()).sorted().forEach(System.out::println);
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporEmpleado() {
-		
-		return null;
+	public void getListaIngresosporEmpleado() {
+		List<Ingreso> listaIngresos= ingresos.getIngresos();	
+		listaIngresos.stream().map(ingresos->ingresos.getNifEmpleado()).sorted().forEach(System.out::println);
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporFecha() {
-		// TODO Auto-generated method stub
-		return null;
+	public void getListaIngresosporFecha() {
+		List<Ingreso> listaIngresos= ingresos.getIngresos();	
+		listaIngresos.stream().map(ingresos->ingresos.getFecha()).sorted().forEach(System.out::println);
 	}
 
 	@Override
