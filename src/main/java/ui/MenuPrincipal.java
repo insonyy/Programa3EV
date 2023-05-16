@@ -33,13 +33,13 @@ public class MenuPrincipal {
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
 			System.out.println("6. " + Constantes.MP6);
-			System.out.println("7. "/*getlistatratamientos */);
-			System.out.println("8. "/*introduzca paciente */);
-			System.out.println("9. "/*introduzca empleado */);
-			System.out.println("10. "/*introduzca fecha */);
-			System.out.println("11. "/*listar ingresos por paciente */);
-			System.out.println("12. "/*listar ingresos por empleado */);
-			System.out.println("13. "/*listar ingresos por fecha*/);
+			System.out.println("7. "+ Constantes.MP7);
+			System.out.println("8. "+ Constantes.MP8);
+			System.out.println("9. "+ Constantes.MP9);
+			System.out.println("10. "+ Constantes.MP10);
+			System.out.println("11. "+ Constantes.MP11);
+			System.out.println("12. "+ Constantes.MP12);
+			System.out.println("13. "+ Constantes.MP13);
 			System.out.println("14. " + Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			opcion = sn.nextInt();
@@ -82,17 +82,17 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 8:
-				System.out.println("Introduzca el paciente");
+				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 				String nombre = sn.nextLine();
 				sGestion.getListaIngresosPaciente(nombre);
 				break;
 			case 9:
-				System.out.println("Introduzca el empleado");
+				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
 				String dni = sn.nextLine();
 				sGestion.getListaIngresosEmpleado(dni);
 				break;
 			case 10:
-				System.out.println("Introduzca la fecha");
+				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				String fecha = sn.nextLine();
 				sGestion.getListaIngresosFecha(fecha);
 				break;
@@ -112,7 +112,7 @@ public class MenuPrincipal {
 				salir=true;
 				break;
 			default:
-				System.out.println(Constantes.SOLONUMS + " 1 y 8");
+				System.out.println(Constantes.SOLONUMS + " 1 y 14");
 			}
 
 		}while(!salir);

@@ -13,12 +13,22 @@ public class Constantes {
 	public static final String MG7 = "Añadir tratamiento a paciente";
 	public static final String MG8 = "Modificar tratamiento de paciente";
 	public static final String MG9 = "Suspender tratamiento de paciente";
+	public static final String MG10 = "Ingresar paciente";
+	public static final String MG11 = "Editar ingreso paciente";
+	public static final String MG12 = "Dar de alta a paciente";
 	public static final String MP1 = "Listar pacientes";
 	public static final String MP2 = "Listar empleados";
 	public static final String MP3 = "Listar ingresos actuales";
 	public static final String MP4 = "Listar paciente por especie";
 	public static final String MP5 = "Listar empleados por cargo";
 	public static final String MP6 = "Acceder a gestion de datos";
+	public static final String MP7 = "Listar ingresos";
+	public static final String MP8 = "Listar ingresos de un paciente";
+	public static final String MP9 = "Listar ingresos de un empleado";
+	public static final String MP10 = "Listar ingresos de una fecha concreta";
+	public static final String MP11 = "Listar ingresos alfabeticamente";
+	public static final String MP12 = "Listar ingresos por empleado";
+	public static final String MP13 = "Listar ingresos por fecha";
 	public static final String OPPSSWD = "Por favor introduzca contraseña para acceder a la gestion de datos";
 	public static final String OPNOTPSSWD = "Contraseña incorrecta";
 	public static final String OPSalir = "Salir";
@@ -48,5 +58,7 @@ public class Constantes {
 	public static final String NUEVA_ESPECIE = "Nueva especie:";
 	public static final String NUEVA_RAZA = "Nueva raza:";
 	public static final String NUEVA_EDAD = "Nueva edad:";
+	public static final String INTRODUCE_LA_FECHA = "Introduce la fecha";
+	public static final String INTRODUCE_EL_NIF_DEL_EMPLEADO = "Introduce el nif del empleado";
 
 }

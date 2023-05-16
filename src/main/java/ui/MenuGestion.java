@@ -13,6 +13,8 @@ import domain.Ingreso;
 import service.ServicioGestion;
 
 public class MenuGestion {
+
+
 	private static ServicioGestion sGestion;
 	public void menuGestion() throws TipoException {
 		Scanner sc = new Scanner(System.in);
@@ -30,9 +32,9 @@ public class MenuGestion {
 			System.out.println("7."+Constantes.MG7);
 			System.out.println("8."+Constantes.MG8);
 			System.out.println("9."+Constantes.MG9);
-			System.out.println("10." /*nuevo ingreso */);
-			System.out.println("11." /*eliminar ingreso */);
-			System.out.println("12." /*modificar ingreso */);
+			System.out.println("10."+Constantes.MG10);
+			System.out.println("11."+Constantes.MG12);
+			System.out.println("12."+ Constantes.MG11);
 			System.out.println("13."+Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			System.out.println();
@@ -114,13 +116,13 @@ public class MenuGestion {
 				sGestion.suspenderTratamiento(nombre9,tratamiento2);
 				break;
 			case 10:
-				System.out.println("Introduce el nombre del animal");
+				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 				String nombreanimal = sc.nextLine();
-				System.out.println("Introduce el tratamiento");
+				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 				String tratamiento3 = sc.nextLine();
-				System.out.println("Introduce el nif del empleado");
+				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
 				String nifEmpleado = sc.nextLine();
-				System.out.println("Introduce la fecha");
+				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				String fecha1 = new String();
 				LocalDate localdate = LocalDate.parse(fecha1, formato);
@@ -128,13 +130,13 @@ public class MenuGestion {
 				sGestion.nuevoIngreso(ingreso);
 				break;
 			case 11:
-				System.out.println("Introduce el nombre del animal");
+				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 				String nombreanimal1 = sc.nextLine();
-				System.out.println("Introduce el tratamiento");
+				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 				String tratamiento4 = sc.nextLine();
-				System.out.println("Introduce el nif del empleado");
+				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
 				String nifEmpleado1 = sc.nextLine();
-				System.out.println("Introduce la fecha");
+				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				String fecha2 = new String();
 				LocalDate localdate1 = LocalDate.parse(fecha2, formato1);
@@ -142,13 +144,13 @@ public class MenuGestion {
 				sGestion.eliminarIngreso(ingreso1);
 				break;
 			case 12:
-				System.out.println("Introduce el nombre del animal");
+				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 				String nombreanimal2 = sc.nextLine();
-				System.out.println("Introduce el tratamiento");
+				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
 				String tratamiento5 = sc.nextLine();
-				System.out.println("Introduce el nif del empleado");
+				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
 				String nifEmpleado2 = sc.nextLine();
-				System.out.println("Introduce la fecha");
+				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				String fecha3 = new String();
 				LocalDate localdate2 = LocalDate.parse(fecha3, formato2);
