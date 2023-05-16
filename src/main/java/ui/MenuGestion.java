@@ -1,5 +1,7 @@
 package ui;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,6 +9,7 @@ import common.Constantes;
 import common.TipoException;
 import domain.Animal;
 import domain.Empleado;
+import domain.Ingreso;
 import service.ServicioGestion;
 
 public class MenuGestion {
@@ -27,7 +30,10 @@ public class MenuGestion {
 			System.out.println("7."+Constantes.MG7);
 			System.out.println("8."+Constantes.MG8);
 			System.out.println("9."+Constantes.MG9);
-			System.out.println("10."+Constantes.OPSalir);
+			System.out.println("10." /*nuevo ingreso */);
+			System.out.println("11." /*eliminar ingreso */);
+			System.out.println("12." /*modificar ingreso */);
+			System.out.println("13."+Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			System.out.println();
 			int opcion = sc.nextInt();
@@ -108,9 +114,51 @@ public class MenuGestion {
 				sGestion.suspenderTratamiento(nombre9,tratamiento2);
 				break;
 			case 10:
+				System.out.println("Introduce el nombre del animal");
+				String nombreanimal = sc.nextLine();
+				System.out.println("Introduce el tratamiento");
+				String tratamiento3 = sc.nextLine();
+				System.out.println("Introduce el nif del empleado");
+				String nifEmpleado = sc.nextLine();
+				System.out.println("Introduce la fecha");
+				DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				String fecha1 = new String();
+				LocalDate localdate = LocalDate.parse(fecha1, formato);
+				Ingreso ingreso = new Ingreso(nombreanimal,tratamiento3,nifEmpleado,localdate);
+				sGestion.nuevoIngreso(ingreso);
+				break;
+			case 11:
+				System.out.println("Introduce el nombre del animal");
+				String nombreanimal1 = sc.nextLine();
+				System.out.println("Introduce el tratamiento");
+				String tratamiento4 = sc.nextLine();
+				System.out.println("Introduce el nif del empleado");
+				String nifEmpleado1 = sc.nextLine();
+				System.out.println("Introduce la fecha");
+				DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				String fecha2 = new String();
+				LocalDate localdate1 = LocalDate.parse(fecha2, formato1);
+				Ingreso ingreso1 = new Ingreso(nombreanimal1,tratamiento4,nifEmpleado1,localdate1);
+				sGestion.eliminarIngreso(ingreso1);
+				break;
+			case 12:
+				System.out.println("Introduce el nombre del animal");
+				String nombreanimal2 = sc.nextLine();
+				System.out.println("Introduce el tratamiento");
+				String tratamiento5 = sc.nextLine();
+				System.out.println("Introduce el nif del empleado");
+				String nifEmpleado2 = sc.nextLine();
+				System.out.println("Introduce la fecha");
+				DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				String fecha3 = new String();
+				LocalDate localdate2 = LocalDate.parse(fecha3, formato2);
+				Ingreso ingreso2 = new Ingreso(nombreanimal2,tratamiento5,nifEmpleado2,localdate2);
+				sGestion.modificarIngreso(ingreso2);
+				break;
+			case 13:
 				salir=true;
 			default:
-				System.out.println(Constantes.SOLONUMS + "1 y 10");
+				System.out.println(Constantes.SOLONUMS + "1 y 13");
 			}
 
 		} while (!salir);
