@@ -29,11 +29,18 @@ public class MenuPrincipal {
 			System.out.println(Constantes.DIVIDER);
 			System.out.println("1. " + Constantes.MP1);
 			System.out.println("2. " + Constantes.MP2);
-			//System.out.println("3. " + Constantes.MP3);
+			System.out.println("3. " + Constantes.MP3);
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
 			System.out.println("6. " + Constantes.MP6);
-			System.out.println("7. " + Constantes.OPSalir);
+			System.out.println("7. "/*getlistatratamientos */);
+			System.out.println("8. "/*introduzca paciente */);
+			System.out.println("9. "/*introduzca empleado */);
+			System.out.println("10. "/*introduzca fecha */);
+			System.out.println("11. "/*listar ingresos por paciente */);
+			System.out.println("12. "/*listar ingresos por empleado */);
+			System.out.println("13. "/*listar ingresos por fecha*/);
+			System.out.println("14. " + Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			opcion = sn.nextInt();
 			switch(opcion){
@@ -45,10 +52,10 @@ public class MenuPrincipal {
 				sGestion.getListaEmpleados().forEach(System.out::println);
 				System.out.println();
 				break;
-//			case 3:
-//				sGestion.listarPacientesIngresados().forEach(System.out::println);
-//				System.out.println();
-//				break;
+			case 3:
+				sGestion.getListaIngresos().forEach(System.out::println);
+				System.out.println();
+				break;
 			case 4:
 				sGestion.getListaAnimalesEspecie();
 				System.out.println();
@@ -71,6 +78,37 @@ public class MenuPrincipal {
 				}
 				break;
 			case 7:
+				sGestion.getListaTratamientos();
+				System.out.println();
+				break;
+			case 8:
+				System.out.println("Introduzca el paciente");
+				String nombre = sn.nextLine();
+				sGestion.getListaIngresosPaciente(nombre);
+				break;
+			case 9:
+				System.out.println("Introduzca el empleado");
+				String dni = sn.nextLine();
+				sGestion.getListaIngresosEmpleado(dni);
+				break;
+			case 10:
+				System.out.println("Introduzca la fecha");
+				String fecha = sn.nextLine();
+				sGestion.getListaIngresosFecha(fecha);
+				break;
+			case 11:
+				sGestion.getListaIngresosporPaciente();
+				System.out.println();
+				break;
+			case 12:
+				sGestion.getListaIngresosporEmpleado();
+				System.out.println();
+				break;
+			case 13:
+				sGestion.getListaIngresosporFecha();
+				System.out.println();
+				break;
+			case 14:
 				salir=true;
 				break;
 			default:
