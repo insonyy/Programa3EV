@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -26,33 +27,34 @@ class DaoAnimalesImpTest {
     }
 
     @BeforeEach
-    static void inicioTest(){
+    void inicioTest(){
         System.out.println(">>Comienzo del test");
     }
 
     @AfterEach
-    static void finTest(){
+    void finTest(){
         System.out.println("--Fin del test");
     }
 
     @InjectMocks DaoAnimalesImp daoAnimalesImp;
-    @Mock Animales animales;
+    @Mock Animales lista;
 
     @Test
     void getListaAnimales() {
 
         //given
 
+        this.lista = new Animales();
         Set<Animal> setAnimal = new HashSet<>();
         setAnimal.add(new Animal("Anchoa", "perro", "Collie", 3));
         setAnimal.add(new Animal("Will", "perro", "Golden", 5));
 
         //when
 
-        when(animales.getAnimales()).thenReturn(setAnimal);
+        when(lista.getAnimales()).thenReturn(setAnimal);
         Set<Animal> resultado = daoAnimalesImp.getListaAnimales();
 
-        //then
+        //then;
         assertAll(
                 ()-> assertThat(resultado).isEqualTo(setAnimal),
                 ()-> assertThat(resultado).isNotNull()
