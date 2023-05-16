@@ -134,18 +134,18 @@ public class ServicioGestion implements iServicioGestion {
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporPaciente() throws TipoException {
-		return daoIngresos.getListaIngresosporPaciente();
+	public void getListaIngresosporPaciente() throws TipoException {
+		daoIngresos.getListaIngresosporPaciente();
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporEmpleado() throws TipoException {
-		return daoIngresos.getListaIngresosporEmpleado();
+	public void getListaIngresosporEmpleado() throws TipoException {
+		daoIngresos.getListaIngresosporEmpleado();
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosporFecha() throws TipoException {
-		return daoIngresos.getListaIngresosporFecha();
+	public void getListaIngresosporFecha() throws TipoException {
+		daoIngresos.getListaIngresosporFecha();
 	}
 
 	@Override
