@@ -11,7 +11,7 @@ import service.ServicioGestion;
 
 public class MenuPrincipal {
 	private static ServicioGestion sGestion;
-	public void menuPrincipal() throws TipoException {
+	public void menuPrincipal() throws TipoException, IOException {
 		sGestion=new ServicioGestion();
 		Properties properties = new Properties();
 		try {
@@ -32,14 +32,14 @@ public class MenuPrincipal {
 			System.out.println("3. " + Constantes.MP3);
 			System.out.println("4. " + Constantes.MP4);
 			System.out.println("5. " + Constantes.MP5);
-			System.out.println("6. " + Constantes.MP6);
+			System.out.println("6. "+ Constantes.MP13);
 			System.out.println("7. "+ Constantes.MP7);
 			System.out.println("8. "+ Constantes.MP8);
 			System.out.println("9. "+ Constantes.MP9);
 			System.out.println("10. "+ Constantes.MP10);
 			System.out.println("11. "+ Constantes.MP11);
 			System.out.println("12. "+ Constantes.MP12);
-			System.out.println("13. "+ Constantes.MP13);
+			System.out.println("13. " + Constantes.MP6);
 			System.out.println("14. " + Constantes.OPSalir);
 			System.out.println(Constantes.DIVIDER);
 			opcion = sn.nextInt();
@@ -65,17 +65,9 @@ public class MenuPrincipal {
 				System.out.println();
 				break;		
 			case 6:
-				System.out.println(Constantes.OPPSSWD);
-				int contra = sn.nextInt();
-				MenuGestion mge=new MenuGestion();
-				System.out.println(contra);
-				if (contra == Integer.parseInt((String) properties.get("PASSWORD"))) {
-					System.out.println();
-					mge.menuGestion();
-				} else {
-					System.out.println(Constantes.OPNOTPSSWD);
-					System.out.println();
-				}
+				sGestion.getListaIngresosporFecha();
+				System.out.println();
+
 				break;
 			case 7:
 				sGestion.getListaTratamientos();
@@ -84,16 +76,19 @@ public class MenuPrincipal {
 			case 8:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
 				String nombre = sn.nextLine();
+				System.in.read();
 				sGestion.getListaIngresosPaciente(nombre);
 				break;
 			case 9:
 				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
 				String dni = sn.nextLine();
+				System.in.read();
 				sGestion.getListaIngresosEmpleado(dni);
 				break;
 			case 10:
 				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				String fecha = sn.nextLine();
+				System.in.read();
 				sGestion.getListaIngresosFecha(fecha);
 				break;
 			case 11:
@@ -105,8 +100,18 @@ public class MenuPrincipal {
 				System.out.println();
 				break;
 			case 13:
-				sGestion.getListaIngresosporFecha();
-				System.out.println();
+
+				System.out.println(Constantes.OPPSSWD);
+				int contra = sn.nextInt();
+				MenuGestion mge=new MenuGestion();
+				System.out.println(contra);
+				if (contra == Integer.parseInt((String) properties.get("PASSWORD"))) {
+					System.out.println();
+					mge.menuGestion();
+				} else {
+					System.out.println(Constantes.OPNOTPSSWD);
+					System.out.println();
+				}
 				break;
 			case 14:
 				salir=true;
