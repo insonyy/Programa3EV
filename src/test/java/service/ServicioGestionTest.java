@@ -6,6 +6,7 @@ import daoEmpleados.DaoEmpleadosImp;
 import daoIngresos.DaoIngresosImp;
 import domain.Animal;
 import domain.Empleado;
+import domain.Ingreso;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.*;
 
@@ -16,6 +17,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -118,17 +121,46 @@ class ServicioGestionTest {
             assertThat(resp).isTrue();
         }
 
+        @Test
+        void getListaIngresos() {
+            /*given*/
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            List<Ingreso> listaIngresos = new ArrayList<>();
+            Ingreso in = new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato));
+
+            /*when*/
+            when(daoIngresosImp.nuevoIngreso(in)).thenReturn(true);
+            boolean resp;
+            try {
+                resp = servicioGestion.nuevoIngreso(in);
+            } catch (TipoException e) {
+                log.error("comunicar errores, utilizado en excepciones");
+                throw new RuntimeException(e);
+            }
+
+            /*then*/
+            assertThat(resp).isTrue();
+            log.info("Ejecutando test getListaIngresos...");
+
+
+        }
+
     }
 
     @Test
-    void nuevoAnimal() {
+    void nuevoAnimal() throws TipoException {
 
-
+        /*when*/
+        Set<Animal> setAnimal= new HashSet<>();
+        Animal animal = new Animal("Pablo","perro","Pitbull", 5);
+        /*given*/
+        when(daoAnimalesImp.nuevoAnimal(animal)).thenReturn(true);
+        boolean respuesta;
+        respuesta = servicioGestion.nuevoAnimal(animal);
+        /*then*/
+        assertThat(respuesta).isTrue();
     }
 
-    @Test
-    void modificarAnimal() {
-    }
 
     @Test
     void eliminarFichaAnimal() throws TipoException {
@@ -162,11 +194,17 @@ class ServicioGestionTest {
     }
 
     @Test
-    void nuevoEmpleado() {
-    }
+    void nuevoEmpleado() throws TipoException {
+        /*when*/
+        List<Empleado> listEmpleado= new ArrayList<>();
+        Empleado empleado = new Empleado("Manolito", "Gafotas", "31586467S", "Auxiliar");
+        /*given*/
+        when(daoEmpleadosImp.nuevoEmpleado(empleado)).thenReturn(true);
+        boolean respuesta;
+        respuesta = servicioGestion.nuevoEmpleado(empleado);
+        /*then*/
+        assertThat(respuesta).isTrue();
 
-    @Test
-    void modificarEmpleado() {
     }
 
     @Test
@@ -183,38 +221,86 @@ class ServicioGestionTest {
     }
 
     @Test
-    void getListaTratamientos() {
+    void getListaIngresos() throws TipoException {
+        /*given*/
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        List<Ingreso> listaIngresos = new ArrayList<>();
+        listaIngresos.add(new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato)));
+        listaIngresos.add(new Ingreso("Zen", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato)));
+        listaIngresos.add(new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato)));
+
+
+        /*when*/
+        when(daoIngresosImp.getListaIngresos()).thenReturn(listaIngresos);
+        List<Ingreso> respuesta = servicioGestion.getListaIngresos();
+
+        /*then*/
+        assertThat(respuesta).isEqualTo(listaIngresos);
+        log.info("Ejecutando test getListaIngresos...");
+
+
     }
 
     @Test
-    void nuevoTratamiento() {
+    void eliminarIngreso() throws TipoException {
+        /*given*/
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Ingreso ingreso = new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato));
+
+        /*when*/
+        servicioGestion.eliminarIngreso(ingreso);
+
+        /*then*/
+        verify(daoIngresosImp, times(1)).eliminarIngreso(ingreso);
+
     }
 
     @Test
-    void modificarTratamiento() {
+    void nuevoIngreso() throws TipoException {
+        /*when*/
+        List<Ingreso> listIngreso= new ArrayList<>();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Ingreso ingreso = new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato));
+        /*given*/
+        when(daoIngresosImp.nuevoIngreso(ingreso)).thenReturn(true);
+        boolean respuesta;
+        respuesta = daoIngresosImp.nuevoIngreso(ingreso);
+        /*then*/
+        assertThat(respuesta).isTrue();
+
     }
 
     @Test
-    void suspenderTratamiento() {
+    @DisplayName("Parametrizado")
+    void getListaIngresosPaciente(String nombre){
+        /*when*/
+        /*given*/
+        /*then*/
     }
 
     @Test
-    void listarEmpleadosCargo() {
-    }
-
-    @Test
-    void getListaIngresos(){
-
-
+    void getListaIngresosEmpleado(String dni){
+        /*when*/
+        /*given*/
+        /*then*/
 
     }
 
     @Test
     void escribirFicheroEmpleado() {
+
     }
 
     @Test
     void escribirFicheroAnimales() {
+        /*when*/
+
+
+
+        /*given*/
+
+        /*then*/
+
 
     }
 }
