@@ -92,10 +92,6 @@ class DaoEmpleadosImpTest {
     }
 
     @Test
-    void modificarEmpleado() {
-    }
-
-    @Test
     void listarEmpleadosCargo() {
 
         /*given*/

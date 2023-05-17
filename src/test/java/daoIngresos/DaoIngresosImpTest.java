@@ -87,7 +87,21 @@ class DaoIngresosImpTest {
     }
 
     @Test
-    void nuevoIngreso() {
+    void nuevoIngresoLleno() {
+        /*given*/
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Ingreso ingreso = new Ingreso("Pepe", "corte de pelo", "87165583C", LocalDate.parse("02/05/2023", formato));
+
+        /*when*/
+        when(lista.getIngresos()).thenReturn(new ArrayList<>());
+        boolean res = daoIngresosImp.nuevoIngreso(ingreso);
+
+        /*then*/
+        assertThat(res).isEqualTo(true);
+    }
+
+    @Test
+    void nuevoIngresoNull() {
     }
 
     @Test

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -270,8 +271,10 @@ class ServicioGestionTest {
 
     }
 
-    @Test
-    @DisplayName("Parametrizado")
+
+    @DisplayName("Test parametrizado")
+    @ParameterizedTest
+    @ValueSource(strings = {"Fajar Ayub","Izzy", "Zen", "Lionell"})
     void getListaIngresosPaciente(String nombre){
         /*when*/
         /*given*/
