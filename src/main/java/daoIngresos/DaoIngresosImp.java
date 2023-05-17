@@ -75,18 +75,18 @@ public class DaoIngresosImp implements DaoIngresos {
 	@Override
 	public boolean nuevoIngreso(Ingreso ingreso) {
 		ingresos.getIngresos().add(ingreso);
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean eliminarIngreso(Ingreso ingreso) {
 		ingresos.getIngresos().remove(ingreso);
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean modificarIngreso(Ingreso ingreso) {	
 		ingresos.getIngresos().stream().filter(a->a.getNombreAnimal().equalsIgnoreCase(ingreso.getNombreAnimal()));
-		return false;
+		return true;
 	}
 }
