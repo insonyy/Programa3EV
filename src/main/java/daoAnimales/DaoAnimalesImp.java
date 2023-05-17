@@ -1,20 +1,24 @@
 package daoAnimales;
 
+import daoIngresos.Ingresos;
 import domain.Animal;
 import java.util.*;
 
 public class DaoAnimalesImp implements DaoAnimales{
 	
 	protected final Animales lista;
+	protected final Ingresos ingresos;
 
 	/*Constructores*/
 
 	public DaoAnimalesImp() {
+		this.ingresos =new Ingresos();
 		this.lista = new Animales();
 	}
 
-	public DaoAnimalesImp(Animales lista) {
+	public DaoAnimalesImp(Animales lista, Ingresos ingresos) {
 		this.lista = lista;
+		this.ingresos = ingresos;
 	}
 
 	/*Métodos*/
@@ -79,12 +83,15 @@ public class DaoAnimalesImp implements DaoAnimales{
 	@Override
 	public Set<Animal> getListaTratamientos() {
 		Set<Animal> auxAnimales = new HashSet<>();
-		Iterator<Animal> it = lista.getAnimales().iterator();
-		while(it.hasNext()) {
-			Animal aux = it.next();
-			if (aux.getTratamiento()!=null)
-				auxAnimales.add(aux);
-		}
+		lista.getAnimales().forEach(animal -> {
+			ingresos.getIngresos().forEach(ingreso -> {
+				if (animal.getNombre().equalsIgnoreCase(ingreso.getNombreAnimal())) {
+					animal.setTratamiento(ingreso.getTratamiento());
+					auxAnimales.add(animal);
+				}
+			});
+		});
+
 		return auxAnimales;
 	}
 

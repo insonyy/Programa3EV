@@ -43,156 +43,131 @@ public class MenuGestion {
 			switch(opcion){
 			case 1:
 		        System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_NUEVO_EMPLEADO);
-		        String nombre = sc.nextLine();
-				System.in.read();
+		        String nombre = sc.next();
 		        System.out.println(Constantes.INTRODUCE_EL_APELLIDO_DEL_NUEVO_EMPLEADO);
-		        String apellido = sc.nextLine();
-				System.in.read();
+		        String apellido = sc.next();
 		        Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
 		        System.out.println(Constantes.INTRODUCE_EL_DNI_DEL_NUEVO_EMPLEADO);
-		        String dni = sc.nextLine();
-				System.in.read();
+		        String dni = sc.next();
 		        Matcher matcher = comprobar.matcher(dni);
 		        System.out.println(Constantes.INTRODUCE_EL_CARGO_DEL_NUEVO_EMPLEADO);
-		        String cargo = sc.nextLine();
-				System.in.read();
+		        String cargo = sc.next();
 		        Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
 				sGestion.nuevoEmpleado(empleado);
 				break;
 			case 2:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
-				String nombre1 = sc.nextLine();
-				System.in.read();
+				String nombre1 = sc.next();
 				System.out.println(Constantes.CUAL_ES_SU_NUEVO_CARGO);
-				String cargo1 = sc.nextLine();
-				System.in.read();
+				String cargo1 = sc.next();
 				sGestion.modificarEmpleado(nombre1,cargo1);
 				break;
 			case 3:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
-				String nombre3 = sc.nextLine();
-				System.in.read();
+				String nombre3 = sc.next();
 				sGestion.eliminarFichaEmpleado(nombre3);
 				break;
 			case 4:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_NUEVO_PACIENTE);
-				String nombre4 = sc.nextLine();
-				System.in.read();
+				String nombre4 = sc.next();
 				System.out.println(Constantes.INTRODUCE_LA_ESPECIE_DEL_PACIENTE);
-				String especie = sc.nextLine();
-				System.in.read();
+				String especie = sc.next();
 				System.out.println(Constantes.INTRODUCE_SU_EDAD);
 				int edad = sc.nextInt();
-				System.in.read();
 				System.out.println(Constantes.INTRODUCE_SU_RAZA);
-				String raza = sc.nextLine();
-				System.in.read();
+				String raza = sc.next();
 				Animal animal = new Animal(nombre4, especie, raza, edad); 
 				sGestion.nuevoAnimal(animal);
 				break;
 			case 5:
 				System.out.println(Constantes.NOMBRE_DEL_ANIMAL_CUYA_FICHA_DESEA_MODIFICAR);
-				String nombre5 = sc.nextLine();
-				System.in.read();
+				String nombre5 = sc.next();
 				System.out.println(Constantes.NUEVA_ESPECIE);
-				String nuevaespecie = sc.nextLine();
-				System.in.read();
+				String nuevaespecie = sc.next();
 				System.out.println(Constantes.NUEVA_RAZA);
-				String nuevaraza = sc.nextLine();
-				System.in.read();
+				String nuevaraza = sc.next();
 				System.out.println(Constantes.NUEVA_EDAD);
 				int nuevaedad = sc.nextInt();
 				sGestion.modificarAnimal(nombre5, nuevaespecie, nuevaraza, nuevaedad);
 				break;		
 			case 6:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombre6 = sc.nextLine();
-				System.in.read();
+				String nombre6 = sc.next();
 				sGestion.eliminarFichaAnimal(nombre6);
 				break;
 			case 7:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombre7 = sc.nextLine();
-				System.in.read();
+				String nombre7 = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento=sc.nextLine();
-				System.in.read();
+				String tratamiento=sc.next();
 				sGestion.nuevoTratamiento(nombre7,tratamiento);
 				break;
 			case 8:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombre8 = sc.nextLine();
-				System.in.read();
+				String nombre8 = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento1=sc.nextLine();
-				System.in.read();
+				String tratamiento1=sc.next();
 				sGestion.modificarTratamiento(nombre8,tratamiento1);
 				break;
 			case 9:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombre9 = sc.nextLine();
-				System.in.read();
+				String nombre9 = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento2=sc.nextLine();
-				System.in.read();
+				String tratamiento2=sc.next();
 				sGestion.suspenderTratamiento(nombre9,tratamiento2);
 				break;
 			case 10:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombreanimal = sc.nextLine();
-				System.in.read();
+				String nombreanimal = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento3 = sc.nextLine();
-				System.in.read();
+				String tratamiento3 = sc.next();
+
 				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
-				String nifEmpleado = sc.nextLine();
-				System.in.read();
+				String nifEmpleado = sc.next();
+
 				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-				String fecha1 = sc.nextLine();
-				System.in.read();
+				String fecha1 = sc.next();
+
 				LocalDate localdate = LocalDate.parse(fecha1, formato);
 				Ingreso ingreso = new Ingreso(nombreanimal,tratamiento3,nifEmpleado,localdate);
 				sGestion.nuevoIngreso(ingreso);
 				break;
 			case 11:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombreanimal1 = sc.nextLine();
-				System.in.read();
+				String nombreanimal1 = sc.next();
+
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento4 = sc.nextLine();
-				System.in.read();
+				String tratamiento4 = sc.next();
+
 				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
-				String nifEmpleado1 = sc.nextLine();
-				System.in.read();
+				String nifEmpleado1 = sc.next();
+
 				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-				String fecha2 = sc.nextLine();
-				System.in.read();
+				String fecha2 = sc.next();
+
 				LocalDate localdate1 = LocalDate.parse(fecha2, formato1);
 				Ingreso ingreso1 = new Ingreso(nombreanimal1,tratamiento4,nifEmpleado1,localdate1);
 				sGestion.eliminarIngreso(ingreso1);
 				break;
 			case 12:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_ANIMAL);
-				String nombreanimal2 = sc.nextLine();
-				System.in.read();
+				String nombreanimal2 = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NUEVO_TRATAMIENTO);
-				String tratamiento5 = sc.nextLine();
-				System.in.read();
+				String tratamiento5 = sc.next();
 				System.out.println(Constantes.INTRODUCE_EL_NIF_DEL_EMPLEADO);
-				String nifEmpleado2 = sc.nextLine();
-				System.in.read();
+				String nifEmpleado2 = sc.next();
 				System.out.println(Constantes.INTRODUCE_LA_FECHA);
 				DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-				String fecha3 = sc.nextLine();
-				System.in.read();
+				String fecha3 = sc.next();
 				LocalDate localdate2 = LocalDate.parse(fecha3, formato2);
 				Ingreso ingreso2 = new Ingreso(nombreanimal2,tratamiento5,nifEmpleado2,localdate2);
 				sGestion.modificarIngreso(ingreso2);
 				break;
 			case 13:
 				salir=true;
+				break;
 			default:
 				System.out.println(Constantes.SOLONUMS + "1 y 13");
 			}

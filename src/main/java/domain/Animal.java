@@ -24,6 +24,12 @@ public class Animal {
 	}
 	@Override
 	public String toString() {
-		return  nombre + "," + especie + "," + tipo + ","+ edad ;
+		String tostrin = "";
+		if (tratamiento==null){
+			tostrin = nombre + ","+ especie + "," + tipo + ","+ edad;
+		}else {
+			tostrin=nombre + "," + especie + "," + tipo + ","+ edad +","+ tratamiento;
+		}
+		return tostrin  ;
 	}
 }

@@ -31,8 +31,7 @@ public class DaoIngresosImp implements DaoIngresos {
 
 	@Override
 	public List<Ingreso> getListaIngresos() {
-		List<Ingreso> listaIngresos=ingresos.getIngresos();
-		return listaIngresos;
+		return ingresos.getIngresos();
 	}
 
 	@Override
@@ -51,25 +50,25 @@ public class DaoIngresosImp implements DaoIngresos {
 	public void getListaIngresosFecha(String fecha) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
 		List<Ingreso> listaIngresos= ingresos.getIngresos();
-		listaIngresos.stream().filter(a->a.getFecha()==LocalDate.parse(fecha, formato)).forEach(System.out::println);
+		listaIngresos.stream().filter(a->a.getFecha().isEqual(LocalDate.parse(fecha, formato))).forEach(System.out::println);
 	}
 
 	@Override
 	public void getListaIngresosporPaciente() {
 		List<Ingreso> listaIngresos= ingresos.getIngresos();	
-		listaIngresos.stream().map(ingresos->ingresos.getNombreAnimal()).sorted().forEach(System.out::println);
+		listaIngresos.stream().sorted(Comparator.comparing(Ingreso::getNombreAnimal)).forEach(System.out::println);
 	}
 
 	@Override
 	public void getListaIngresosporEmpleado() {
 		List<Ingreso> listaIngresos= ingresos.getIngresos();	
-		listaIngresos.stream().map(ingresos->ingresos.getNifEmpleado()).sorted().forEach(System.out::println);
+		listaIngresos.stream().sorted(Comparator.comparing(Ingreso::getNifEmpleado)).forEach(System.out::println);
 	}
 
 	@Override
 	public void getListaIngresosporFecha() {
-		List<Ingreso> listaIngresos= ingresos.getIngresos();	
-		listaIngresos.stream().map(ingresos->ingresos.getFecha()).sorted().forEach(System.out::println);
+		List<Ingreso> listaIngresos= ingresos.getIngresos();
+		listaIngresos.stream().sorted(Comparator.comparing(Ingreso::getFecha)).forEach(System.out::println);
 	}
 
 	@Override
