@@ -6,9 +6,9 @@ import domain.Ingreso;
 public interface DaoIngresos {
 
 	public List<Ingreso> getListaIngresos();
-	public List<Ingreso> getListaIngresosPaciente(String nombre);
-	public List<Ingreso> getListaIngresosEmpleado(String dni);
-	public List<Ingreso> getListaIngresosFecha(String fecha);
+	public void getListaIngresosPaciente(String nombre);
+	public void getListaIngresosEmpleado(String dni);
+	public void getListaIngresosFecha(String fecha);
 	public void getListaIngresosporPaciente();
 	public void getListaIngresosporEmpleado();
 	public void getListaIngresosporFecha();

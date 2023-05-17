@@ -36,22 +36,22 @@ public class DaoIngresosImp implements DaoIngresos {
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosPaciente(String nombre) {
+	public void getListaIngresosPaciente(String nombre) {
 		List<Ingreso> listaIngresos= ingresos.getIngresos();
-		return (List<Ingreso>) listaIngresos.stream().filter(a->a.getNombreAnimal().equalsIgnoreCase(nombre));
+		listaIngresos.stream().filter(a->a.getNombreAnimal().equalsIgnoreCase(nombre)).forEach(System.out::println);
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosEmpleado(String dni) {
+	public void getListaIngresosEmpleado(String dni) {
 		List<Ingreso> listaIngresos= ingresos.getIngresos();
-		return (List<Ingreso>) listaIngresos.stream().filter(a->a.getNifEmpleado().equalsIgnoreCase(dni));
+		listaIngresos.stream().filter(a->a.getNifEmpleado().equalsIgnoreCase(dni)).forEach(System.out::println);
 	}
 
 	@Override
-	public List<Ingreso> getListaIngresosFecha(String fecha) {
+	public void getListaIngresosFecha(String fecha) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
 		List<Ingreso> listaIngresos= ingresos.getIngresos();
-		return (List<Ingreso>) listaIngresos.stream().filter(a->a.getFecha()==LocalDate.parse(fecha, formato));
+		listaIngresos.stream().filter(a->a.getFecha()==LocalDate.parse(fecha, formato)).forEach(System.out::println);
 	}
 
 	@Override

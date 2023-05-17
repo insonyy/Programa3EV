@@ -22,9 +22,9 @@ public interface iServicioGestion {
 	public boolean modificarEmpleado(String nombre, String cargo)throws TipoException;
 	public boolean eliminarFichaEmpleado(String nombre)throws TipoException;
 	public List<Ingreso> getListaIngresos()throws TipoException;
-	public List<Ingreso> getListaIngresosPaciente(String nombre)throws TipoException;
-	public List<Ingreso> getListaIngresosEmpleado(String dni)throws TipoException;
-	public List<Ingreso> getListaIngresosFecha(String fecha)throws TipoException;
+	public void getListaIngresosPaciente(String nombre)throws TipoException;
+	public void getListaIngresosEmpleado(String dni)throws TipoException;
+	public void getListaIngresosFecha(String fecha)throws TipoException;
 	public void getListaIngresosporPaciente()throws TipoException;
 	public void getListaIngresosporEmpleado()throws TipoException;
 	public void getListaIngresosporFecha()throws TipoException;
