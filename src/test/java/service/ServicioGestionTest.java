@@ -5,6 +5,7 @@ import daoAnimales.DaoAnimalesImp;
 import daoEmpleados.DaoEmpleadosImp;
 import daoIngresos.DaoIngresosImp;
 import domain.Animal;
+import domain.Empleado;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.*;
 
@@ -19,7 +20,7 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @Log4j2
 @ExtendWith(MockitoExtension.class)
@@ -95,24 +96,34 @@ class ServicioGestionTest {
 
             /*then*/
             assertThat(resp).isTrue();
-
         }
 
         @Test
-        void getListaAnimalesEspecie() {
-
+        void getListaEmpleados() {
             /*given*/
-
+            List<Empleado> listEmpleados = new ArrayList<>();
+            Empleado emp = new Empleado("Anabel", "Pérez","20370318T", "Doctor");
 
             /*when*/
+            when(daoEmpleadosImp.nuevoEmpleado(emp)).thenReturn(true);
+            boolean resp;
+            try {
+                resp = servicioGestion.nuevoEmpleado(emp);
+            } catch (TipoException e) {
+                log.error("comunicar errores, utilizado en excepciones");
+                throw new RuntimeException(e);
+            }
 
             /*then*/
-
+            assertThat(resp).isTrue();
         }
+
     }
 
     @Test
     void nuevoAnimal() {
+
+
     }
 
     @Test
@@ -120,11 +131,34 @@ class ServicioGestionTest {
     }
 
     @Test
-    void eliminarFichaAnimal() {
+    void eliminarFichaAnimal() throws TipoException {
+        /*given*/
+        Animal animal = new Animal("Pablo","perro","Pitbull", 1);
+        /*when*/
+        servicioGestion.eliminarFichaAnimal("Pablo");
+        /*then*/
+        verify(daoAnimalesImp, times(1)).eliminarFichaAnimal("Pablo");
+
     }
 
     @Test
-    void getListaEmpleados() {
+    void getListaEmpleados() throws TipoException {
+        /*given*/
+        List<Empleado> listEmpleados = new ArrayList<>();
+        listEmpleados.add(new Empleado("Manolito", "Gafotas", "31586467S", "Auxiliar"));
+        listEmpleados.add(new Empleado("Greg", "Gafotas", "09629774L", "Auxiliar"));
+        listEmpleados.add(new Empleado("Eneldo", "Papalopoulos","86867509M", "Recepcionista"));
+        listEmpleados.add(new Empleado("Anabel", "Pérez","20370318T", "Doctor"));
+
+
+        /*when*/
+        when(daoEmpleadosImp.getListaEmpleados()).thenReturn(listEmpleados);
+        List<Empleado> respuesta = servicioGestion.getListaEmpleados();
+
+        /*then*/
+        assertThat(respuesta).isEqualTo(listEmpleados);
+        log.info("Ejecutando test getListaEmpleados...");
+
     }
 
     @Test
@@ -136,7 +170,16 @@ class ServicioGestionTest {
     }
 
     @Test
-    void eliminarFichaEmpleado() {
+    void eliminarFichaEmpleado() throws TipoException {
+    /*given*/
+        Empleado empleado = new Empleado("Eneldo", "Papalopoulos","86867509M", "Recepcionista");
+
+    /*when*/
+        servicioGestion.eliminarFichaEmpleado("Eneldo");
+
+    /*then*/
+        verify(daoEmpleadosImp, times(1)).eliminarFichaEmpleado("Eneldo");
+
     }
 
     @Test
@@ -157,6 +200,13 @@ class ServicioGestionTest {
 
     @Test
     void listarEmpleadosCargo() {
+    }
+
+    @Test
+    void getListaIngresos(){
+
+
+
     }
 
     @Test

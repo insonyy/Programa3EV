@@ -54,6 +54,7 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
+
     public boolean eliminarFichaAnimal(String nombre) throws TipoException {
         return daoAnimales.eliminarFichaAnimal(nombre);
     }

@@ -30,6 +30,14 @@ public class DaoAnimalesImp implements DaoAnimales{
 		auxAnimales.stream().sorted((p1, p2)->p1.getEspecie().compareTo(p2.getEspecie())).forEach(System.out::println);
 		return auxAnimales;
 	}
+
+	public Object getListaAnimalesEspecie(String tipo) {
+		Set<Animal> auxAnimales = lista.getAnimales();
+		auxAnimales.stream().sorted((p1, p2)->p1.getEspecie().compareTo(p2.getEspecie())).forEach(System.out::println);
+
+		return true;
+
+	}
 	//por tipo
 
 	public Set<Animal> getListaAnimales(String tipo, String especie) {
@@ -100,6 +108,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 		animal.setTratamiento(tratamiento);
 		return true;
 	}
+
 
 
 }
