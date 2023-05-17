@@ -54,6 +54,7 @@ public class ServicioGestion implements iServicioGestion {
     }
 
     @Override
+
     public boolean eliminarFichaAnimal(String nombre) throws TipoException {
         return daoAnimales.eliminarFichaAnimal(nombre);
     }
@@ -76,27 +77,6 @@ public class ServicioGestion implements iServicioGestion {
     @Override
     public boolean eliminarFichaEmpleado(String nombre) throws TipoException {
         return daoEmpleados.eliminarFichaEmpleado(nombre);
-    }
-
-    
-	@Override
-    public Set<Animal> getListaTratamientos() throws TipoException {	
-		return 	daoAnimales.getListaTratamientos();
-    }
-
-    @Override
-    public boolean nuevoTratamiento(String nombre, String tratamiento) throws TipoException {
-        return daoAnimales.nuevoTratamiento(nombre, tratamiento);
-    }
-
-    @Override
-    public boolean modificarTratamiento(String nombre, String tratamiento) throws TipoException {
-        return daoAnimales.modificarTratamiento(nombre, tratamiento);
-    }
-
-    @Override
-    public boolean suspenderTratamiento(String nombre, String tratamiento) throws TipoException {
-        return daoAnimales.suspenderTratamiento(nombre, tratamiento);
     }
 
     @Override
