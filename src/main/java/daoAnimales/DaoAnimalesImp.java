@@ -97,8 +97,15 @@ public class DaoAnimalesImp implements DaoAnimales{
 
 	@Override
 	public boolean nuevoTratamiento(String nombre, String tratamiento) {
-		Animal animal=(Animal) getListaAnimales().stream().filter(a->a.getNombre().contentEquals(nombre));
-		animal.setTratamiento(tratamiento);
+		Animal animal = getListaAnimales()
+				.stream()
+				.filter(a -> a.getNombre().equals(nombre))
+				.findFirst()
+				.orElse(null);
+
+		if (animal != null) {
+			animal.setTratamiento(tratamiento);
+		}
 		return true;
 	}
 

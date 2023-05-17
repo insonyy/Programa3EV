@@ -173,6 +173,7 @@ public class MenuGestion {
 			}
 
 		} while (!salir);
+		System.in.read();
 		sc.close();
 	}
 }
