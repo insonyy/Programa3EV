@@ -17,6 +17,16 @@ module Programa3EV {
 	requires javafx.graphics;
 	requires lombok;
 	requires org.apache.logging.log4j;
-	   opens ui to javafx.fxml;
-
+	opens domain to javafx.base, com.google.gson;
+	opens ui to javafx.fxml;
+	opens config to org.apache.logging.log4j;
 }
+
+
+
+
+
+
+
+
+
