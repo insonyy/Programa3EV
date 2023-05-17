@@ -1,12 +1,9 @@
 package daoIngresos;
 
 import daoEmpleados.DaoEmpleadosImp;
+import daoEmpleados.Empleados;
 import domain.Ingreso;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -22,8 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
- class DaoIngresosImpTest {
-
+class DaoIngresosImpTest {
+    @InjectMocks
+    DaoIngresosImp daoIngresosImp;
+    @Mock
+    Ingresos lista;
     @BeforeAll
     static void inicio(){
         System.out.println("Inicio de las pruebas para clase DaoIngresosImp");
@@ -43,14 +43,8 @@ import static org.mockito.Mockito.when;
     void finTest(){
         System.out.println("--Fin del test");
     }
-
-    @InjectMocks
-    DaoIngresosImp daoIngresosImp;
-
-    @Mock Ingresos lista;
-
     @Test
-    void getListaIngresos(){
+    void getListaIngresos() {
         /*given*/
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         List<Ingreso> listaIngresos = new ArrayList<>();
@@ -66,7 +60,41 @@ import static org.mockito.Mockito.when;
                 ()-> assertThat(resultado).isEqualTo(listaIngresos),
                 ()-> assertThat(resultado).isNotNull()
         );
-
     }
 
+    @Test
+    void getListaIngresosPaciente() {
+    }
+
+    @Test
+    void getListaIngresosEmpleado() {
+    }
+
+    @Test
+    void getListaIngresosFecha() {
+    }
+
+    @Test
+    void getListaIngresosporPaciente() {
+    }
+
+    @Test
+    void getListaIngresosporEmpleado() {
+    }
+
+    @Test
+    void getListaIngresosporFecha() {
+    }
+
+    @Test
+    void nuevoIngreso() {
+    }
+
+    @Test
+    void eliminarIngreso() {
+    }
+
+    @Test
+    void modificarIngreso() {
+    }
 }

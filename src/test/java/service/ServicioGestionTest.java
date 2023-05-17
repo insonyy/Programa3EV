@@ -10,7 +10,7 @@ import org.junit.jupiter.api.*;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
+import org.junit.jupiter.api.Nested;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -72,22 +72,22 @@ class ServicioGestionTest {
         log.info("Ejecutando test getListaAnimales...");
     }
 
-
-    //@Nested
+    @Nested
     @DisplayName("Probando las excepciones")
     public class lanzaExcepciones {
         @Test
         void getListaAnimales() {
             /*given*/
+
             Set<Animal> setAnimales = new HashSet<>();
             int num = ((int) (Math.random()*1 + 5));
             Animal a = new Animal("Pablo","perro","Pitbull", num);
 
             /*when*/
             when(daoAnimalesImp.nuevoAnimal(a)).thenReturn(true);
-            boolean resp = false;
+            boolean resp;
             try {
-                Set<Animal> respuesta = servicioGestion.getListaAnimales();
+                resp = servicioGestion.nuevoAnimal(a);
             } catch (TipoException e) {
                 log.error("comunicar errores, utilizado en excepciones");
                 throw new RuntimeException(e);
@@ -98,9 +98,16 @@ class ServicioGestionTest {
 
         }
 
-
         @Test
         void getListaAnimalesEspecie() {
+
+            /*given*/
+
+
+            /*when*/
+
+            /*then*/
+
         }
     }
 
