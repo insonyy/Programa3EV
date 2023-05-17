@@ -11,7 +11,12 @@ public class DaoIngresosImp implements DaoIngresos {
 
 	final Ingresos ingresos;
 	private final Map<String, String> map;
-	
+
+	public DaoIngresosImp(Ingresos ingresos, Map<String, String> map) {
+		this.ingresos = ingresos;
+		this.map = map;
+	}
+
 	public DaoIngresosImp() {
 		this.ingresos = new Ingresos();
 		map=new HashMap<>();
