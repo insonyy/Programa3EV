@@ -57,7 +57,7 @@ class ServicioGestionTest {
         setAnimal.add(new Animal("Will", "perro", "Golden", 5));
         Random r = new Random();
         for (Animal animal : setAnimal){
-            setAnimal.
+           // setAnimal.
 
         }
         setAnimal.stream().forEach(System.out::println);
