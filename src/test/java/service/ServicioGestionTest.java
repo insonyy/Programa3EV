@@ -1,24 +1,27 @@
 package service;
 
+import common.TipoException;
 import daoAnimales.DaoAnimalesImp;
 import daoEmpleados.DaoEmpleadosImp;
 import daoIngresos.DaoIngresosImp;
 import domain.Animal;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.*;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+@Log4j2
+@ExtendWith(MockitoExtension.class)
 
 class ServicioGestionTest {
 
@@ -40,48 +43,37 @@ class ServicioGestionTest {
     }
 
     @BeforeEach
-    static void inicioTest(){
+    void inicioTest(){
         System.out.println(">>Comienzo del test");
     }
 
     @AfterEach
-    static void finTest(){
+    void finTest(){
         System.out.println("--Fin del test");
     }
 
     @Test
-    void getListaAnimales() {
+    void getListaAnimales() throws TipoException {
         /*given*/
-        Set<Animal> setAnimal = new HashSet<>();
-        setAnimal.add(new Animal("Anchoa", "perro", "Collie", 3));
-        setAnimal.add(new Animal("Will", "perro", "Golden", 5));
-        Random r = new Random();
-        for (Animal animal : setAnimal){
-            setAnimal.
-
-        }
-        setAnimal.stream().forEach(System.out::println);
-
+        Set<Animal> setAnimales = new HashSet<>();
+        int num = ((int) (Math.random()*1 + 5));
+        setAnimales.add(new Animal("Pablo","perro","Pitbull", num));
+        setAnimales.add(new Animal("Luna","perro","Labrador", num));
+        setAnimales.add(new Animal("Luke","perro","Boxer", num));
+        setAnimales.add(new Animal("Leia","perro","Boxer", num));
 
         /*when*/
-
-        when(lista.getAnimales()).thenReturn(setAnimal);
-        Set<Animal> resultado = daoAnimalesImp.getListaAnimales();
+        when(daoAnimalesImp.getListaAnimales()).thenReturn(setAnimales);
+        Set<Animal> respuesta = servicioGestion.getListaAnimales();
 
         /*then*/
-        assertAll(
-                ()-> assertThat(resultado).isEqualTo(setAnimal),
-                ()-> assertThat(resultado).isNotNull()
-        );
-
-
-
+        assertThat(respuesta).isEqualTo(setAnimales);
+        log.info("Ejecutando test getListaAnimales...");
     }
 
     @Test
     void getListaAnimalesEspecie() {
     }
-
 
 
     @Test
