@@ -9,9 +9,14 @@ import domain.Ingreso;
 
 public class DaoIngresosImp implements DaoIngresos {
 
-	protected final Ingresos ingresos;
+	final Ingresos ingresos;
 	private final Map<String, String> map;
-	
+
+	public DaoIngresosImp(Ingresos ingresos, Map<String, String> map) {
+		this.ingresos = ingresos;
+		this.map = map;
+	}
+
 	public DaoIngresosImp() {
 		this.ingresos = new Ingresos();
 		map=new HashMap<>();
