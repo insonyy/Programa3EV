@@ -23,6 +23,7 @@ public class Empleados {
 		empleados.add(new Empleado("Carlos", "Bruñas","92292814C","Recepcionista"));
 		*/
 		empleados = DaoEmpleadosFicheros.leerArrayList();
+
 	}
 
 	public List<Empleado> getEmpleados() {

@@ -1,11 +1,6 @@
 package ui;
 
-import java.util.List;
-
 import common.TipoException;
-import daoAnimales.DaoAnimales;
-import daoEmpleados.DaoEmpleados;
-import domain.Animal;
 import domain.Empleado;
 import javafx.collections.ObservableList;
 import service.ServicioGestion;
@@ -14,20 +9,20 @@ import javafx.collections.FXCollections;
 public class MainViewModel {
 	
 	    private final ServicioGestion serviciog;
-	    private final ObservableList<Animal> animals;
+	    private final ObservableList<Empleado> empleados;
 
 	    public MainViewModel() throws TipoException {
 	    	serviciog = new ServicioGestion();
-	        animals = FXCollections.observableArrayList(serviciog.getListaAnimales());
+	        empleados = FXCollections.observableArrayList(serviciog.getListaEmpleados());
 	    }
 
-	    public MainViewModel(ServicioGestion servicioAnimales) throws TipoException {
-	        this.serviciog = servicioAnimales;
-	        animals = FXCollections.observableArrayList(serviciog.getListaAnimales());
+	    public MainViewModel(ServicioGestion servicioEmpleados) throws TipoException {
+	        this.serviciog = servicioEmpleados;
+	        empleados = FXCollections.observableArrayList(serviciog.getListaEmpleados());
 
 	    }
-	    public ObservableList<Animal> getAnimales() {
-	        return animals;
+	    public ObservableList<Empleado> getEmpleados() {
+	        return empleados;
 	    }
 
 	    public ServicioGestion getServicioGestion() { return serviciog; }
