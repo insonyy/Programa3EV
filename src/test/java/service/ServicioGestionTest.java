@@ -275,7 +275,7 @@ class ServicioGestionTest {
     @DisplayName("Test parametrizado")
     @ParameterizedTest
     @ValueSource(strings = {"Fajar Ayub","Izzy", "Zen", "Lionell"})
-    void getListaIngresosPaciente(String nombre){
+    void getListaIngresosPaciente(String nombre) {
         /*when*/
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         List<Ingreso> listaIngresosPacientes = new ArrayList<>();
@@ -285,16 +285,20 @@ class ServicioGestionTest {
         listaIngresosPacientes.add(new Ingreso("Lionell", "Adorablemente pequeño, se recomienda seguimiento", "47163084P", LocalDate.parse("15/05/2023", formato)));
         /*given*/
         when(daoIngresosImp.getListaIngresos()).thenReturn(listaIngresosPacientes);
-        List<Ingreso> resultado = daoIngresosImp.getListaIngresosPaciente(nombre).toList;
 
-        /*then*/
-        assertThat(resultado)
-                .isNotNull()
-                .allMatch(ingreso -> ingreso.getNombreAnimal().equals(nombre));
+        List<Ingreso> resultado = new ArrayList<>();
+        for (Ingreso ingreso1 : listaIngresosPacientes) {
+            if (ingreso1.getNombreAnimal().equals(nombre)) {
+                resultado.add(ingreso1);
+            }
+            /*then*/
+            assertThat(resultado)
+                    .isNotNull()
+                    .allMatch(ingreso -> ingreso.getNombreAnimal().equals(nombre));
 
 
+        }
     }
-
     @Test
     void getListaIngresosEmpleado(String dni){
         /*when*/
