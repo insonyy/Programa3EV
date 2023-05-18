@@ -284,7 +284,6 @@ class ServicioGestionTest {
         listaIngresosPacientes.add(new Ingreso("Zen", "Es demasiado bonito, debería ser un crimen", "47163084P", LocalDate.parse("15/05/2023", formato)));
         listaIngresosPacientes.add(new Ingreso("Lionell", "Adorablemente pequeño, se recomienda seguimiento", "47163084P", LocalDate.parse("15/05/2023", formato)));
         /*given*/
-        when(daoIngresosImp.getListaIngresos()).thenReturn(listaIngresosPacientes);
 
         List<Ingreso> resultado = new ArrayList<>();
         for (Ingreso ingreso1 : listaIngresosPacientes) {
