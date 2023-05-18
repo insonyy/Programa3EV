@@ -2,19 +2,22 @@ package daoEmpleados;
 
 import daoAnimales.DaoAnimalesImp;
 import domain.Empleado;
+import domain.Ingreso;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class DaoEmpleadosImpTest {
@@ -111,5 +114,26 @@ class DaoEmpleadosImpTest {
 
     }
 
+    @Test
+    void eliminarFichaEmpleado() {
+        /*given*/
+
+        List<Empleado> listaEmpleados = new ArrayList<>();
+        Empleado empleado1 =new Empleado("Manolito", "Gafotas", "31586467S", "Auxiliar");
+        Empleado empleado2 = new Empleado("Greg", "Gafotas", "09629774L", "Auxiliar");
+        listaEmpleados.add(empleado1);
+        listaEmpleados.add(empleado2);
+
+        /*when*/
+        when(lista.getEmpleados()).thenReturn(listaEmpleados);
+        daoEmpleadosImp.eliminarFichaEmpleado("Manolito");
+
+        /*then*/
+        assertAll(
+                () -> org.assertj.core.api.Assertions.assertThat(listaEmpleados).doesNotContain(empleado1),
+                () -> org.assertj.core.api.Assertions.assertThat(listaEmpleados).contains(empleado2)
+        );
+        verify(lista, times(1)).getEmpleados();
+    }
 
 }

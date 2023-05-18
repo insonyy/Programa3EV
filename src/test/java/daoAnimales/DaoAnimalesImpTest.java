@@ -2,6 +2,7 @@ package daoAnimales;
 
 import domain.Animal;
 
+import domain.Empleado;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -110,6 +112,27 @@ class DaoAnimalesImpTest {
         assertThat(res).isEqualTo(true);
     }
 
+    @Test
+    void eliminarFichaAnimal() {
+        /*given*/
+
+        Set<Animal> setAnimales = new HashSet<>();
+        Animal animal1 =new Animal("Anchoa", "perro", "Collie", 3);
+        Animal animal2 = new Animal("Will", "perro", "Golden", 5);
+        setAnimales.add(animal1);
+        setAnimales.add(animal2);
+
+        /*when*/
+        when(lista.getAnimales()).thenReturn(setAnimales);
+        daoAnimalesImp.eliminarFichaAnimal("Manolito");
+
+        /*then*/
+        assertAll(
+                () -> org.assertj.core.api.Assertions.assertThat(setAnimales).doesNotContain(animal1),
+                () -> org.assertj.core.api.Assertions.assertThat(setAnimales).contains(animal2)
+        );
+        verify(lista, times(1)).getAnimales();
+    }
 
     @Test
     void getListaTratamientos() {

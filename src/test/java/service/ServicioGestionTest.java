@@ -277,8 +277,22 @@ class ServicioGestionTest {
     @ValueSource(strings = {"Fajar Ayub","Izzy", "Zen", "Lionell"})
     void getListaIngresosPaciente(String nombre){
         /*when*/
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        List<Ingreso> listaIngresosPacientes = new ArrayList<>();
+        listaIngresosPacientes.add(new Ingreso("Fajar Ayub", "Limado dental", "82311612S", LocalDate.parse("02/05/2023", formato)));
+        listaIngresosPacientes.add(new Ingreso("Izzy", "Operación por rotura del glande", "23431186T", LocalDate.parse("14/05/2023", formato)));
+        listaIngresosPacientes.add(new Ingreso("Zen", "Es demasiado bonito, debería ser un crimen", "47163084P", LocalDate.parse("15/05/2023", formato)));
+        listaIngresosPacientes.add(new Ingreso("Lionell", "Adorablemente pequeño, se recomienda seguimiento", "47163084P", LocalDate.parse("15/05/2023", formato)));
         /*given*/
+        when(daoIngresosImp.getListaIngresos()).thenReturn(listaIngresosPacientes);
+        List<Ingreso> resultado = daoIngresosImp.getListaIngresosPaciente(nombre).toList;
+
         /*then*/
+        assertThat(resultado)
+                .isNotNull()
+                .allMatch(ingreso -> ingreso.getNombreAnimal().equals(nombre));
+
+
     }
 
     @Test
