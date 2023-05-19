@@ -22,7 +22,7 @@ public class DaoIngresosFicheros {
 	public static final String FicheroIngresos = "FicheroIngresos";
 
 
-	public static boolean escribirFicheros(List<Ingresos> list) {
+	public static boolean escribirFicheros(List<Ingreso> list) {
 		PrintWriter pw = null;
 
 		try {

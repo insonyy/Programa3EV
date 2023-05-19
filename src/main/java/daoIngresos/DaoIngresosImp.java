@@ -74,6 +74,7 @@ public class DaoIngresosImp implements DaoIngresos {
 	@Override
 	public boolean nuevoIngreso(Ingreso ingreso) {
 		ingresos.getIngresos().add(ingreso);
+		DaoIngresosFicheros.escribirFicheros(ingresos.getIngresos());
 		return true;
 	}
 

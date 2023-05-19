@@ -61,6 +61,7 @@ public class DaoAnimalesImp implements DaoAnimales{
 	public boolean nuevoAnimal(Animal animal) {
  
 		lista.getAnimales().add(animal);
+		DaoAnimalesFicheros.escribirFicheros(lista.getAnimales());
 		return true;
 	}
 	@Override
