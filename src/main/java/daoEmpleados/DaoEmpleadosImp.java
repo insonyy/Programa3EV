@@ -24,7 +24,7 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	@Override
 	public boolean nuevoEmpleado(Empleado empleado) {
 		lista.addEmpleados(empleado);
-		db.saveEmpleados(lista.getEmpleados());
+		//db.saveEmpleados(lista.getEmpleados());
 		DaoEmpleadosFicheros.escribirFicherosEmpleados(lista.getEmpleados());
 		return true;
 	}
@@ -37,8 +37,9 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	}
 	@Override
 	public boolean eliminarFichaEmpleado(String nombre) {
-		lista.getEmpleados().remove((Empleado)lista.getEmpleados().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre)));
-		db.saveEmpleados(lista.getEmpleados());
+		lista.getEmpleados().remove(lista.getEmpleados().stream().filter(a->a.getNombre().equalsIgnoreCase(nombre)));
+		//db.saveEmpleados(lista.getEmpleados());
+		DaoEmpleadosFicheros.escribirFicherosEmpleados(lista.getEmpleados());
 		return true;
 	}
 	@Override
