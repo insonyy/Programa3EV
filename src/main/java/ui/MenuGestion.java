@@ -44,16 +44,24 @@ public class MenuGestion {
 			case 1:
 		        System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_NUEVO_EMPLEADO);
 		        String nombre = sc.next();
+				System.out.println(nombre);
 		        System.out.println(Constantes.INTRODUCE_EL_APELLIDO_DEL_NUEVO_EMPLEADO);
 		        String apellido = sc.next();
+				System.out.println(apellido);
 		        Pattern comprobar = Pattern.compile("[0-9]{8}[A-Z]");
 		        System.out.println(Constantes.INTRODUCE_EL_DNI_DEL_NUEVO_EMPLEADO);
 		        String dni = sc.next();
+				System.out.println(dni);
+				System.in.read();
 		        Matcher matcher = comprobar.matcher(dni);
 		        System.out.println(Constantes.INTRODUCE_EL_CARGO_DEL_NUEVO_EMPLEADO);
 		        String cargo = sc.next();
+				System.out.println(cargo);
+				System.in.read();
 		        Empleado empleado = new Empleado(nombre,apellido,dni,cargo);
+				empleado.toString();
 				sGestion.nuevoEmpleado(empleado);
+
 				break;
 			case 2:
 				System.out.println(Constantes.INTRODUCE_EL_NOMBRE_DEL_EMPLEADO);
@@ -167,13 +175,14 @@ public class MenuGestion {
 				break;
 			case 13:
 				salir=true;
+				MenuPrincipal menuPrincipal=new MenuPrincipal();
+				menuPrincipal.menuPrincipal();
 				break;
 			default:
 				System.out.println(Constantes.SOLONUMS + "1 y 13");
 			}
 
 		} while (!salir);
-		System.in.read();
 		sc.close();
 	}
 }

@@ -23,9 +23,8 @@ public class DaoEmpleadosImp implements DaoEmpleados{
 	}
 	@Override
 	public boolean nuevoEmpleado(Empleado empleado) {
-
-		lista.getEmpleados().add(empleado);
-		db.saveEmpleados(lista.getEmpleados());
+		lista.addEmpleados(empleado);
+		//db.saveEmpleados(lista.getEmpleados());
 		return true;
 	}
 	@Override
